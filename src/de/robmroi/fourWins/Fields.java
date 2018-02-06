@@ -22,8 +22,8 @@ public class Fields extends JPanel {
 
     public void start(){
         System.out.println("Fields Start;   ");
-        for(int x = 0; x<7; x++){
-            for(int y = 0; y<6; y++){
+        for(int y = 0; y<6; y++){
+            for(int x = 0; x<7; x++){
                 fields[x][y] = new JButton();
                 this.add(fields[x][y]);
                 fields[x][y].setBackground(Color.WHITE);
@@ -33,7 +33,7 @@ public class Fields extends JPanel {
         }
         for(int i = 0; i<7; i++){
             count[i] = 0;
-            buttons[i] = new JButton();
+            buttons[i] = new JButton("Reihe " + (i+1));
             buttons[i].setBackground(Color.GRAY);
             buttons[i].setOpaque(true);
             buttons[i].setBorderPainted(false);
@@ -51,49 +51,49 @@ public class Fields extends JPanel {
 
             if (button == buttons[0]) {
                 if (count[0] != 6) {
-                    service.game(1);
+                    service.game(0);
                     count[0] += 1;
                 }
             }
 
             if (button == buttons[1]) {
                 if (count[1] != 6) {
-                    service.game(2);
+                    service.game(1);
                     count[1] += 1;
                 }
             }
 
             if (button == buttons[2]) {
                 if (count[2] != 6) {
-                    service.game(3);
+                    service.game(2);
                     count[2] += 1;
                 }
             }
 
             if (button == buttons[3]) {
                 if (count[3] != 6) {
-                    service.game(4);
+                    service.game(3);
                     count[3] += 1;
                 }
             }
 
             if (button == buttons[4]) {
                 if (count[4] != 6) {
-                    service.game(5);
+                    service.game(4);
                     count[4] += 1;
                 }
             }
 
             if (button == buttons[5]) {
                 if (count[5] != 6) {
-                    service.game(6);
+                    service.game(5);
                     count[5] += 1;
                 }
             }
 
             if (button == buttons[6]) {
                 if (count[6] != 6) {
-                    service.game(7);
+                    service.game(6);
                     count[6] += 1;
                 }
             }
@@ -101,31 +101,38 @@ public class Fields extends JPanel {
     };
 
 
-    public void setColor(int x, int y, int field, int player){
-        int xx = 0;
+    public void setColor(int x, int y, int player){
+        /*int xx = 0;
         int yy = 0;
-        if (field <= 7){
-            xx = field - 1;
-        } else if (field <= 14){
+        if (y <= 7){
+            xx = y - 1;
+        } else if (y <= 14){
             yy = 1;
-            xx = field - 7- 1;
-        } else if (field <= 21){
+            xx = y - 7- 1;
+        } else if (y <= 21){
             yy = 2;
-            xx = field - 14- 1;
-        } else if (field <= 28){
+            xx = y - 14- 1;
+        } else if (y <= 28){
             yy = 3;
-            xx = field - 21- 1;
-        } else if (field <= 35){
-            xx = field - 28- 1;
+            xx = y - 21- 1;
+        } else if (y <= 35){
+            xx = y - 28- 1;
             yy = 4;
-        } else if (field <= 42){
-            xx = field - 35- 1;
+        } else if (y <= 42){
+            xx = y - 35- 1;
             yy = 5;
+        } else {
+            xx = y-42-1;
+            yy = 6;
         }
         if (player == 1) fields[xx][yy].setBackground(Color.BLUE);
         if (player == 2) fields[xx][yy].setBackground(Color.RED);
         fields[xx][yy].setOpaque(true);
         fields[xx][yy].setBorderPainted(false);
+        */if (player == 1) fields[x][y].setBackground(Color.BLUE);
+        if (player == 2) fields[x][y].setBackground(Color.RED);
+        fields[x][y].setOpaque(true);
+        fields[x][y].setBorderPainted(false);
     }
 
 }

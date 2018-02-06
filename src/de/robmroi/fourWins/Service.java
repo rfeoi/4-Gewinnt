@@ -9,11 +9,13 @@ import java.awt.*;
  * 2Dimensionales Array
  * Computer Gegenspieler
  * Animation
+ * JPanel Name ändern, je nachdem welcher Spieler dran ist -> muss noch gefixt werden
+ * Variable größe
  */
 public class Service {
-    private String winText;
-    private int activePlayer, colorSet;
-    private boolean colorBool, win, tie;
+    private String winText, panelText;
+    private int activePlayer;
+    private boolean win, tie;
     private int[] oldPlaces;
     private int[][] places;
     public int count, winner;
@@ -48,38 +50,47 @@ public class Service {
         activePlayer = 1;
         count = 0;
         win = false;
+        panelText = "4-Gewinnt   -   Spieler 1 ist am Zug!";
 
         fields.preStart();
         fields.start();
         frame.setContentPane(fields);
         frame.setVisible(false);
         frame.setVisible(true);
+        frame.setTitle(panelText);
     }
 
-    public void game(int row){
-        for (int i = row + 35; i >= row; i -= 7) {
+    public void game(int rowX){
+        for (int y = 5; y>=0; y--){
+            if (places[rowX][y] == 0){
+                places[rowX][y] = activePlayer;
+                fields.setColor(rowX,y, activePlayer);
+                break;
+            }
+        }
+        //----------------------------------------
+        for (int i = rowX+1 + 35; i >= rowX+1; i -= 7) {
                 if (oldPlaces[i] == 0) {
                     oldPlaces[i] = activePlayer;
-                    colorSet = i;
-                    colorBool = true;
                     break;
                 }
         }
-        if (colorBool) {
-            fields.setColor(1,1, colorSet, activePlayer);
-            colorBool = false;
-        }
-        for (int i = 1; i < 43; i++){
-            if(oldPlaces[i] == 0) tie = false;
+        //----------------------------------------
+        for(int y = 0; y<6; y++){
+            for(int x = 0; x<7; x++){
+                if (places[x][y] == 0) tie = false;
+            }
         }
         if (winCheck(1)) {
-            win(1);
+            winOutput(1);
         } else if(winCheck(2)){
-            win(2);
+            winOutput(2);
         } else if(!winCheck(1) && !winCheck(2) && tie){
-            win(0);
+            winOutput(0);
         }
+        panelText = "4-Gewinnt   -   Spieler " + activePlayer + " ist am Zug!";
         playerCheck();
+        frame.setTitle(panelText);
         tie = true;
     }
 
@@ -94,6 +105,12 @@ public class Service {
     }
 
     public boolean winCheck(int player) {
+
+        for(int y = 0; y<6; y++){
+            for(int x = 0; x<7; x++){
+
+            }
+        }
 
         for (int i = 1; i <= 21; i+=7) {
             for (int o = 0; o <= 7; o++){
@@ -127,12 +144,14 @@ public class Service {
         }
         return win;
     }
-    public void win (int player){
+    public void winOutput(int player){
         if (player == 0){
             winText = "Es ist unentschieden!";
+
         } else {
             winText = "Spieler " + player + " hat gewonnen!";
         }
+        frame.setTitle("4-Gewinnt   -   " + winText);
         if (JOptionPane.showConfirmDialog(null, winText + "\nWollen Sie noch eine Runde spielen?") == 0){
             System.out.println("Neustart");
             start();
