@@ -6,7 +6,6 @@ import java.awt.*;
 
 /**
  * To Do:
- * 2Dimensionales Array
  * Computer Gegenspieler
  * Animation
  * JPanel Name ändern, je nachdem welcher Spieler dran ist -> muss noch gefixt werden

@@ -41,7 +41,6 @@ public class Fields extends JPanel {
         }
     }
 
-
     private ActionListener actionListener = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
