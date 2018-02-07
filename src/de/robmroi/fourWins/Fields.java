@@ -9,7 +9,6 @@ import static de.robmroi.fourWins.Startup.service;
 public class Fields extends JPanel {
 
 
-    JButton[] oldFields = new JButton[43];
     JButton[][] fields = new JButton[7][6];
     JButton[] buttons = new JButton[7];
     int[] count = new int[7];
@@ -102,34 +101,7 @@ public class Fields extends JPanel {
 
 
     public void setColor(int x, int y, int player){
-        /*int xx = 0;
-        int yy = 0;
-        if (y <= 7){
-            xx = y - 1;
-        } else if (y <= 14){
-            yy = 1;
-            xx = y - 7- 1;
-        } else if (y <= 21){
-            yy = 2;
-            xx = y - 14- 1;
-        } else if (y <= 28){
-            yy = 3;
-            xx = y - 21- 1;
-        } else if (y <= 35){
-            xx = y - 28- 1;
-            yy = 4;
-        } else if (y <= 42){
-            xx = y - 35- 1;
-            yy = 5;
-        } else {
-            xx = y-42-1;
-            yy = 6;
-        }
-        if (player == 1) fields[xx][yy].setBackground(Color.BLUE);
-        if (player == 2) fields[xx][yy].setBackground(Color.RED);
-        fields[xx][yy].setOpaque(true);
-        fields[xx][yy].setBorderPainted(false);
-        */if (player == 1) fields[x][y].setBackground(Color.BLUE);
+        if (player == 1) fields[x][y].setBackground(Color.BLUE);
         if (player == 2) fields[x][y].setBackground(Color.RED);
         fields[x][y].setOpaque(true);
         fields[x][y].setBorderPainted(false);

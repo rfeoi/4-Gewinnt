@@ -11,12 +11,12 @@ import java.awt.*;
  * Animation
  * JPanel Name ändern, je nachdem welcher Spieler dran ist -> muss noch gefixt werden
  * Variable größe
+ * überall klickbar
  */
 public class Service {
     private String winText, panelText;
     private int activePlayer;
     private boolean win, tie;
-    private int[] oldPlaces;
     private int[][] places;
     public int count, winner;
     private Fields fields;
@@ -36,11 +36,7 @@ public class Service {
     public void start() {
         System.out.print("Start;   ");
         fields = new Fields();
-        oldPlaces = new int[43];
         places = new int[7][6];
-        for (int i = 1; i < 43; i++){
-            oldPlaces[i] = 0;
-        }
         for(int x = 0; x<7; x++){
             for(int y = 0; y<6; y++){
                 places[x][y] = 0;
@@ -68,14 +64,7 @@ public class Service {
                 break;
             }
         }
-        //----------------------------------------
-        for (int i = rowX+1 + 35; i >= rowX+1; i -= 7) {
-                if (oldPlaces[i] == 0) {
-                    oldPlaces[i] = activePlayer;
-                    break;
-                }
-        }
-        //----------------------------------------
+
         for(int y = 0; y<6; y++){
             for(int x = 0; x<7; x++){
                 if (places[x][y] == 0) tie = false;
@@ -88,62 +77,64 @@ public class Service {
         } else if(!winCheck(1) && !winCheck(2) && tie){
             winOutput(0);
         }
-        panelText = "4-Gewinnt   -   Spieler " + activePlayer + " ist am Zug!";
+        //panelText = "4-Gewinnt   -   Spieler " + activePlayer + " ist am Zug!";
         playerCheck();
-        frame.setTitle(panelText);
+        //frame.setTitle(panelText);
         tie = true;
     }
 
     public void playerCheck(){
+
         count++;
         if (count%2 == 0){
             activePlayer = 1;
         } else {
             activePlayer = 2;
         }
-
+        panelText = "4-Gewinnt   -   Spieler " + activePlayer + " ist am Zug!";
+        frame.setTitle(panelText);
     }
 
     public boolean winCheck(int player) {
 
         for(int y = 0; y<6; y++){
+            for(int x = 0; x<4; x++){
+                if(places[x][y] == player && places[x+1][y] == player && places[x+2][y] == player && places[x+3][y] == player) {
+                    win = true;
+                    System.out.println("Horizontaler win");
+                }
+            }
+        }
+
+        for(int y = 0; y<3; y++){
             for(int x = 0; x<7; x++){
-
-            }
-        }
-
-        for (int i = 1; i <= 21; i+=7) {
-            for (int o = 0; o <= 7; o++){
-                if (oldPlaces[i + o] == player && oldPlaces[i + o + 7] == player && oldPlaces[i + o + 14] == player && oldPlaces[i + o + 21] == player) {
+                if(places[x][y] == player && places[x][y+1] == player && places[x][y+2] == player && places[x][y+3] == player) {
                     win = true;
+                    System.out.println("Vertikaler win");
                 }
             }
         }
 
-        for (int i = 0; i <= 35; i += 7){
-            for (int o = 1; o <= 4; o++){
-                if (oldPlaces[i + o] == player && oldPlaces[i + o + 1] == player && oldPlaces[i + o + 2] == player && oldPlaces[i + o + 3] == player) {
+        for(int y = 0; y<3; y++){
+            for(int x = 0; x<4; x++){
+                if(places[x][y] == player && places[x+1][y+1] == player && places[x+2][y+2] == player && places[x+3][y+3] == player) {
                     win = true;
+                    System.out.println("Diagonaler win");
                 }
             }
         }
 
-        for (int i = 1; i <= 4; i++){
-            for (int o = 0; o <= 14; o += 7){
-                if (oldPlaces[i + o] == player && oldPlaces[i + o + 8] == player && oldPlaces[i + o + 16] == player && oldPlaces[i + o + 24] == player) {
+        for(int y = 5; y>2; y--){
+            for(int x = 0; x<4; x++){
+                if(places[x][y] == player && places[x+1][y-1] == player && places[x+2][y-2] == player && places[x+3][y-3] == player) {
                     win = true;
-                }
-            }
-        }
-        for (int i = 7; i >= 4; i--){
-            for (int o = 0; o <= 14; o += 7){
-                if (oldPlaces[i + o] == player && oldPlaces[i + o + 6] == player && oldPlaces[i + o + 12] == player && oldPlaces[i + o + 18] == player) {
-                    win = true;
+                    System.out.println("Diagonale (andersrum) win");
                 }
             }
         }
         return win;
     }
+
     public void winOutput(int player){
         if (player == 0){
             winText = "Es ist unentschieden!";
@@ -156,6 +147,7 @@ public class Service {
             System.out.println("Neustart");
             start();
         } else {
+            System.out.println("Ende");
             System.exit(0);
         }
 
