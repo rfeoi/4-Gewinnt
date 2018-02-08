@@ -8,9 +8,7 @@ import java.awt.*;
  * To Do:
  * Computer Gegenspieler
  * Animation
- * JPanel Name ändern, je nachdem welcher Spieler dran ist -> muss noch gefixt werden
  * Variable größe
- * überall klickbar
  */
 public class Service {
     private String winText, panelText;
@@ -23,10 +21,10 @@ public class Service {
 
     public void preStart() {
         System.out.print("preStart;   ");
-        frame = new JFrame("4-Gewinnt");
+        frame = new JFrame();
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         //frame.setMinimumSize(new Dimension(540,300));
-        frame.setMinimumSize(new Dimension(720,720));
+        frame.setMinimumSize(new Dimension(700,600));
         frame.setBackground(new Color(255, 255, 255));
         start();
     }
@@ -45,14 +43,13 @@ public class Service {
         activePlayer = 1;
         count = 0;
         win = false;
-        panelText = "4-Gewinnt   -   Spieler 1 ist am Zug!";
 
         fields.preStart();
         fields.start();
         frame.setContentPane(fields);
         frame.setVisible(false);
         frame.setVisible(true);
-        frame.setTitle(panelText);
+        frame.setTitle("4-Gewinnt   -   Spieler 1 ist am Zug!");
     }
 
     public void game(int rowX){
@@ -69,6 +66,9 @@ public class Service {
                 if (places[x][y] == 0) tie = false;
             }
         }
+        playerCheck();
+        panelText = "4-Gewinnt   -   Spieler " + activePlayer + " ist am Zug!";
+        frame.setTitle(panelText);
         if (winCheck(1)) {
             winOutput(1);
         } else if(winCheck(2)){
@@ -76,9 +76,6 @@ public class Service {
         } else if(!winCheck(1) && !winCheck(2) && tie){
             winOutput(0);
         }
-        //panelText = "4-Gewinnt   -   Spieler " + activePlayer + " ist am Zug!";
-        playerCheck();
-        //frame.setTitle(panelText);
         tie = true;
     }
 
@@ -90,8 +87,6 @@ public class Service {
         } else {
             activePlayer = 2;
         }
-        panelText = "4-Gewinnt   -   Spieler " + activePlayer + " ist am Zug!";
-        frame.setTitle(panelText);
     }
 
     public boolean winCheck(int player) {

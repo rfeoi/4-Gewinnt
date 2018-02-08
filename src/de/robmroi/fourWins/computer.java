@@ -1,4 +1,7 @@
 package de.robmroi.fourWins;
+
+import java.util.Random;
+
 //Its an computer that plays against you!
 public class computer {
     double randomDouble;
@@ -10,9 +13,7 @@ public class computer {
         if (false) {
             //Hier deinen Check einfügen
         } else {
-            //Fehler ->randomDouble ist immer 0
-            randomDouble = Math.random()*7;
-            System.out.println(randomDouble);
+            randomDouble = new Random().nextDouble()*7;
             randomInt = (int)randomDouble;
             if (randomDouble-randomInt >= 0.5 && randomInt<7){
                 randomInt +=1;
