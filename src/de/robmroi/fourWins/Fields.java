@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 import static de.robmroi.fourWins.Startup.service;
 
 public class Fields extends JPanel {
@@ -22,7 +23,7 @@ public class Fields extends JPanel {
         System.out.println("Fields Start;   ");
         for(int y = 0; y<6; y++){
             for(int x = 0; x<7; x++){
-                fields[x][y] = new JButton();
+                fields[x][y] = new JButton(/*x + "," + y*/);
                 this.add(fields[x][y]);
                 fields[x][y].setBackground(Color.WHITE);
                 fields[x][y].setOpaque(true);
@@ -41,10 +42,7 @@ public class Fields extends JPanel {
             for(int y = 0; y<6; y++){
                 for(int x = 0; x<7; x++){
                     if (button == fields[x][y]){
-                        if (count[x] != 6) {
-                            service.game(x);
-                            count[x] += 1;
-                        }
+                        setField(x);
                     }
                 }
             }
@@ -54,14 +52,46 @@ public class Fields extends JPanel {
 
 
     public void setColor(int x, int y, int player){
-        if (player == 1) fields[x][y].setBackground(Color.BLUE);
-        if (player == 2) fields[x][y].setBackground(Color.RED);
-        fields[x][y].setOpaque(true);
-        fields[x][y].setBorderPainted(false);
+        System.out.println(y);
+        for (int i=0; i<=y;i++){
+                if (player == 1) fields[x][i].setBackground(Color.BLUE);
+                if (player == 2) fields[x][i].setBackground(Color.RED);
+                fields[x][i].setOpaque(true);
+                fields[x][i].setBorderPainted(false);
+                waiting(); // Wait here
+                System.out.println("Waited");
+                if (i!= 0) {
+                    fields[x][i - 1].setBackground(Color.WHITE);
+                    fields[x][i - 1].setOpaque(true);
+                    fields[x][i - 1].setBorderPainted(false);
+                }
+                //JOptionPane.showConfirmDialog(null,"Continue");
+                //Animation funktioniert nur mit diesem JOptionPane
+        }
     }
 
-    public void computer(){
-        //Hier kommt der Computer hin
+
+
+    public void waiting(){
+        System.out.println("Time1");
+        // The output is correct(Time1 and 2) but the GUI freezes
+       try {
+            Thread.sleep(100);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        System.out.println("Time2");
+
+    }
+
+    public boolean setField(int row){
+        if (count[row] != 6) {
+            count[row] += 1;
+            service.game(row);
+            return true;
+        } else {
+            return false;
+        }
     }
 
 }
