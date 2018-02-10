@@ -14,7 +14,7 @@ import static de.robmroi.fourWins.Startup.computer;
  */
 public class Service {
     private String winText, panelText;
-    private int activePlayer, computerRow;
+    private int activePlayer, computerRow, restart;
     private boolean win, tie, withComputer;
     private int[][] places;
     public int count, winner;
@@ -26,6 +26,7 @@ public class Service {
     private int width, height;
 
     public void preStart() {
+        System.out.print("preStart;   ");
         size = 1.6;
         widthDouble = maxWidth/6;
         widthDouble = widthDouble*size;
@@ -33,13 +34,18 @@ public class Service {
         heightDouble = heightDouble*size;
         width = (int) widthDouble;
         height = (int) heightDouble;
-        System.out.print("preStart;   ");
         frame = new JFrame();
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         //frame.setMinimumSize(new Dimension(540,300));
         frame.setMinimumSize(new Dimension(width,height));
         frame.setBackground(new Color(255, 255, 255));
+        frame.setLocationRelativeTo(null);
         start();
+        if(JOptionPane.showOptionDialog(null, "Gegen wen wollen Sie spielen?","Spielmodus",
+                JOptionPane.YES_NO_OPTION,
+                JOptionPane.PLAIN_MESSAGE, null,
+                new String[]{"Gegen den Computer", "Gegen einen Spieler"}, "Gegen einen Spieler") == 0) withComputer = true;
+        //withComputer = true; // Only when you want to test the Computer
     }
 
 
@@ -56,7 +62,6 @@ public class Service {
         activePlayer = 1;
         count = 0;
         win = false;
-        withComputer = false;
 
         fields.preStart();
         fields.start();
@@ -64,8 +69,7 @@ public class Service {
         frame.setVisible(false);
         frame.setVisible(true);
         frame.setTitle("4-Gewinnt   -   Spieler 1 ist am Zug!");
-        if(JOptionPane.showConfirmDialog(null,"Wollen Sie gegen den Computer spielen?") ==  0) withComputer = true;
-        //withComputer = true; // Only when you want to test the Computer
+
     }
 
     public void game(int rowX){
@@ -158,7 +162,16 @@ public class Service {
             winText = "Spieler " + player + " hat gewonnen!";
         }
         frame.setTitle("4-Gewinnt   -   " + winText);
-        if (JOptionPane.showConfirmDialog(null, winText + "\nWollen Sie noch eine Runde spielen?") == 0){
+        restart = JOptionPane.showOptionDialog(null, winText + " Wollen Sie noch eine Runde spielen?","Neustart",
+                JOptionPane.YES_NO_CANCEL_OPTION,
+                JOptionPane.PLAIN_MESSAGE, null,
+                new String[]{"Gegen den Computer", "Gegen einen Spieler", "Nein"}, "");
+        if (restart == 0){
+            withComputer = true;
+            System.out.println("Neustart");
+            start();
+        } else if(restart == 1) {
+            withComputer = false;
             System.out.println("Neustart");
             start();
         } else {
