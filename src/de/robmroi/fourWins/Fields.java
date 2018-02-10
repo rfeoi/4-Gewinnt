@@ -52,14 +52,13 @@ public class Fields extends JPanel {
 
 
     public void setColor(int x, int y, int player){
-        System.out.println(y);
         for (int i=0; i<=y;i++){
                 if (player == 1) fields[x][i].setBackground(Color.BLUE);
                 if (player == 2) fields[x][i].setBackground(Color.RED);
                 fields[x][i].setOpaque(true);
                 fields[x][i].setBorderPainted(false);
-                waiting(); // Wait here
-                System.out.println("Waited");
+                //waiting(); // Wait here
+                //System.out.println("Waited");
                 if (i!= 0) {
                     fields[x][i - 1].setBackground(Color.WHITE);
                     fields[x][i - 1].setOpaque(true);
@@ -85,13 +84,13 @@ public class Fields extends JPanel {
     }
 
     public boolean setField(int row){
+        boolean returnBool = false;
         if (count[row] != 6) {
             count[row] += 1;
             service.game(row);
-            return true;
-        } else {
-            return false;
+            returnBool = true;
         }
+        return returnBool;
     }
 
 }

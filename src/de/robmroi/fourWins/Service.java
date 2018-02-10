@@ -3,6 +3,8 @@ package de.robmroi.fourWins;
 
 import javax.swing.*;
 import java.awt.*;
+import static de.robmroi.fourWins.Startup.computer;
+
 
 /**
  * To Do:
@@ -12,19 +14,30 @@ import java.awt.*;
  */
 public class Service {
     private String winText, panelText;
-    private int activePlayer;
-    private boolean win, tie;
+    private int activePlayer, computerRow;
+    private boolean win, tie, withComputer;
     private int[][] places;
     public int count, winner;
     private Fields fields;
-    JFrame frame;
+    public JFrame frame;
+    //Resolution
+    public int maxWidth = Toolkit.getDefaultToolkit().getScreenSize().width;
+    private double size,widthDouble,heightDouble;
+    private int width, height;
 
     public void preStart() {
+        size = 1.6;
+        widthDouble = maxWidth/6;
+        widthDouble = widthDouble*size;
+        heightDouble = maxWidth/7;
+        heightDouble = heightDouble*size;
+        width = (int) widthDouble;
+        height = (int) heightDouble;
         System.out.print("preStart;   ");
         frame = new JFrame();
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         //frame.setMinimumSize(new Dimension(540,300));
-        frame.setMinimumSize(new Dimension(700,600));
+        frame.setMinimumSize(new Dimension(width,height));
         frame.setBackground(new Color(255, 255, 255));
         start();
     }
@@ -43,6 +56,7 @@ public class Service {
         activePlayer = 1;
         count = 0;
         win = false;
+        withComputer = false;
 
         fields.preStart();
         fields.start();
@@ -50,6 +64,8 @@ public class Service {
         frame.setVisible(false);
         frame.setVisible(true);
         frame.setTitle("4-Gewinnt   -   Spieler 1 ist am Zug!");
+        if(JOptionPane.showConfirmDialog(null,"Wollen Sie gegen den Computer spielen?") ==  0) withComputer = true;
+        //withComputer = true; // Only when you want to test the Computer
     }
 
     public void game(int rowX){
@@ -68,7 +84,6 @@ public class Service {
         }
         playerCheck();
         panelText = "4-Gewinnt   -   Spieler " + activePlayer + " ist am Zug!";
-        frame.setTitle(panelText);
         if (winCheck(1)) {
             winOutput(1);
         } else if(winCheck(2)){
@@ -77,6 +92,12 @@ public class Service {
             winOutput(0);
         }
         tie = true;
+        if (withComputer &&  activePlayer == 2) {
+            panelText = "4-Gewinnt   -   Computer ist am Zug!";
+            computer();
+        }
+        frame.setTitle(panelText);
+
     }
 
     public void playerCheck(){
@@ -146,4 +167,12 @@ public class Service {
         }
 
     }
+
+    public void computer(){
+        computerRow = computer.computerTurn();
+        if (!fields.setField(computerRow)){
+            computer();
+        }
+    }
+
 }

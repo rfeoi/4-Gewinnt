@@ -4,8 +4,8 @@ import java.util.Random;
 
 //Its an computer that plays against you!
 public class computer {
-    double randomDouble;
-    int randomInt, field;
+    private double randomDouble;
+    private int randomInt, field;
     public void preStart(){
 
     }
@@ -13,7 +13,7 @@ public class computer {
         if (false) {
             //Hier deinen Check einfügen
         } else {
-            randomDouble = new Random().nextDouble()*7;
+            randomDouble = new Random().nextDouble()*6;
             randomInt = (int)randomDouble;
             if (randomDouble-randomInt >= 0.5 && randomInt<7){
                 randomInt +=1;
