@@ -10,7 +10,7 @@ import static de.robmroi.fourWins.Startup.computer;
  * To Do:
  * Computer Gegenspieler
  * Animation
- * Variable größe
+ * Felder einfärben, je nachdem wer gewonnen hat
  */
 public class Service {
     private String winText, panelText;
@@ -22,6 +22,8 @@ public class Service {
     public JFrame frame;
     //Resolution
     public int maxWidth = Toolkit.getDefaultToolkit().getScreenSize().width;
+    public int maxHeight = Toolkit.getDefaultToolkit().getScreenSize().height;
+
     private double size,widthDouble,heightDouble;
     private int width, height;
 
@@ -50,6 +52,7 @@ public class Service {
 
 
     public void start() {
+        frame.setLocationRelativeTo(null);
         System.out.print("Start;   ");
         fields = new Fields();
         places = new int[7][6];
@@ -92,7 +95,7 @@ public class Service {
             winOutput(1);
         } else if(winCheck(2)){
             winOutput(2);
-        } else if(!winCheck(1) && !winCheck(2) && tie){
+        } else if(tie){
             winOutput(0);
         }
         tie = true;
@@ -115,12 +118,17 @@ public class Service {
     }
 
     public boolean winCheck(int player) {
-
         for(int y = 0; y<6; y++){
             for(int x = 0; x<4; x++){
                 if(places[x][y] == player && places[x+1][y] == player && places[x+2][y] == player && places[x+3][y] == player) {
                     win = true;
+                    fields.setColor(x,y,3);
+                    fields.setColor(x+1,y,3);
+                    fields.setColor(x+2,y,3);
+                    fields.setColor(x+3,y,3);
                     System.out.println("Horizontaler win");
+                    frame.setLocation((maxWidth/2)-(width/2), 0);
+                    return true;
                 }
             }
         }
@@ -129,7 +137,13 @@ public class Service {
             for(int x = 0; x<7; x++){
                 if(places[x][y] == player && places[x][y+1] == player && places[x][y+2] == player && places[x][y+3] == player) {
                     win = true;
+                    fields.setColor(x,y,player+2);
+                    fields.setColor(x,y+1,player+2);
+                    fields.setColor(x,y+2,player+2);
+                    fields.setColor(x,y+3,player+2);
                     System.out.println("Vertikaler win");
+                    frame.setLocation((maxWidth/2)-(width/2), 0);
+                    return true;
                 }
             }
         }
@@ -138,7 +152,13 @@ public class Service {
             for(int x = 0; x<4; x++){
                 if(places[x][y] == player && places[x+1][y+1] == player && places[x+2][y+2] == player && places[x+3][y+3] == player) {
                     win = true;
+                    fields.setColor(x,y,player+2);
+                    fields.setColor(x+1,y+1,player+2);
+                    fields.setColor(x+2,y+2,player+2);
+                    fields.setColor(x+3,y+3,player+2);
                     System.out.println("Diagonaler win");
+                    frame.setLocation((maxWidth/2)-(width/2), 0);
+                    return true;
                 }
             }
         }
@@ -147,11 +167,17 @@ public class Service {
             for(int x = 0; x<4; x++){
                 if(places[x][y] == player && places[x+1][y-1] == player && places[x+2][y-2] == player && places[x+3][y-3] == player) {
                     win = true;
+                    fields.setColor(x,y,player+2);
+                    fields.setColor(x+1,y-1,player+2);
+                    fields.setColor(x+2,y-2,player+2);
+                    fields.setColor(x+3,y-3,player+2);
                     System.out.println("Diagonale (andersrum) win");
+                    frame.setLocation((maxWidth/2)-(width/2), 0);
+                    return true;
                 }
             }
         }
-        return win;
+        return false;
     }
 
     public void winOutput(int player){

@@ -51,7 +51,14 @@ public class Fields extends JPanel {
     };
 
 
-    public void setColor(int x, int y, int player){
+    public void setColor(int x, int y, int player) {
+        if (player >2) {
+            if (player == 3) fields[x][y].setBackground(new Color(0,100,255));
+            if (player == 4) fields[x][y].setBackground(new Color(255,80,0));
+            fields[x][y].setOpaque(true);
+            fields[x][y].setBorderPainted(false);
+            return;
+        }
         for (int i=0; i<=y;i++){
                 if (player == 1) fields[x][i].setBackground(Color.BLUE);
                 if (player == 2) fields[x][i].setBackground(Color.RED);
