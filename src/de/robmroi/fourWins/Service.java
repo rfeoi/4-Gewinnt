@@ -10,13 +10,12 @@ import static de.robmroi.fourWins.Startup.computer;
  * To Do:
  * Computer Gegenspieler
  * Animation
- * Felder einfärben, je nachdem wer gewonnen hat
  */
 public class Service {
     private String winText, panelText;
     private int activePlayer, computerRow, restart;
     private boolean win, tie, withComputer;
-    private int[][] places;
+    public static int[][] places;
     public int count, winner;
     private Fields fields;
     public JFrame frame;
@@ -66,6 +65,7 @@ public class Service {
         count = 0;
         win = false;
 
+        computer.preStart();
         fields.preStart();
         fields.start();
         frame.setContentPane(fields);
@@ -104,7 +104,6 @@ public class Service {
             computer();
         }
         frame.setTitle(panelText);
-
     }
 
     public void playerCheck(){
