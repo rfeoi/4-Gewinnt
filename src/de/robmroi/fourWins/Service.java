@@ -9,7 +9,7 @@ import static de.robmroi.fourWins.Startup.computer;
 /**
  * To Do:
  * Computer Gegenspieler
- * Animation
+ * Animation 50% fertig
  */
 public class Service {
     private String winText, panelText;
@@ -21,7 +21,6 @@ public class Service {
     public JFrame frame;
     //Resolution
     public int maxWidth = Toolkit.getDefaultToolkit().getScreenSize().width;
-    public int maxHeight = Toolkit.getDefaultToolkit().getScreenSize().height;
 
     private double size,widthDouble,heightDouble;
     private int width, height;
@@ -91,6 +90,7 @@ public class Service {
         }
         playerCheck();
         panelText = "4-Gewinnt   -   Spieler " + activePlayer + " ist am Zug!";
+
         if (winCheck(1)) {
             winOutput(1);
         } else if(winCheck(2)){
@@ -127,7 +127,6 @@ public class Service {
                     fields.setColor(x+2,y,3);
                     fields.setColor(x+3,y,3);
                     System.out.println("Horizontaler win");
-                    frame.setLocation((maxWidth/2)-(width/2), 0);
                 }
             }
         }
@@ -141,7 +140,6 @@ public class Service {
                     fields.setColor(x,y+2,player+2);
                     fields.setColor(x,y+3,player+2);
                     System.out.println("Vertikaler win");
-                    frame.setLocation((maxWidth/2)-(width/2), 0);
                 }
             }
         }
@@ -155,7 +153,6 @@ public class Service {
                     fields.setColor(x+2,y+2,player+2);
                     fields.setColor(x+3,y+3,player+2);
                     System.out.println("Diagonaler win");
-                    frame.setLocation((maxWidth/2)-(width/2), 0);
                 }
             }
         }
@@ -168,8 +165,7 @@ public class Service {
                     fields.setColor(x+1,y-1,player+2);
                     fields.setColor(x+2,y-2,player+2);
                     fields.setColor(x+3,y-3,player+2);
-                    System.out.println("Diagonale (andersrum) win");
-                    frame.setLocation((maxWidth/2)-(width/2), 0);
+                    System.out.println("Diagonaler (andersrum) win");
                 }
             }
         }
@@ -177,6 +173,7 @@ public class Service {
     }
 
     public void winOutput(int player){
+        frame.setLocation((maxWidth/2)-(width/2), 0);
         if (player == 0){
             winText = "Es ist unentschieden!";
 
