@@ -1,6 +1,7 @@
 package de.robmroi.fourWins;
 
 import java.awt.*;
+import static de.robmroi.fourWins.Startup.service;
 
 
 public class Animations implements Runnable {
@@ -21,17 +22,17 @@ public class Animations implements Runnable {
             if (player == 2) Startup.service.fields.fields[x][i].setBackground(Color.RED);
             Startup.service.fields.fields[x][i].setOpaque(true);
             Startup.service.fields.fields[x][i].setBorderPainted(false);
-            try {
-                Thread.sleep(100);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+
             if (i != 0) {
                 Startup.service.fields.fields[x][i - 1].setBackground(Color.WHITE);
                 Startup.service.fields.fields[x][i - 1].setOpaque(true);
                 Startup.service.fields.fields[x][i - 1].setBorderPainted(false);
             }
-
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
     }
 }
