@@ -17,7 +17,7 @@ public class Service {
     private boolean win, tie, withComputer;
     public static int[][] places;
     public int count, winner;
-    private Fields fields;
+    Fields fields;
     public JFrame frame;
     //Resolution
     public int maxWidth = Toolkit.getDefaultToolkit().getScreenSize().width;

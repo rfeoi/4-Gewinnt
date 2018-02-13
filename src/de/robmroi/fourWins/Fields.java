@@ -59,21 +59,7 @@ public class Fields extends JPanel {
             fields[x][y].setBorderPainted(false);
             return;
         }
-        for (int i=0; i<=y;i++){
-                if (player == 1) fields[x][i].setBackground(Color.BLUE);
-                if (player == 2) fields[x][i].setBackground(Color.RED);
-                fields[x][i].setOpaque(true);
-                fields[x][i].setBorderPainted(false);
-                //waiting(); // Wait here
-                //System.out.println("Waited");
-                if (i!= 0) {
-                    fields[x][i - 1].setBackground(Color.WHITE);
-                    fields[x][i - 1].setOpaque(true);
-                    fields[x][i - 1].setBorderPainted(false);
-                }
-                //JOptionPane.showConfirmDialog(null,"Continue");
-                //Animation funktioniert nur mit diesem JOptionPane
-        }
+        new Thread(new Animations(x, y,player)).start();
     }
 
 
