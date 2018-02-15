@@ -16,7 +16,7 @@ import static de.robmroi.fourWins.Startup.computer;
 public class Service implements AWTEventListener {
     private String winText, panelText;
     private int activePlayer, computerRow, restart;
-    private boolean win, tie, withComputer;
+    private boolean win, tie, withComputer, winOutput;
     public static int[][] places;
     public int count, winner;
     Fields fields;
@@ -183,9 +183,10 @@ public class Service implements AWTEventListener {
     }
 
     public void winOutput(int player){
+        winOutput = true;
         frame.setLocation((maxWidth/2)-(width/2), 0);
         if (player == 0){
-            winText = "Es ist unentschieden!";
+            winText = "Es ist Unentschieden!";
 
         } else {
             winText = "Spieler " + player + " hat gewonnen!";
@@ -197,10 +198,12 @@ public class Service implements AWTEventListener {
                 new String[]{"Gegen den Computer", "Gegen einen Spieler", "Nein"}, "");
         if (restart == 0){
             withComputer = true;
+            winOutput = false;
             System.out.println("Neustart");
             start();
         } else if(restart == 1) {
             withComputer = false;
+            winOutput = false;
             System.out.println("Neustart");
             start();
         } else {
@@ -217,33 +220,25 @@ public class Service implements AWTEventListener {
         }
     }
 
-    public void keyIsPressed(KeyEvent ev) {
-        if (ev.getKeyCode() == KeyEvent.VK_1) fields.setField(0);
-        if (ev.getKeyCode() == KeyEvent.VK_2) fields.setField(1);
-        if (ev.getKeyCode() == KeyEvent.VK_3) fields.setField(2);
-        if (ev.getKeyCode() == KeyEvent.VK_4) fields.setField(3);
-        if (ev.getKeyCode() == KeyEvent.VK_5) fields.setField(4);
-        if (ev.getKeyCode() == KeyEvent.VK_6) fields.setField(5);
-        if (ev.getKeyCode() == KeyEvent.VK_7) fields.setField(6);
-    }
 
     @Override
     public void eventDispatched(AWTEvent event) {
+        if (winOutput) return;
         int ID = event.getID();
         if (ID == KeyEvent.KEY_PRESSED) {
-            if (event.paramString().contains("1")) {
+            if (event.paramString().contains("49")) {
                 fields.setField(0);
-            } else if (event.paramString().contains("2")) {
+            } else if (event.paramString().contains("50")) {
                 fields.setField(1);
-            } else if (event.paramString().contains("3")) {
+            } else if (event.paramString().contains("51")) {
                 fields.setField(2);
-            } else if (event.paramString().contains("4")) {
+            } else if (event.paramString().contains("52")) {
                 fields.setField(3);
-            } else if (event.paramString().contains("5")) {
+            } else if (event.paramString().contains("53")) {
                 fields.setField(4);
-            } else if (event.paramString().contains("6")) {
+            } else if (event.paramString().contains("54")) {
                 fields.setField(5);
-            } else if (event.paramString().contains("7")) {
+            } else if (event.paramString().contains("55")) {
                 fields.setField(6);
             } else {
                 return;
