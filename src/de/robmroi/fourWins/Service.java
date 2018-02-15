@@ -226,29 +226,13 @@ public class Service implements AWTEventListener {
         if (winOutput) return;
         int ID = event.getID();
         if (ID == KeyEvent.KEY_PRESSED) {
-            if (event.paramString().contains("49")) {
-                fields.setField(0);
-            } else if (event.paramString().contains("50")) {
-                fields.setField(1);
-            } else if (event.paramString().contains("51")) {
-                fields.setField(2);
-            } else if (event.paramString().contains("52")) {
-                fields.setField(3);
-            } else if (event.paramString().contains("53")) {
-                fields.setField(4);
-            } else if (event.paramString().contains("54")) {
-                fields.setField(5);
-            } else if (event.paramString().contains("55")) {
-                fields.setField(6);
-            } else {
-                return;
-            }
-            try {
-                Thread.sleep(10);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-
+            if (event.paramString().contains("keyCode=49,")) fields.setField(0);
+            if (event.paramString().contains("keyCode=50,")) fields.setField(1);
+            if (event.paramString().contains("keyCode=51,")) fields.setField(2);
+            if (event.paramString().contains("keyCode=52,")) fields.setField(3);
+            if (event.paramString().contains("keyCode=53,")) fields.setField(4);
+            if (event.paramString().contains("keyCode=54,")) fields.setField(5);
+            if (event.paramString().contains("keyCode=55,")) fields.setField(6);
 
         }
     }
