@@ -3,6 +3,7 @@ package de.robmroi.fourWins;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.*;
 import static de.robmroi.fourWins.Startup.computer;
 
 
@@ -10,8 +11,9 @@ import static de.robmroi.fourWins.Startup.computer;
  * To Do:
  * Computer Gegenspieler
  * Animation 50% fertig
+ * Mit Tasten spielen können <-funktioniert noch nicht richtig
  */
-public class Service {
+public class Service implements AWTEventListener {
     private String winText, panelText;
     private int activePlayer, computerRow, restart;
     private boolean win, tie, withComputer;
@@ -24,6 +26,12 @@ public class Service {
 
     private double size,widthDouble,heightDouble;
     private int width, height;
+
+    public Service() {
+        long eventMask = AWTEvent.KEY_EVENT_MASK;
+        Toolkit toolkit = Toolkit.getDefaultToolkit();
+        toolkit.addAWTEventListener(this, eventMask);
+    }
 
     public void preStart() {
         System.out.print("preStart;   ");
@@ -71,7 +79,6 @@ public class Service {
         frame.setVisible(false);
         frame.setVisible(true);
         frame.setTitle("4-Gewinnt   -   Spieler 1 ist am Zug!");
-
     }
 
     public void game(int rowX){
@@ -88,8 +95,7 @@ public class Service {
                 if (places[x][y] == 0) tie = false;
             }
         }
-        playerCheck();
-        panelText = "4-Gewinnt   -   Spieler " + activePlayer + " ist am Zug!";
+
 
         if (winCheck(1)) {
             winOutput(1);
@@ -98,6 +104,10 @@ public class Service {
         } else if(tie){
             winOutput(0);
         }
+
+        playerCheck();
+        panelText = "4-Gewinnt   -   Spieler " + activePlayer + " ist am Zug!";
+        
         tie = true;
         if (withComputer &&  activePlayer == 2) {
             panelText = "4-Gewinnt   -   Computer ist am Zug!";
@@ -122,10 +132,10 @@ public class Service {
             for(int x = 0; x<4; x++){
                 if(places[x][y] == player && places[x+1][y] == player && places[x+2][y] == player && places[x+3][y] == player) {
                     win = true;
-                    fields.setColor(x,y,3);
-                    fields.setColor(x+1,y,3);
-                    fields.setColor(x+2,y,3);
-                    fields.setColor(x+3,y,3);
+                    fields.setColor(x,y,player+2);
+                    fields.setColor(x+1,y,player+2);
+                    fields.setColor(x+2,y,player+2);
+                    fields.setColor(x+3,y,player+2);
                     System.out.println("Horizontaler win");
                 }
             }
@@ -207,4 +217,44 @@ public class Service {
         }
     }
 
+    public void keyIsPressed(KeyEvent ev) {
+        if (ev.getKeyCode() == KeyEvent.VK_1) fields.setField(0);
+        if (ev.getKeyCode() == KeyEvent.VK_2) fields.setField(1);
+        if (ev.getKeyCode() == KeyEvent.VK_3) fields.setField(2);
+        if (ev.getKeyCode() == KeyEvent.VK_4) fields.setField(3);
+        if (ev.getKeyCode() == KeyEvent.VK_5) fields.setField(4);
+        if (ev.getKeyCode() == KeyEvent.VK_6) fields.setField(5);
+        if (ev.getKeyCode() == KeyEvent.VK_7) fields.setField(6);
+    }
+
+    @Override
+    public void eventDispatched(AWTEvent event) {
+        int ID = event.getID();
+        if (ID == KeyEvent.KEY_PRESSED) {
+            if (event.paramString().contains("1")) {
+                fields.setField(0);
+            } else if (event.paramString().contains("2")) {
+                fields.setField(1);
+            } else if (event.paramString().contains("3")) {
+                fields.setField(2);
+            } else if (event.paramString().contains("4")) {
+                fields.setField(3);
+            } else if (event.paramString().contains("5")) {
+                fields.setField(4);
+            } else if (event.paramString().contains("6")) {
+                fields.setField(5);
+            } else if (event.paramString().contains("7")) {
+                fields.setField(6);
+            } else {
+                return;
+            }
+            try {
+                Thread.sleep(10);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+
+        }
+    }
 }

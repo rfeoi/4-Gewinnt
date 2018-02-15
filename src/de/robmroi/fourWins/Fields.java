@@ -63,19 +63,6 @@ public class Fields extends JPanel {
     }
 
 
-
-    public void waiting(){
-        System.out.println("Time1");
-        // The output is correct(Time1 and 2) but the GUI freezes
-       try {
-            Thread.sleep(100);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        System.out.println("Time2");
-
-    }
-
     public boolean setField(int row){
         boolean returnBool = false;
         if (count[row] != 6) {
