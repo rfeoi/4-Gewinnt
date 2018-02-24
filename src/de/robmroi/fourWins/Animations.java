@@ -5,9 +5,10 @@ import static de.robmroi.fourWins.Startup.service;
 
 
 public class Animations implements Runnable {
-    int x;
-    int y;
-    int player;
+    Fields fields = new Fields();
+    private int x, y, player;
+    private Boolean isRunning = false;
+    public int wait = 1;
 
     public Animations(int x, int y, int player) {
         this.x = x;
@@ -17,22 +18,33 @@ public class Animations implements Runnable {
 
     @Override
     public void run() {
-        for (int i = 0; i <= y; i++) {
-            if (player == 1) Startup.service.fields.fields[x][i].setBackground(Color.BLUE);
-            if (player == 2) Startup.service.fields.fields[x][i].setBackground(Color.RED);
-            Startup.service.fields.fields[x][i].setOpaque(true);
-            Startup.service.fields.fields[x][i].setBorderPainted(false);
-
-            if (i != 0) {
-                Startup.service.fields.fields[x][i - 1].setBackground(Color.WHITE);
-                Startup.service.fields.fields[x][i - 1].setOpaque(true);
-                Startup.service.fields.fields[x][i - 1].setBorderPainted(false);
-            }
+        while (isRunning){
             try {
                 Thread.sleep(100);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         }
+            isRunning = true;
+            if (player > 2) {
+                if (player == 3) fields.setColorForField(x, y, 3);
+                if (player == 4) fields.setColorForField(x, y, 4);
+            } else {
+                wait = y * 100;
+                for (int i = 0; i <= y; i++) {
+                    if (player == 1) fields.setColorForField(x, i, 1);
+                    if (player == 2) fields.setColorForField(x, i, 2);
+
+                    if (i != 0) {
+                        fields.setColorForField(x, i - 1, 0);
+                    }
+                    try {
+                        Thread.sleep(100);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+            isRunning = false;
     }
 }

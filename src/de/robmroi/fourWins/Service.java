@@ -95,8 +95,6 @@ public class Service implements AWTEventListener {
                 if (places[x][y] == 0) tie = false;
             }
         }
-
-
         if (winCheck(1)) {
             winOutput(1);
         } else if(winCheck(2)){

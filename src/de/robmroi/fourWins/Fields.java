@@ -12,6 +12,8 @@ public class Fields extends JPanel {
 
     JButton[][] fields = new JButton[7][6];
     int[] count = new int[7];
+    Color winBlue = new Color(0,100,255);
+    Color winRed = new Color(255,80,0);
 
     public void preStart(){
         System.out.print("Fields preStart;   ");
@@ -52,14 +54,24 @@ public class Fields extends JPanel {
 
 
     public void setColor(int x, int y, int player) {
-        if (player >2) {
+        /*if (player >2) {
             if (player == 3) fields[x][y].setBackground(new Color(0,100,255));
             if (player == 4) fields[x][y].setBackground(new Color(255,80,0));
             fields[x][y].setOpaque(true);
             fields[x][y].setBorderPainted(false);
             return;
-        }
+        }*/
         new Thread(new Animations(x, y,player)).start();
+    }
+
+    public void setColorForField(int x, int y, int color){
+        if (color == 0) fields[x][y].setBackground(Color.WHITE);
+        if (color == 1) fields[x][y].setBackground(Color.BLUE);
+        if (color == 2) fields[x][y].setBackground(Color.RED);
+        if (color == 3) fields[x][y].setBackground(winBlue);
+        if (color == 4) fields[x][y].setBackground(winRed);
+        fields[x][y].setOpaque(true);
+        fields[x][y].setBorderPainted(false);
     }
 
 
