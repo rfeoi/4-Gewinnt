@@ -18,11 +18,15 @@ public class Service implements AWTEventListener {
     private int activePlayer, computerRow, restart;
     private boolean win, tie, withComputer, winOutput;
     public static int[][] places;
-    public int count, winner;
+    public int count, winner, waitMilis;
     Fields fields;
     public JFrame frame;
+    Color winBlue = new Color(0,100,255);
+    Color winRed = new Color(255,80,0);
     //Resolution
     public int maxWidth = Toolkit.getDefaultToolkit().getScreenSize().width;
+
+    Thread thread = new Thread(new Animations(0,0,0));
 
     private double size,widthDouble,heightDouble;
     private int width, height;
@@ -35,6 +39,7 @@ public class Service implements AWTEventListener {
 
     public void preStart() {
         System.out.print("preStart;   ");
+        waitMilis = 1;
         size = 1.6;
         widthDouble = maxWidth/6;
         widthDouble = widthDouble*size;
@@ -85,7 +90,7 @@ public class Service implements AWTEventListener {
         for (int y = 5; y>=0; y--){
             if (places[rowX][y] == 0){
                 places[rowX][y] = activePlayer;
-                fields.setColor(rowX,y, activePlayer);
+                /*fields.*/setColor(rowX,y, activePlayer);
                 break;
             }
         }
@@ -130,10 +135,10 @@ public class Service implements AWTEventListener {
             for(int x = 0; x<4; x++){
                 if(places[x][y] == player && places[x+1][y] == player && places[x+2][y] == player && places[x+3][y] == player) {
                     win = true;
-                    fields.setColor(x,y,player+2);
-                    fields.setColor(x+1,y,player+2);
-                    fields.setColor(x+2,y,player+2);
-                    fields.setColor(x+3,y,player+2);
+                    setColor(x,y,player+2);
+                    setColor(x+1,y,player+2);
+                    setColor(x+2,y,player+2);
+                    setColor(x+3,y,player+2);
                     System.out.println("Horizontaler win");
                 }
             }
@@ -143,10 +148,10 @@ public class Service implements AWTEventListener {
             for(int x = 0; x<7; x++){
                 if(places[x][y] == player && places[x][y+1] == player && places[x][y+2] == player && places[x][y+3] == player) {
                     win = true;
-                    fields.setColor(x,y,player+2);
-                    fields.setColor(x,y+1,player+2);
-                    fields.setColor(x,y+2,player+2);
-                    fields.setColor(x,y+3,player+2);
+                    setColor(x,y,player+2);
+                    setColor(x,y+1,player+2);
+                    setColor(x,y+2,player+2);
+                    setColor(x,y+3,player+2);
                     System.out.println("Vertikaler win");
                 }
             }
@@ -156,10 +161,10 @@ public class Service implements AWTEventListener {
             for(int x = 0; x<4; x++){
                 if(places[x][y] == player && places[x+1][y+1] == player && places[x+2][y+2] == player && places[x+3][y+3] == player) {
                     win = true;
-                    fields.setColor(x,y,player+2);
-                    fields.setColor(x+1,y+1,player+2);
-                    fields.setColor(x+2,y+2,player+2);
-                    fields.setColor(x+3,y+3,player+2);
+                    setColor(x,y,player+2);
+                    setColor(x+1,y+1,player+2);
+                    setColor(x+2,y+2,player+2);
+                    setColor(x+3,y+3,player+2);
                     System.out.println("Diagonaler win");
                 }
             }
@@ -169,10 +174,10 @@ public class Service implements AWTEventListener {
             for(int x = 0; x<4; x++){
                 if(places[x][y] == player && places[x+1][y-1] == player && places[x+2][y-2] == player && places[x+3][y-3] == player) {
                     win = true;
-                    fields.setColor(x,y,player+2);
-                    fields.setColor(x+1,y-1,player+2);
-                    fields.setColor(x+2,y-2,player+2);
-                    fields.setColor(x+3,y-3,player+2);
+                    setColor(x,y,player+2);
+                    setColor(x+1,y-1,player+2);
+                    setColor(x+2,y-2,player+2);
+                    setColor(x+3,y-3,player+2);
                     System.out.println("Diagonaler (andersrum) win");
                 }
             }
@@ -216,6 +221,22 @@ public class Service implements AWTEventListener {
         if (!fields.setField(computerRow)){
             computer();
         }
+    }
+
+    public void setColor(int x, int y, int player){
+        //Startup.animations.setValue(x,y,player);
+        //thread.start();
+        new Thread(new Animations(x, y,player)).start();
+    }
+
+    public void setColorForField(int x, int y, int color){
+        if (color == 0) fields.fields[x][y].setBackground(Color.WHITE);
+        if (color == 1) fields.fields[x][y].setBackground(Color.BLUE);
+        if (color == 2) fields.fields[x][y].setBackground(Color.RED);
+        if (color == 3) fields.fields[x][y].setBackground(winBlue);
+        if (color == 4) fields.fields[x][y].setBackground(winRed);
+        fields.fields[x][y].setOpaque(true);
+        fields.fields[x][y].setBorderPainted(false);
     }
 
 
