@@ -4,14 +4,14 @@ package de.robmroi.fourWins;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+
+import static de.robmroi.fourWins.Startup.animations;
 import static de.robmroi.fourWins.Startup.computer;
 
 
 /**
- * To Do:
+ * TODO:
  * Computer Gegenspieler
- * Animation 50% fertig
- * Mit Tasten spielen können <-funktioniert noch nicht richtig
  */
 public class Service implements AWTEventListener {
     private String winText, panelText;
@@ -54,11 +54,11 @@ public class Service implements AWTEventListener {
         frame.setBackground(new Color(255, 255, 255));
         frame.setLocationRelativeTo(null);
         start();
-        if(JOptionPane.showOptionDialog(null, "Gegen wen wollen Sie spielen?","Spielmodus",
+        /*if(JOptionPane.showOptionDialog(null, "Gegen wen wollen Sie spielen?","Spielmodus",
                 JOptionPane.YES_NO_OPTION,
                 JOptionPane.PLAIN_MESSAGE, null,
                 new String[]{"Gegen den Computer", "Gegen einen Spieler"}, "Gegen einen Spieler") == 0) withComputer = true;
-        //withComputer = true; // Only when you want to test the Computer
+        */withComputer = true; // Only when you want to test the Computer
     }
 
 
@@ -90,7 +90,7 @@ public class Service implements AWTEventListener {
         for (int y = 5; y>=0; y--){
             if (places[rowX][y] == 0){
                 places[rowX][y] = activePlayer;
-                /*fields.*/setColor(rowX,y, activePlayer);
+                setColor(rowX,y, activePlayer);
                 break;
             }
         }
@@ -218,7 +218,7 @@ public class Service implements AWTEventListener {
 
     public void computer(){
         computerRow = computer.computerTurn();
-        if (!fields.setField(computerRow)){
+        if (!fields.setField(computerRow,true)){
             computer();
         }
     }
@@ -245,14 +245,14 @@ public class Service implements AWTEventListener {
         if (winOutput) return;
         int ID = event.getID();
         if (ID == KeyEvent.KEY_PRESSED) {
-            if (event.paramString().contains("keyCode=49,")) fields.setField(0);
-            if (event.paramString().contains("keyCode=50,")) fields.setField(1);
-            if (event.paramString().contains("keyCode=51,")) fields.setField(2);
-            if (event.paramString().contains("keyCode=52,")) fields.setField(3);
-            if (event.paramString().contains("keyCode=53,")) fields.setField(4);
-            if (event.paramString().contains("keyCode=54,")) fields.setField(5);
-            if (event.paramString().contains("keyCode=55,")) fields.setField(6);
-
+            if (event.paramString().contains("keyCode=49")) fields.setField(0,true);
+            if (event.paramString().contains("keyCode=50")) fields.setField(1,true);
+            if (event.paramString().contains("keyCode=51")) fields.setField(2,true);
+            if (event.paramString().contains("keyCode=52")) fields.setField(3,true);
+            if (event.paramString().contains("keyCode=53")) fields.setField(4,true);
+            if (event.paramString().contains("keyCode=54")) fields.setField(5,true);
+            if (event.paramString().contains("keyCode=55")) fields.setField(6,true);
+            if (event.paramString().contains("keyCode=32")) fields.isSpacebar = true;
         }
     }
 }

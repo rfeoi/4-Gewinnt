@@ -4,7 +4,7 @@ package de.robmroi.fourWins;
 public class Animations implements Runnable {
     Service service = Startup.service;
     private int x, y, player;
-    private Boolean isRunning = false;
+    public boolean isRunning = false;
 
     public Animations(int x, int y, int player) {
         this.x = x;
@@ -14,17 +14,7 @@ public class Animations implements Runnable {
 
     @Override
     public void run() {
-
-        while (isRunning){
-            try {
-                Thread.sleep(100);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
-
             isRunning = true;
-
             if (player > 2) {
                 try {
                     Thread.sleep(service.waitMilis);
@@ -43,7 +33,7 @@ public class Animations implements Runnable {
                         service.setColorForField(x, i - 1, 0);
                     }
                     try {
-                        Thread.sleep(100);
+                        Thread.sleep(50);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
@@ -51,6 +41,5 @@ public class Animations implements Runnable {
             }
             service.waitMilis = 1;
             isRunning = false;
-
     }
 }

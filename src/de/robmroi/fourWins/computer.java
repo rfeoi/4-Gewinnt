@@ -29,9 +29,7 @@ public class computer {
         } else {
             randomDouble = new Random().nextDouble()*6;
             randomInt = (int)randomDouble;
-            if (randomDouble-randomInt >= 0.5 && randomInt<7){
-                randomInt +=1;
-            }
+            if (randomDouble-randomInt >= 0.5 && randomInt<7) randomInt +=1;
             field = randomInt;
         }
        return field;
