@@ -42,10 +42,8 @@ public class Service implements AWTEventListener {
         System.out.print("preStart;   ");
         waitMilis = 1;
         size = 1.6;
-        widthDouble = maxWidth/6;
-        widthDouble = widthDouble*size;
-        heightDouble = maxWidth/7;
-        heightDouble = heightDouble*size;
+        widthDouble = (maxWidth/6)*2*size;
+        heightDouble = (maxWidth/7)*2*size;
         width = (int) widthDouble;
         height = (int) heightDouble;
         frame = new JFrame();
