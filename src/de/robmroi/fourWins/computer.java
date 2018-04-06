@@ -12,30 +12,29 @@ import java.util.Random;
  * An vorhandenes Feld vom Computer setzen
  * 1. Computer Zug: in Reihe 3 oder 4 setzen
  */
-public class computer {
-    private double randomDouble;
-    private int randomInt, field;
-    public int[][] fields;
+class computer {
+    private int field;
+    private int[][] fields;
 
-    public void preStart(){
+    void preStart(){
         fields = new int[7][6];
         System.out.print("computer preStart    ");
     }
-    public int computerTurn(){
+    int computerTurn(){
         fields = Service.places;
         threeField(1);
         if (false) {
 
         } else {
-            randomDouble = new Random().nextDouble()*6;
-            randomInt = (int)randomDouble;
-            if (randomDouble-randomInt >= 0.5 && randomInt<7) randomInt +=1;
+            double randomDouble = new Random().nextDouble() * 6;
+            int randomInt = (int) randomDouble;
+            if (randomDouble - randomInt >= 0.5 && randomInt <7) randomInt +=1;
             field = randomInt;
         }
        return field;
     }
 
-    public int threeField(int player){
+    int threeField(int player){
         for(int y = 0; y<6; y++){
             for(int x = 0; x<5; x++){
                 if(fields[x][y] == player && fields[x+1][y] == player && fields[x+2][y] == player) {

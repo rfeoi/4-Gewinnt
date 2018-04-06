@@ -23,6 +23,7 @@ public class Service implements AWTEventListener {
     public JFrame frame;
     Color winBlue = new Color(0,100,255);
     Color winRed = new Color(255,80,0);
+    public boolean animation = false;
     //Resolution
     public int maxWidth = Toolkit.getDefaultToolkit().getScreenSize().width;
 
@@ -224,8 +225,6 @@ public class Service implements AWTEventListener {
     }
 
     public void setColor(int x, int y, int player){
-        //Startup.animations.setValue(x,y,player);
-        //thread.start();
         new Thread(new Animations(x, y,player)).start();
     }
 
