@@ -101,15 +101,17 @@ public class Service implements AWTEventListener {
         }
         if (winCheck(1)) {
             winOutput(1);
+            return;
         } else if(winCheck(2)){
             winOutput(2);
+            return;
         } else if(tie){
             winOutput(0);
+            return;
         }
 
         playerCheck();
         panelText = "4-Gewinnt   -   Spieler " + activePlayer + " ist am Zug!";
-        
         tie = true;
         if (withComputer &&  activePlayer == 2) {
             panelText = "4-Gewinnt   -   Computer ist am Zug!";
@@ -119,7 +121,6 @@ public class Service implements AWTEventListener {
     }
 
     public void playerCheck(){
-
         count++;
         if (count%2 == 0){
             activePlayer = 1;
