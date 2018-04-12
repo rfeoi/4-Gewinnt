@@ -35,11 +35,16 @@ class computer {
     }
 
     int threeField(int player){
+        fields = Service.places;
         for(int y = 0; y<6; y++){
             for(int x = 0; x<5; x++){
                 if(fields[x][y] == player && fields[x+1][y] == player && fields[x+2][y] == player) {
-                    if (fields[x+3][y] == 0) {
-                    }
+                    try{
+                        if (fields[x+3][y] == 0) return x+3;
+                    } catch (Exception e) {System.out.println("Not in array");}
+                    try{
+                        if (fields[x-1][y] == 0) return x-1;
+                    } catch (Exception e) {System.out.println("Not in array");}
                 }
             }
         }

@@ -8,7 +8,9 @@
   <component name="ChangeListManager">
     <list default="true" id="2a3aadb8-d888-471d-b29a-9482ca0217bd" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/de/robmroi/fourWins/Fields.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/de/robmroi/fourWins/Fields.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/de/robmroi/fourWins/Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/de/robmroi/fourWins/Service.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/de/robmroi/fourWins/computer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/de/robmroi/fourWins/computer.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,20 +22,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Service.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Service.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/de/robmroi/fourWins/Service.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1538">
-              <caret line="14" selection-start-line="14" selection-end-line="14" />
+            <state relative-caret-position="253">
+              <caret line="120" column="8" selection-start-line="120" selection-start-column="8" selection-end-line="120" selection-end-column="8" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Animations.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/de/robmroi/fourWins/Animations.java">
+      <file leaf-file-name="computer.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/de/robmroi/fourWins/computer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="540">
-              <caret line="36" column="24" selection-start-line="36" selection-start-column="24" selection-end-line="36" selection-end-column="24" />
+            <state relative-caret-position="249">
+              <caret line="46" column="49" selection-start-line="46" selection-start-column="49" selection-end-line="46" selection-end-column="49" />
             </state>
           </provider>
         </entry>
@@ -41,17 +43,8 @@
       <file leaf-file-name="Fields.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/de/robmroi/fourWins/Fields.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="675">
-              <caret line="50" column="21" selection-start-line="50" selection-start-column="21" selection-end-line="50" selection-end-column="21" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="computer.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/de/robmroi/fourWins/computer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="540">
-              <caret line="36" selection-start-line="36" selection-end-line="36" />
+            <state relative-caret-position="258">
+              <caret line="27" column="54" selection-start-line="27" selection-start-column="54" selection-end-line="27" selection-end-column="54" />
             </state>
           </provider>
         </entry>
@@ -74,10 +67,10 @@
       <list>
         <option value="$PROJECT_DIR$/src/de/robmroi/fourWins/Wait.java" />
         <option value="$PROJECT_DIR$/src/de/robmroi/fourWins/Startup.java" />
-        <option value="$PROJECT_DIR$/src/de/robmroi/fourWins/Fields.java" />
-        <option value="$PROJECT_DIR$/src/de/robmroi/fourWins/computer.java" />
         <option value="$PROJECT_DIR$/src/de/robmroi/fourWins/Animations.java" />
+        <option value="$PROJECT_DIR$/src/de/robmroi/fourWins/Fields.java" />
         <option value="$PROJECT_DIR$/src/de/robmroi/fourWins/Service.java" />
+        <option value="$PROJECT_DIR$/src/de/robmroi/fourWins/computer.java" />
       </list>
     </option>
   </component>
@@ -87,10 +80,10 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="y" value="23" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="y" value="57" />
     <option name="width" value="1366" />
-    <option name="height" value="745" />
+    <option name="height" value="711" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -98,6 +91,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
@@ -121,8 +116,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -265,7 +258,8 @@
       <workItem from="1522941849364" duration="4042000" />
       <workItem from="1523009765428" duration="180000" />
       <workItem from="1523010268088" duration="1857000" />
-      <workItem from="1523473340028" duration="784000" />
+      <workItem from="1523473340028" duration="1934000" />
+      <workItem from="1523549113382" duration="1648000" />
     </task>
     <task id="LOCAL-00001" summary="Added 2D Arrays, not finished yet. Will be finished (and working) soon!">
       <created>1517855324106</created>
@@ -393,14 +387,21 @@
       <option name="project" value="LOCAL" />
       <updated>1523015031540</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Fixed the issue by adding return so the computer does not run again (game void stops).">
+      <created>1523474713456</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1523474713456</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="81772000" />
+    <option name="totallyTimeSpent" value="84570000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1366" height="745" extended-state="0" />
+    <frame x="0" y="23" width="1366" height="745" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
@@ -412,7 +413,7 @@
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50073206" side_tool="true" weight="0.32935917" />
       <window_info anchor="right" id="Maven Projects" order="3" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49926794" visible="true" weight="0.32935917" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49926794" visible="true" weight="0.3010432" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="2" />
@@ -428,9 +429,9 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -458,7 +459,8 @@
     <MESSAGE value="Fixed Animation (made it faster) and the game works completely with keys. Previously when you pressed space, the game recognized it as a button press, this is fixed now." />
     <MESSAGE value="The animation works correctly now. The computer waits, so there is no bug (Computer field was displayed white instead of read)." />
     <MESSAGE value="Made the frame bigger, so you can see it better on small screens." />
-    <option name="LAST_COMMIT_MESSAGE" value="Made the frame bigger, so you can see it better on small screens." />
+    <MESSAGE value="Fixed the issue by adding return so the computer does not run again (game void stops)." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed the issue by adding return so the computer does not run again (game void stops)." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -789,20 +791,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/de/robmroi/fourWins/Fields.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="675">
-          <caret line="50" column="21" selection-start-line="50" selection-start-column="21" selection-end-line="50" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/de/robmroi/fourWins/computer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="36" selection-start-line="36" selection-end-line="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/de/robmroi/fourWins/Animations.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="540">
@@ -810,10 +798,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/de/robmroi/fourWins/Fields.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="258">
+          <caret line="27" column="54" selection-start-line="27" selection-start-column="54" selection-end-line="27" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/de/robmroi/fourWins/Service.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1538">
-          <caret line="14" selection-start-line="14" selection-end-line="14" />
+        <state relative-caret-position="253">
+          <caret line="120" column="8" selection-start-line="120" selection-start-column="8" selection-end-line="120" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/de/robmroi/fourWins/computer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="249">
+          <caret line="46" column="49" selection-start-line="46" selection-start-column="49" selection-end-line="46" selection-end-column="49" />
         </state>
       </provider>
     </entry>

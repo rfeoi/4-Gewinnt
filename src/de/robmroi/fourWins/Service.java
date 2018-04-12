@@ -57,7 +57,7 @@ public class Service implements AWTEventListener {
                 JOptionPane.YES_NO_OPTION,
                 JOptionPane.PLAIN_MESSAGE, null,
                 new String[]{"Gegen den Computer", "Gegen einen Spieler"}, "Gegen einen Spieler") == 0) withComputer = true;
-        */withComputer = true; // Only when you want to test the Computer
+        */withComputer = false; // Only when you want to test the Computer
     }
 
 
@@ -118,6 +118,7 @@ public class Service implements AWTEventListener {
             computer();
         }
         frame.setTitle(panelText);
+        System.out.println(computer.threeField(1));
     }
 
     public void playerCheck(){
