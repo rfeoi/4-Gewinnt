@@ -79,6 +79,7 @@ public class Service implements AWTEventListener {
         computer.preStart();
         fields.preStart();
         fields.start();
+        computer.start();
         frame.setContentPane(fields);
         frame.setVisible(false);
         frame.setVisible(true);
@@ -118,7 +119,6 @@ public class Service implements AWTEventListener {
             computer();
         }
         frame.setTitle(panelText);
-        System.out.println(computer.threeField(1));
     }
 
     public void playerCheck(){
