@@ -32,66 +32,94 @@ class computer {
             }
         }
 
+        System.out.print("Stage 0 ");
         int field = threeField(2);
-        if (field == 0){                           //when computer does not have three in a row
+        if (field == -1){                           //when computer does not have three in a row
+            System.out.print("Stage 1 ");
             field = threeField(1);          //check if player has three in a row
-            if (field == 0){                       //when player does not have three in a row
+            if (field == -1){                       //when player does not have three in a row
+                System.out.print("Stage2 ");
                 field = twoField(1);        //check if player has two in a row
-                if (field == 0){                   //when player does not have two in a row
+                if (field == -1){                   //when player does not have two in a row
+                    System.out.print("Stage 3 ");
                     field = twoField(2);    //check if computer has two in a row
-                    if (field == 0){               //when computer does not have two in a row
-                    // set to random Field (that is next to a computer field)
+                    if (field == -1){               //when computer does not have two in a row
+                        System.out.print("Stage 4 ");
+                        field = createRandom(6);
+                        // set to random Field (that is next to a computer field)
                     }
                 }
             }
         }
+        System.out.println();
         return field;
     }
 
     int threeField(int player){
-        fields = Service.places;
+        fields = Service.places; // only for testing
+        // horizontal
         for(int y = 0; y<6; y++){
             for(int x = 0; x<5; x++){
                 if(fields[x][y] == player && fields[x+1][y] == player && fields[x+2][y] == player) {
                     try{
                         if (fields[x+3][y] == 0) return x+3;
-                    } catch (Exception e) {System.out.println("Not in array");}
+                    } catch (Exception e) {}
                     try{
                         if (fields[x-1][y] == 0) return x-1;
-                    } catch (Exception e) {System.out.println("Not in array");}
+                    } catch (Exception e) {}
                 }
             }
         }
 
-        for(int y = 0; y<3; y++){
-        for(int x = 0; x<7; x++){
-            if(fields[x][y] == player && fields[x][y+1] == player && fields[x][y+2] == player) {
-
+        // vertical
+        for(int y = 0; y<4; y++){
+            for(int x = 0; x<7; x++){
+                if(fields[x][y] == player && fields[x][y+1] == player && fields[x][y+2] == player) {
+                    try{
+                        if (fields[x][y-1] == 0) return x;
+                    } catch (Exception e) {}
+                }
             }
         }
-    }
 
-        for(int y = 0; y<3; y++){
-        for(int x = 0; x<4; x++){
-            if(fields[x][y] == player && fields[x+1][y+1] == player && fields[x+2][y+2] == player) {
-
+        //diagonal up left -> bottom right
+        for(int y = 0; y<4; y++){
+            for(int x = 0; x<5; x++){
+                //System.out.println("[" + x + "," + y + "][" + (x+1) + "," + (y+1) + "][" + (x+2) + "," + (y+2) + "][");
+                if(fields[x][y] == player && fields[x+1][y+1] == player && fields[x+2][y+2] == player) {
+                    try{
+                        if (fields[x+3][y+3] == 0) return x+3;
+                    } catch (Exception e) {}
+                    try{
+                        if (fields[x-1][y] != 0){
+                            if (fields[x-1][y-1] == 0) return x-1;
+                        }
+                    } catch (Exception e) {}
+                }
             }
         }
-    }
 
-        for(int y = 5; y>2; y--){
-        for(int x = 0; x<4; x++){
-            if(fields[x][y] == player && fields[x+1][y-1] == player && fields[x+2][y-2] == player) {
-
+        //diagonal bottom left -> up right
+        for(int y = 5; y>1; y--){
+            for(int x = 0; x<5; x++){
+                if(fields[x][y] == player && fields[x+1][y-1] == player && fields[x+2][y-2] == player) {
+                    try{
+                        if (fields[x+3][y-2] != 0){
+                            if (fields[x+3][y-3] == 0) return x+3;
+                        }
+                    } catch (Exception e) {}
+                    try{
+                        if (fields[x-1][y-1] == 0) return x-1;
+                    } catch (Exception e) {}
+                }
             }
         }
-    }
-        return 0;
+        return -1;
     }
 
     int twoField(int player){
         //TODO
-        return 0;
+        return -1;
     }
 
     int createRandom(int range){

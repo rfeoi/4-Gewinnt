@@ -12,6 +12,7 @@ import static de.robmroi.fourWins.Startup.computer;
 /**
  * TODO:
  * Computer Gegenspieler
+ * Bessere Größe auf verschiedenen Geräten
  */
 public class Service implements AWTEventListener {
     private String winText, panelText;
@@ -26,9 +27,6 @@ public class Service implements AWTEventListener {
     public boolean animation = false;
     //Resolution
     public int maxWidth = Toolkit.getDefaultToolkit().getScreenSize().width;
-
-    Thread thread = new Thread(new Animations(0,0,0));
-
     private double size,widthDouble,heightDouble;
     private int width, height;
 
@@ -119,6 +117,7 @@ public class Service implements AWTEventListener {
             computer();
         }
         frame.setTitle(panelText);
+        System.out.println(computer.threeField(1));//only for testing
     }
 
     public void playerCheck(){
