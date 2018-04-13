@@ -62,10 +62,20 @@ class computer {
             for(int x = 0; x<5; x++){
                 if(fields[x][y] == player && fields[x+1][y] == player && fields[x+2][y] == player) {
                     try{
-                        if (fields[x+3][y] == 0) return x+3;
+                        if (y==5){
+                            if (fields[x+3][y] == 0) return x+3;
+                        }
+                        if (fields[x+3][y+1] != 0){
+                            if (fields[x+3][y] == 0) return x+3;
+                        }
                     } catch (Exception e) {}
                     try{
-                        if (fields[x-1][y] == 0) return x-1;
+                        if (y==5){
+                            if (fields[x-1][y] == 0) return x-1;
+                        }
+                        if (fields[x-1][y+1] != 0){
+                            if (fields[x-1][y] == 0) return x-1;
+                        }
                     } catch (Exception e) {}
                 }
             }
@@ -118,7 +128,76 @@ class computer {
     }
 
     int twoField(int player){
-        //TODO
+        fields = Service.places; // only for testing
+        // horizontal
+        for(int y = 0; y<6; y++){
+            for(int x = 0; x<6; x++){
+                //System.out.println("[" + x + "," + y + "][" + (x+1) + "," + y + "]");
+                if(fields[x][y] == player && fields[x+1][y] == player) {
+                    try{
+                        if (y==5){
+                            if (fields[x+2][y] == 0) return x+2;
+                        }
+                        if (fields[x+2][y+1] != 0){
+                            if (fields[x+2][y] == 0) return x+2;
+                        }
+                    } catch (Exception e) {}
+                    try{
+                        if (y==5){
+                            if (fields[x-1][y] == 0) return x-1;
+                        }
+                        if (fields[x-1][y+1] != 0){
+                            if (fields[x-1][y] == 0) return x-1;
+                        }
+                    } catch (Exception e) {}
+                }
+            }
+        }
+
+        // vertical
+        for(int y = 0; y<5; y++){
+            for(int x = 0; x<7; x++){
+                //System.out.println("[" + x + "," + y + "][" + x + "," + (y+1) + "]");
+                if(fields[x][y] == player && fields[x][y+1] == player) {
+                    try{
+                        if (fields[x][y-1] == 0) return x;
+                    } catch (Exception e) {}
+                }
+            }
+        }
+
+        //diagonal up left -> bottom right
+        for(int y = 0; y<5; y++){
+            for(int x = 0; x<6; x++){
+                if(fields[x][y] == player && fields[x+1][y+1] == player) {
+                    try{
+                        if (fields[x+2][y+2] == 0) return x+2;
+                    } catch (Exception e) {}
+                    try{
+                        if (fields[x-1][y] != 0){
+                            if (fields[x-1][y-1] == 0) return x-1;
+                        }
+                    } catch (Exception e) {}
+                }
+            }
+        }
+
+        //diagonal bottom left -> up right
+        for(int y = 5; y>0; y--){
+            for(int x = 0; x<6; x++){
+                //System.out.println("[" + x + "," + y + "][" + (x+1) + "," + (y-1) + "]");
+                if(fields[x][y] == player && fields[x+1][y-1] == player) {
+                    try{
+                        if (fields[x+2][y-1] != 0){
+                            if (fields[x+2][y-2] == 0) return x+2;
+                        }
+                    } catch (Exception e) {}
+                    try{
+                        if (fields[x-1][y-1] == 0) return x-1;
+                    } catch (Exception e) {}
+                }
+            }
+        }
         return -1;
     }
 

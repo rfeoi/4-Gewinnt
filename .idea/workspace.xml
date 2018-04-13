@@ -25,8 +25,8 @@
       <file leaf-file-name="Service.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/de/robmroi/fourWins/Service.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="173">
-              <caret line="119" column="49" selection-start-line="119" selection-start-column="49" selection-end-line="119" selection-end-column="49" />
+            <state relative-caret-position="150">
+              <caret line="15" column="35" selection-start-line="15" selection-start-column="35" selection-end-line="15" selection-end-column="35" />
             </state>
           </provider>
         </entry>
@@ -34,8 +34,8 @@
       <file leaf-file-name="computer.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/de/robmroi/fourWins/computer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="311">
-              <caret line="111" column="24" selection-start-line="111" selection-start-column="24" selection-end-line="111" selection-end-column="24" />
+            <state relative-caret-position="143">
+              <caret line="187" column="67" selection-start-line="187" selection-start-column="67" selection-end-line="187" selection-end-column="67" />
             </state>
           </provider>
         </entry>
@@ -44,7 +44,7 @@
         <entry file="file://$PROJECT_DIR$/src/de/robmroi/fourWins/Fields.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="258">
-              <caret line="27" column="54" lean-forward="true" selection-start-line="27" selection-start-column="54" selection-end-line="27" selection-end-column="54" />
+              <caret line="27" column="43" lean-forward="true" selection-start-line="27" selection-start-column="43" selection-end-line="27" selection-end-column="43" />
             </state>
           </provider>
         </entry>
@@ -259,7 +259,7 @@
       <workItem from="1523009765428" duration="180000" />
       <workItem from="1523010268088" duration="1857000" />
       <workItem from="1523473340028" duration="1934000" />
-      <workItem from="1523549113382" duration="5306000" />
+      <workItem from="1523549113382" duration="7586000" />
     </task>
     <task id="LOCAL-00001" summary="Added 2D Arrays, not finished yet. Will be finished (and working) soon!">
       <created>1517855324106</created>
@@ -401,11 +401,18 @@
       <option name="project" value="LOCAL" />
       <updated>1523551083318</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Had a mistake at computer Turn (fixed it by returning/checking -1 instead of 0). ThreeField is working correctly now(I hope, but it should be correct">
+      <created>1523632785811</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1523632785811</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="88228000" />
+    <option name="totallyTimeSpent" value="90508000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1366" height="745" extended-state="6" />
@@ -420,7 +427,7 @@
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50073206" side_tool="true" weight="0.32935917" />
       <window_info anchor="right" id="Maven Projects" order="3" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49926794" visible="true" weight="0.33830103" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49926794" visible="true" weight="0.36512667" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="2" />
@@ -468,7 +475,8 @@
     <MESSAGE value="Made the frame bigger, so you can see it better on small screens." />
     <MESSAGE value="Fixed the issue by adding return so the computer does not run again (game void stops)." />
     <MESSAGE value="The computer can detect if anyone has three fields (in a row, horizontal)." />
-    <option name="LAST_COMMIT_MESSAGE" value="The computer can detect if anyone has three fields (in a row, horizontal)." />
+    <MESSAGE value="Had a mistake at computer Turn (fixed it by returning/checking -1 instead of 0). ThreeField is working correctly now(I hope, but it should be correct" />
+    <option name="LAST_COMMIT_MESSAGE" value="Had a mistake at computer Turn (fixed it by returning/checking -1 instead of 0). ThreeField is working correctly now(I hope, but it should be correct" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -809,21 +817,21 @@
     <entry file="file://$PROJECT_DIR$/src/de/robmroi/fourWins/Fields.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="258">
-          <caret line="27" column="54" lean-forward="true" selection-start-line="27" selection-start-column="54" selection-end-line="27" selection-end-column="54" />
+          <caret line="27" column="43" lean-forward="true" selection-start-line="27" selection-start-column="43" selection-end-line="27" selection-end-column="43" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/de/robmroi/fourWins/Service.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="119" column="49" selection-start-line="119" selection-start-column="49" selection-end-line="119" selection-end-column="49" />
+        <state relative-caret-position="150">
+          <caret line="15" column="35" selection-start-line="15" selection-start-column="35" selection-end-line="15" selection-end-column="35" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/de/robmroi/fourWins/computer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="311">
-          <caret line="111" column="24" selection-start-line="111" selection-start-column="24" selection-end-line="111" selection-end-column="24" />
+        <state relative-caret-position="143">
+          <caret line="187" column="67" selection-start-line="187" selection-start-column="67" selection-end-line="187" selection-end-column="67" />
         </state>
       </provider>
     </entry>
