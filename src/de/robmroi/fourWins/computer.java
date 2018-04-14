@@ -51,7 +51,7 @@ class computer {
         return field;
     }
 
-    int threeField(int player){
+    private int threeField(int player){
         fields = Service.places; // only for testing
         int test;
         // horizontal
@@ -109,7 +109,7 @@ class computer {
         return -1;
     }
 
-    int twoField(int player){
+    private int twoField(int player){
         fields = Service.places; // only for testing
         int test;
         // horizontal
@@ -169,32 +169,32 @@ class computer {
         return -1;
     }
 
-    int tryThis(int x, int y, boolean protection, int pY){
+    private int tryThis(int x, int y, boolean protection, int pY){
         if (protection){
             try{
                 if (fields[x][pY] != 0){
                     try{
                         if (fields[x][y] == 0) return x;
-                    } catch (Exception e) {}
+                    } catch (Exception ignored) {}
                 }
-            } catch (Exception e) {}
+            } catch (Exception ignored) {}
         } else {
             try{
                 if (fields[x][y] == 0) return x;
-            } catch (Exception e) {}
+            } catch (Exception ignored) {}
         }
         return -1;
     }
 
-    int createRandom(int range){
+    private int createRandom(int range){
             double randomDouble = new Random().nextDouble() * range;
             int randomInt = (int) randomDouble;
             if (randomDouble - randomInt >= 0.5 && randomInt <(range+1)) randomInt +=1;
             return randomInt;
     }
 
-    int randomToField(){
-        int random = 0, count = 0, range = 0, field = 0;
+    private int randomToField(){
+        int random = 0, count = 0, range = 0, field;
         boolean first, second, third;
         first = false;
         second = false;

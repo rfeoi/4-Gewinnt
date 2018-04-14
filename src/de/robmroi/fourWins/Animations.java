@@ -2,11 +2,10 @@ package de.robmroi.fourWins;
 
 
 public class Animations implements Runnable {
-    Service service = Startup.service;
+    private Service service = Startup.service;
     private int x, y, player;
-    public boolean isRunning = false;
 
-    public Animations(int x, int y, int player) {
+    Animations(int x, int y, int player) {
         this.x = x;
         this.y = y;
         this.player = player;
@@ -14,7 +13,6 @@ public class Animations implements Runnable {
 
     @Override
     public void run() {
-            isRunning = true;
         if (player > 2) {
             try {
                 Thread.sleep(service.waitMilis);
@@ -49,6 +47,5 @@ public class Animations implements Runnable {
         }
             service.waitMilis = 1;
             service.animation = false;
-            isRunning = false;
     }
 }

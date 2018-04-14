@@ -5,38 +5,35 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-import static de.robmroi.fourWins.Startup.animations;
 import static de.robmroi.fourWins.Startup.computer;
 
 public class Service implements AWTEventListener {
-    private String winText, panelText;
-    private int activePlayer, computerRow, restart;
+    private int activePlayer, count;
     private boolean win, tie, withComputer, winOutput, isStarted;
-    public static int[][] places;
-    public int count, winner, waitMilis;
-    Fields fields;
-    public JFrame frame;
-    Color winBlue = new Color(0,100,255);
-    Color winRed = new Color(255,80,0);
-    public boolean animation = false;
+    static int[][] places;
+    int waitMilis;
+    private Fields fields;
+    private JFrame frame;
+    private Color winBlue = new Color(0,100,255);
+    private Color winRed = new Color(255,80,0);
+    boolean animation = false;
     //Resolution
-    public int maxWidth = Toolkit.getDefaultToolkit().getScreenSize().width;
-    private double size,widthDouble,heightDouble, maxWidthDouble;
+    private int maxWidth = Toolkit.getDefaultToolkit().getScreenSize().width;
     private int width, height;
 
-    public Service() {
+    Service() {
         long eventMask = AWTEvent.KEY_EVENT_MASK;
         Toolkit toolkit = Toolkit.getDefaultToolkit();
         toolkit.addAWTEventListener(this, eventMask);
     }
 
-    public void preStart() {
+    void preStart() {
         System.out.print("preStart;   ");
         waitMilis = 1;
-        size = 100;
-        maxWidthDouble = Math.sqrt(maxWidth);
-        widthDouble = (maxWidthDouble/6)*size;
-        heightDouble = (maxWidthDouble/7)*size;
+        double size = 100;
+        double maxWidthDouble = Math.sqrt(maxWidth);
+        double widthDouble = (maxWidthDouble / 6) * size;
+        double heightDouble = (maxWidthDouble / 7) * size;
         width = (int) widthDouble;
         height = (int) heightDouble;
         isStarted = false;
@@ -54,7 +51,7 @@ public class Service implements AWTEventListener {
     }
 
 
-    public void start() {
+    private void start() {
         frame.setLocationRelativeTo(null);
         System.out.print("Start;   ");
         fields = new Fields();
@@ -64,7 +61,6 @@ public class Service implements AWTEventListener {
                 places[x][y] = 0;
             }
         }
-        winner = 0;
         activePlayer = 1;
         count = 0;
         win = false;
@@ -81,7 +77,7 @@ public class Service implements AWTEventListener {
         frame.setTitle("4-Gewinnt   -   Spieler 1 ist am Zug!");
     }
 
-    public void game(int rowX){
+    void game(int rowX){
         for (int y = 5; y>=0; y--){
             if (places[rowX][y] == 0){
                 places[rowX][y] = activePlayer;
@@ -107,7 +103,7 @@ public class Service implements AWTEventListener {
         }
 
         playerCheck();
-        panelText = "4-Gewinnt   -   Spieler " + activePlayer + " ist am Zug!";
+        String panelText = "4-Gewinnt   -   Spieler " + activePlayer + " ist am Zug!";
         tie = true;
         if (withComputer &&  activePlayer == 2) {
             panelText = "4-Gewinnt   -   Computer ist am Zug!";
@@ -117,7 +113,7 @@ public class Service implements AWTEventListener {
         //if (activePlayer == 2) System.out.println(computer.computerTurn()+1);//only for testing
     }
 
-    public void playerCheck(){
+    private void playerCheck(){
         count++;
         if (count%2 == 0){
             activePlayer = 1;
@@ -126,7 +122,7 @@ public class Service implements AWTEventListener {
         }
     }
 
-    public boolean winCheck(int player) {
+    private boolean winCheck(int player) {
         win = false;
         for(int y = 0; y<6; y++){
             for(int x = 0; x<4; x++){
@@ -182,11 +178,12 @@ public class Service implements AWTEventListener {
         return win;
     }
 
-    public void winOutput(int player){
+    private void winOutput(int player){
         winOutput = true;
         isStarted = false;
         frame.setSize(new Dimension((int)(width/1.7), (int) (height/1.7)));
         frame.setLocation((int) ((maxWidth/2)-(width/2/1.7)), 0);
+        String winText;
         if (player == 0){
             winText = "Es ist Unentschieden!";
 
@@ -194,7 +191,7 @@ public class Service implements AWTEventListener {
             winText = "Spieler " + player + " hat gewonnen!";
         }
         frame.setTitle("4-Gewinnt   -   " + winText);
-        restart = JOptionPane.showOptionDialog(null, winText + " Wollen Sie noch eine Runde spielen?","Neustart",
+        int restart = JOptionPane.showOptionDialog(null, winText + " Wollen Sie noch eine Runde spielen?", "Neustart",
                 JOptionPane.YES_NO_CANCEL_OPTION,
                 JOptionPane.PLAIN_MESSAGE, null,
                 new String[]{"Gegen den Computer", "Gegen einen Spieler", "Nein"}, "");
@@ -215,18 +212,18 @@ public class Service implements AWTEventListener {
         isStarted = true;
     }
 
-    public void computer(){
-        computerRow = computer.computerTurn();
+    private void computer(){
+        int computerRow = computer.computerTurn();
         if (!fields.setField(computerRow,true)){
             computer();
         }
     }
 
-    public void setColor(int x, int y, int player){
+    private void setColor(int x, int y, int player){
         new Thread(new Animations(x, y,player)).start();
     }
 
-    public void setColorForField(int x, int y, int color){
+    void setColorForField(int x, int y, int color){
         if (color == 0) fields.fields[x][y].setBackground(Color.WHITE);
         if (color == 1) fields.fields[x][y].setBackground(Color.BLUE);
         if (color == 2) fields.fields[x][y].setBackground(Color.RED);
