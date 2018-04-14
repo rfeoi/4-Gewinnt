@@ -6,10 +6,9 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2a3aadb8-d888-471d-b29a-9482ca0217bd" name="Default" comment="The computer has still a few bugs (I will search for them) but I simplified it a lot by just creating a new function with its own try/catch.">
+    <list default="true" id="2a3aadb8-d888-471d-b29a-9482ca0217bd" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/de/robmroi/fourWins/Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/de/robmroi/fourWins/Service.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/de/robmroi/fourWins/computer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/de/robmroi/fourWins/computer.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -24,11 +23,11 @@
       <file leaf-file-name="Service.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/de/robmroi/fourWins/Service.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="194">
-              <caret line="53" column="8" selection-start-line="53" selection-start-column="8" selection-end-line="53" selection-end-column="8" />
+            <state relative-caret-position="327">
+              <caret line="219" column="25" selection-start-line="219" selection-start-column="25" selection-end-line="219" selection-end-column="25" />
               <folding>
-                <element signature="e#7442#7443#0" expanded="true" />
-                <element signature="e#7505#7506#0" expanded="true" />
+                <element signature="e#7444#7445#0" expanded="true" />
+                <element signature="e#7507#7508#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -37,8 +36,8 @@
       <file leaf-file-name="computer.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/de/robmroi/fourWins/computer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="648">
-              <caret line="71" column="49" lean-forward="true" selection-start-line="71" selection-start-column="49" selection-end-line="71" selection-end-column="49" />
+            <state relative-caret-position="213">
+              <caret line="42" selection-start-line="42" selection-end-line="42" />
             </state>
           </provider>
         </entry>
@@ -83,8 +82,8 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="y" value="23" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="y" value="335" />
     <option name="width" value="1366" />
     <option name="height" value="745" />
   </component>
@@ -262,7 +261,7 @@
       <workItem from="1523009765428" duration="180000" />
       <workItem from="1523010268088" duration="1857000" />
       <workItem from="1523473340028" duration="1934000" />
-      <workItem from="1523549113382" duration="11706000" />
+      <workItem from="1523549113382" duration="14371000" />
     </task>
     <task id="LOCAL-00001" summary="Added 2D Arrays, not finished yet. Will be finished (and working) soon!">
       <created>1517855324106</created>
@@ -418,14 +417,28 @@
       <option name="project" value="LOCAL" />
       <updated>1523636925407</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="The computer has still a few bugs (I will search for them) but I simplified it a lot by just creating a new function with its own try/catch.">
+      <created>1523699165926</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1523699165926</updated>
+    </task>
+    <task id="LOCAL-00024" summary="The size is displayed better on different screen sizes. It does not get bigger linear (f(x) = m*x+b), instead it raises like a parabel.">
+      <created>1523701374116</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1523701374116</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="94628000" />
+    <option name="totallyTimeSpent" value="97293000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1366" height="745" extended-state="0" />
+    <frame x="0" y="23" width="1366" height="745" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
@@ -487,7 +500,9 @@
     <MESSAGE value="The computer can detect if anyone has three fields (in a row, horizontal)." />
     <MESSAGE value="Had a mistake at computer Turn (fixed it by returning/checking -1 instead of 0). ThreeField is working correctly now(I hope, but it should be correct" />
     <MESSAGE value="Computer is finished now, when you find bugs or errors while playing, please send them (detailed) two me. I added a check, which checks if there is a block below sth, when yes it sets the block, when not it doesn't. twoField is complete now. This is v1.9" />
-    <option name="LAST_COMMIT_MESSAGE" value="Computer is finished now, when you find bugs or errors while playing, please send them (detailed) two me. I added a check, which checks if there is a block below sth, when yes it sets the block, when not it doesn't. twoField is complete now. This is v1.9" />
+    <MESSAGE value="The computer has still a few bugs (I will search for them) but I simplified it a lot by just creating a new function with its own try/catch." />
+    <MESSAGE value="The size is displayed better on different screen sizes. It does not get bigger linear (f(x) = m*x+b), instead it raises like a parabel." />
+    <option name="LAST_COMMIT_MESSAGE" value="The size is displayed better on different screen sizes. It does not get bigger linear (f(x) = m*x+b), instead it raises like a parabel." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -834,18 +849,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/de/robmroi/fourWins/computer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="648">
-          <caret line="71" column="49" lean-forward="true" selection-start-line="71" selection-start-column="49" selection-end-line="71" selection-end-column="49" />
+        <state relative-caret-position="213">
+          <caret line="42" selection-start-line="42" selection-end-line="42" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/de/robmroi/fourWins/Service.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="53" column="8" selection-start-line="53" selection-start-column="8" selection-end-line="53" selection-end-column="8" />
+        <state relative-caret-position="327">
+          <caret line="219" column="25" selection-start-line="219" selection-start-column="25" selection-end-line="219" selection-end-column="25" />
           <folding>
-            <element signature="e#7442#7443#0" expanded="true" />
-            <element signature="e#7505#7506#0" expanded="true" />
+            <element signature="e#7444#7445#0" expanded="true" />
+            <element signature="e#7507#7508#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -16,7 +16,7 @@ import static de.robmroi.fourWins.Startup.computer;
 public class Service implements AWTEventListener {
     private String winText, panelText;
     private int activePlayer, computerRow, restart;
-    private boolean win, tie, withComputer, winOutput;
+    private boolean win, tie, withComputer, winOutput, isStarted;
     public static int[][] places;
     public int count, winner, waitMilis;
     Fields fields;
@@ -44,6 +44,7 @@ public class Service implements AWTEventListener {
         heightDouble = (maxWidthDouble/7)*size;
         width = (int) widthDouble;
         height = (int) heightDouble;
+        isStarted = false;
         frame = new JFrame();
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.setMinimumSize(new Dimension(width/3,height/3));
@@ -54,6 +55,7 @@ public class Service implements AWTEventListener {
                 JOptionPane.PLAIN_MESSAGE, null,
                 new String[]{"Gegen den Computer", "Gegen einen Spieler"}, "Gegen einen Spieler") == 0) withComputer = true;
         //withComputer = true; // Only when you want to test the Computer
+        isStarted = true;
     }
 
 
@@ -187,6 +189,7 @@ public class Service implements AWTEventListener {
 
     public void winOutput(int player){
         winOutput = true;
+        isStarted = false;
         frame.setSize(new Dimension((int)(width/1.7), (int) (height/1.7)));
         frame.setLocation((int) ((maxWidth/2)-(width/2/1.7)), 0);
         if (player == 0){
@@ -214,7 +217,7 @@ public class Service implements AWTEventListener {
             System.out.println("Ende");
             System.exit(0);
         }
-
+        isStarted = true;
     }
 
     public void computer(){
@@ -244,14 +247,15 @@ public class Service implements AWTEventListener {
         if (winOutput) return;
         int ID = event.getID();
         if (ID == KeyEvent.KEY_PRESSED) {
-            if (event.paramString().contains("keyCode=49")) fields.setField(0,true);
-            if (event.paramString().contains("keyCode=50")) fields.setField(1,true);
-            if (event.paramString().contains("keyCode=51")) fields.setField(2,true);
-            if (event.paramString().contains("keyCode=52")) fields.setField(3,true);
-            if (event.paramString().contains("keyCode=53")) fields.setField(4,true);
-            if (event.paramString().contains("keyCode=54")) fields.setField(5,true);
-            if (event.paramString().contains("keyCode=55")) fields.setField(6,true);
-            if (event.paramString().contains("keyCode=32")) fields.isSpacebar = true;
+            if (!isStarted) return;
+                if (event.paramString().contains("keyCode=49")) fields.setField(0,true);
+                if (event.paramString().contains("keyCode=50")) fields.setField(1,true);
+                if (event.paramString().contains("keyCode=51")) fields.setField(2,true);
+                if (event.paramString().contains("keyCode=52")) fields.setField(3,true);
+                if (event.paramString().contains("keyCode=53")) fields.setField(4,true);
+                if (event.paramString().contains("keyCode=54")) fields.setField(5,true);
+                if (event.paramString().contains("keyCode=55")) fields.setField(6,true);
+                if (event.paramString().contains("keyCode=32")) fields.isSpacebar = true;
         }
     }
 }
