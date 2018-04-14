@@ -11,7 +11,6 @@ import static de.robmroi.fourWins.Startup.computer;
 
 /**
  * TODO:
- * Bessere Größe auf verschiedenen Geräten
  * Fix animation when computer wins
  */
 public class Service implements AWTEventListener {
@@ -27,7 +26,7 @@ public class Service implements AWTEventListener {
     public boolean animation = false;
     //Resolution
     public int maxWidth = Toolkit.getDefaultToolkit().getScreenSize().width;
-    private double size,widthDouble,heightDouble;
+    private double size,widthDouble,heightDouble, maxWidthDouble;
     private int width, height;
 
     public Service() {
@@ -39,17 +38,16 @@ public class Service implements AWTEventListener {
     public void preStart() {
         System.out.print("preStart;   ");
         waitMilis = 1;
-        size = 1.6;
-        widthDouble = (maxWidth/6)*2*size;
-        heightDouble = (maxWidth/7)*2*size;
+        size = 100;
+        maxWidthDouble = Math.sqrt(maxWidth);
+        widthDouble = (maxWidthDouble/6)*size;
+        heightDouble = (maxWidthDouble/7)*size;
         width = (int) widthDouble;
         height = (int) heightDouble;
         frame = new JFrame();
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        //frame.setMinimumSize(new Dimension(540,300));
-        frame.setMinimumSize(new Dimension(width,height));
+        frame.setMinimumSize(new Dimension(width/3,height/3));
         frame.setBackground(new Color(255, 255, 255));
-        frame.setLocationRelativeTo(null);
         start();
         if(JOptionPane.showOptionDialog(null, "Gegen wen wollen Sie spielen?","Spielmodus",
                 JOptionPane.YES_NO_OPTION,
@@ -78,6 +76,8 @@ public class Service implements AWTEventListener {
         fields.preStart();
         fields.start();
         computer.start();
+        frame.setSize(new Dimension(width,height));
+        frame.setLocationRelativeTo(null);
         frame.setContentPane(fields);
         frame.setVisible(false);
         frame.setVisible(true);
@@ -187,7 +187,8 @@ public class Service implements AWTEventListener {
 
     public void winOutput(int player){
         winOutput = true;
-        frame.setLocation((maxWidth/2)-(width/2), 0);
+        frame.setSize(new Dimension((int)(width/1.7), (int) (height/1.7)));
+        frame.setLocation((int) ((maxWidth/2)-(width/2/1.7)), 0);
         if (player == 0){
             winText = "Es ist Unentschieden!";
 
