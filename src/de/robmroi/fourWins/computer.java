@@ -40,8 +40,10 @@ class computer {
                 if (field == -1){                   //when player does not have two in a row
                     field = twoField(2);    //check if computer has two in a row
                     if (field == -1){               //when computer does not have two in a row
-                        field = createRandom(6);
-                        // TODO: set to random Field (that is next to a computer field)
+                        field = randomToField();
+                        if (field == -1){
+                            field = createRandom(6);
+                        }
                     }
                 }
             }
@@ -190,4 +192,60 @@ class computer {
             if (randomDouble - randomInt >= 0.5 && randomInt <(range+1)) randomInt +=1;
             return randomInt;
     }
+
+    int randomToField(){
+        int random = 0, count = 0, range = 0, field = 0;
+        boolean first, second, third;
+        first = false;
+        second = false;
+        third = false;
+        for (int x = 0; x<7;x++){
+            for (int y = 0; y<6; y++){
+                if (fields[x][y] == 2) random ++;
+            }
+        }
+        random = createRandom(random-1) + 1;
+        for (int x = 0; x<7;x++){
+            for (int y = 0; y<6; y++){
+                if (fields[x][y] == 2) count ++;
+                if (count == random){
+                    if (x!= 0){
+                        if (fields[x-1][y] == 0) {
+                            if (y == 5) {
+                                range += 1;
+                                first = true;
+                            } else if (fields[x-1][y+1] != 0) {
+                                range += 1;
+                                first = true;
+                            }
+                        }
+                    }
+                    if (x!= 6){
+                        if (fields[x+1][y] == 0) {
+                            if (y == 5) {
+                                range += 1;
+                                second = true;
+                            } else if (fields[x+1][y+1] != 0) {
+                                range += 1;
+                                second = true;
+                            }
+                        }
+                    }
+                    if (y!= 0){
+                        if (fields[x][y-1] == 0) {
+                            range += 1;
+                            third = true;
+                        }
+                    }
+                    if (range == 0) return -1;
+                    field = createRandom(range);
+                    if (field == 0 && first) return x-1;
+                    else if (field == 1 && second) return x+1;
+                    else if (field == 2 && third) return x;
+                }
+            }
+        }
+        return -1;
+    }
+
 }
