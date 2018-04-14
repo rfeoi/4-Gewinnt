@@ -6,9 +6,11 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2a3aadb8-d888-471d-b29a-9482ca0217bd" name="Default" comment="">
+    <list default="true" id="2a3aadb8-d888-471d-b29a-9482ca0217bd" name="Default" comment="Fixed the issue, that the computer fields aren't displayed correctly when it wins. I made the break longer so it works now. I removed a sout in the computer, which was leftover by mistake.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/de/robmroi/fourWins/Animations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/de/robmroi/fourWins/Animations.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/de/robmroi/fourWins/Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/de/robmroi/fourWins/Service.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/de/robmroi/fourWins/computer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/de/robmroi/fourWins/computer.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,11 +22,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Service.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Service.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/de/robmroi/fourWins/Service.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="327">
-              <caret line="219" column="25" selection-start-line="219" selection-start-column="25" selection-end-line="219" selection-end-column="25" />
+            <state relative-caret-position="60">
+              <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
               <folding>
                 <element signature="e#7444#7445#0" expanded="true" />
                 <element signature="e#7507#7508#0" expanded="true" />
@@ -36,8 +38,17 @@
       <file leaf-file-name="computer.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/de/robmroi/fourWins/computer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="213">
-              <caret line="42" selection-start-line="42" selection-end-line="42" />
+            <state relative-caret-position="303">
+              <caret line="48" selection-start-line="48" selection-end-line="48" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Animations.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/de/robmroi/fourWins/Animations.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="341">
+              <caret line="34" column="39" selection-start-line="34" selection-start-column="39" selection-end-line="34" selection-end-column="39" />
             </state>
           </provider>
         </entry>
@@ -69,10 +80,10 @@
       <list>
         <option value="$PROJECT_DIR$/src/de/robmroi/fourWins/Wait.java" />
         <option value="$PROJECT_DIR$/src/de/robmroi/fourWins/Startup.java" />
-        <option value="$PROJECT_DIR$/src/de/robmroi/fourWins/Animations.java" />
         <option value="$PROJECT_DIR$/src/de/robmroi/fourWins/Fields.java" />
         <option value="$PROJECT_DIR$/src/de/robmroi/fourWins/computer.java" />
         <option value="$PROJECT_DIR$/src/de/robmroi/fourWins/Service.java" />
+        <option value="$PROJECT_DIR$/src/de/robmroi/fourWins/Animations.java" />
       </list>
     </option>
   </component>
@@ -261,7 +272,7 @@
       <workItem from="1523009765428" duration="180000" />
       <workItem from="1523010268088" duration="1857000" />
       <workItem from="1523473340028" duration="1934000" />
-      <workItem from="1523549113382" duration="14371000" />
+      <workItem from="1523549113382" duration="15165000" />
     </task>
     <task id="LOCAL-00001" summary="Added 2D Arrays, not finished yet. Will be finished (and working) soon!">
       <created>1517855324106</created>
@@ -431,11 +442,18 @@
       <option name="project" value="LOCAL" />
       <updated>1523701374116</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="fixed a bug where you could play when the option dialog appears. You could play as the computer while the dialog was shown. Fixed it by blocking the keys.">
+      <created>1523702186834</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1523702186835</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="97293000" />
+    <option name="totallyTimeSpent" value="98087000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1366" height="745" extended-state="6" />
@@ -502,7 +520,8 @@
     <MESSAGE value="Computer is finished now, when you find bugs or errors while playing, please send them (detailed) two me. I added a check, which checks if there is a block below sth, when yes it sets the block, when not it doesn't. twoField is complete now. This is v1.9" />
     <MESSAGE value="The computer has still a few bugs (I will search for them) but I simplified it a lot by just creating a new function with its own try/catch." />
     <MESSAGE value="The size is displayed better on different screen sizes. It does not get bigger linear (f(x) = m*x+b), instead it raises like a parabel." />
-    <option name="LAST_COMMIT_MESSAGE" value="The size is displayed better on different screen sizes. It does not get bigger linear (f(x) = m*x+b), instead it raises like a parabel." />
+    <MESSAGE value="fixed a bug where you could play when the option dialog appears. You could play as the computer while the dialog was shown. Fixed it by blocking the keys." />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed a bug where you could play when the option dialog appears. You could play as the computer while the dialog was shown. Fixed it by blocking the keys." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -833,13 +852,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/de/robmroi/fourWins/Animations.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="36" column="24" selection-start-line="36" selection-start-column="24" selection-end-line="36" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/de/robmroi/fourWins/Fields.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="258">
@@ -849,19 +861,26 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/de/robmroi/fourWins/computer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="213">
-          <caret line="42" selection-start-line="42" selection-end-line="42" />
+        <state relative-caret-position="303">
+          <caret line="48" selection-start-line="48" selection-end-line="48" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/de/robmroi/fourWins/Service.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="327">
-          <caret line="219" column="25" selection-start-line="219" selection-start-column="25" selection-end-line="219" selection-end-column="25" />
+        <state relative-caret-position="60">
+          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
           <folding>
             <element signature="e#7444#7445#0" expanded="true" />
             <element signature="e#7507#7508#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/de/robmroi/fourWins/Animations.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="341">
+          <caret line="34" column="39" selection-start-line="34" selection-start-column="39" selection-end-line="34" selection-end-column="39" />
         </state>
       </provider>
     </entry>

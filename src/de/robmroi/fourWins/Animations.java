@@ -32,7 +32,7 @@ public class Animations implements Runnable {
                 }
             }
             service.animation = true;
-            service.waitMilis = y * 100 + 100;
+            service.waitMilis = y * 300 + 100;
             for (int i = 0; i <= y; i++) {
                 if (player == 1) service.setColorForField(x, i, 1);
                 if (player == 2) service.setColorForField(x, i, 2);

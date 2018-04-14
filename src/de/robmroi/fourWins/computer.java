@@ -46,7 +46,6 @@ class computer {
                 }
             }
         }
-        System.out.println();
         return field;
     }
 

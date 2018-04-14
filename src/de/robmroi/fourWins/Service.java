@@ -8,11 +8,6 @@ import java.awt.event.*;
 import static de.robmroi.fourWins.Startup.animations;
 import static de.robmroi.fourWins.Startup.computer;
 
-
-/**
- * TODO:
- * Fix animation when computer wins
- */
 public class Service implements AWTEventListener {
     private String winText, panelText;
     private int activePlayer, computerRow, restart;
