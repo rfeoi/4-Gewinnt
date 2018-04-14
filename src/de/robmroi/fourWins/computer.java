@@ -32,21 +32,16 @@ class computer {
             }
         }
 
-        System.out.print("Stage 0 ");
         int field = threeField(2);
         if (field == -1){                           //when computer does not have three in a row
-            System.out.print("Stage 1 ");
             field = threeField(1);          //check if player has three in a row
             if (field == -1){                       //when player does not have three in a row
-                System.out.print("Stage2 ");
                 field = twoField(1);        //check if player has two in a row
                 if (field == -1){                   //when player does not have two in a row
-                    System.out.print("Stage 3 ");
                     field = twoField(2);    //check if computer has two in a row
                     if (field == -1){               //when computer does not have two in a row
-                        System.out.print("Stage 4 ");
                         field = createRandom(6);
-                        // set to random Field (that is next to a computer field)
+                        // TODO: set to random Field (that is next to a computer field)
                     }
                 }
             }
@@ -57,26 +52,21 @@ class computer {
 
     int threeField(int player){
         fields = Service.places; // only for testing
+        int test;
         // horizontal
         for(int y = 0; y<6; y++){
             for(int x = 0; x<5; x++){
                 if(fields[x][y] == player && fields[x+1][y] == player && fields[x+2][y] == player) {
-                    try{
-                        if (y==5){
-                            if (fields[x+3][y] == 0) return x+3;
-                        }
-                        if (fields[x+3][y+1] != 0){
-                            if (fields[x+3][y] == 0) return x+3;
-                        }
-                    } catch (Exception e) {}
-                    try{
-                        if (y==5){
-                            if (fields[x-1][y] == 0) return x-1;
-                        }
-                        if (fields[x-1][y+1] != 0){
-                            if (fields[x-1][y] == 0) return x-1;
-                        }
-                    } catch (Exception e) {}
+                    if (y== 5) {
+                        test = tryThis(x+3,y,false,0);
+                        if (test != -1)  return test;
+                        test = tryThis(x-1,y,false,0);
+                        if (test != -1)  return test;
+                    }
+                    test = tryThis(x+3,y,true,y+1);
+                    if (test != -1)  return test;
+                    test = tryThis(x-1,y,true,y+1);
+                    if (test != -1)  return test;
                 }
             }
         }
@@ -85,9 +75,8 @@ class computer {
         for(int y = 0; y<4; y++){
             for(int x = 0; x<7; x++){
                 if(fields[x][y] == player && fields[x][y+1] == player && fields[x][y+2] == player) {
-                    try{
-                        if (fields[x][y-1] == 0) return x;
-                    } catch (Exception e) {}
+                    test = tryThis(x,y-1,false,0);
+                    if (test != -1)  return test;
                 }
             }
         }
@@ -97,14 +86,10 @@ class computer {
             for(int x = 0; x<5; x++){
                 //System.out.println("[" + x + "," + y + "][" + (x+1) + "," + (y+1) + "][" + (x+2) + "," + (y+2) + "][");
                 if(fields[x][y] == player && fields[x+1][y+1] == player && fields[x+2][y+2] == player) {
-                    try{
-                        if (fields[x+3][y+3] == 0) return x+3;
-                    } catch (Exception e) {}
-                    try{
-                        if (fields[x-1][y] != 0){
-                            if (fields[x-1][y-1] == 0) return x-1;
-                        }
-                    } catch (Exception e) {}
+                    test = tryThis(x+3,y+3,false,0);
+                    if (test != -1)  return test;
+                    test = tryThis(x-1,y-1,true,y);
+                    if (test != -1)  return test;
                 }
             }
         }
@@ -113,14 +98,10 @@ class computer {
         for(int y = 5; y>1; y--){
             for(int x = 0; x<5; x++){
                 if(fields[x][y] == player && fields[x+1][y-1] == player && fields[x+2][y-2] == player) {
-                    try{
-                        if (fields[x+3][y-2] != 0){
-                            if (fields[x+3][y-3] == 0) return x+3;
-                        }
-                    } catch (Exception e) {}
-                    try{
-                        if (fields[x-1][y-1] == 0) return x-1;
-                    } catch (Exception e) {}
+                    test = tryThis(x+3,y-3,true,y-2);
+                    if (test != -1)  return test;
+                    test = tryThis(x-1,y-1,false,0);
+                    if (test != -1)  return test;
                 }
             }
         }
@@ -129,27 +110,22 @@ class computer {
 
     int twoField(int player){
         fields = Service.places; // only for testing
+        int test;
         // horizontal
         for(int y = 0; y<6; y++){
             for(int x = 0; x<6; x++){
                 //System.out.println("[" + x + "," + y + "][" + (x+1) + "," + y + "]");
                 if(fields[x][y] == player && fields[x+1][y] == player) {
-                    try{
-                        if (y==5){
-                            if (fields[x+2][y] == 0) return x+2;
-                        }
-                        if (fields[x+2][y+1] != 0){
-                            if (fields[x+2][y] == 0) return x+2;
-                        }
-                    } catch (Exception e) {}
-                    try{
-                        if (y==5){
-                            if (fields[x-1][y] == 0) return x-1;
-                        }
-                        if (fields[x-1][y+1] != 0){
-                            if (fields[x-1][y] == 0) return x-1;
-                        }
-                    } catch (Exception e) {}
+                    if (y== 5) {
+                        test = tryThis(x+2,y,false,0);
+                        if (test != -1)  return test;
+                        test = tryThis(x-1,y,false,0);
+                        if (test != -1)  return test;
+                    }
+                    test = tryThis(x+2,y,true,y+1);
+                    if (test != -1)  return test;
+                    test = tryThis(x-1,y,true,y+1);
+                    if (test != -1)  return test;
                 }
             }
         }
@@ -159,9 +135,8 @@ class computer {
             for(int x = 0; x<7; x++){
                 //System.out.println("[" + x + "," + y + "][" + x + "," + (y+1) + "]");
                 if(fields[x][y] == player && fields[x][y+1] == player) {
-                    try{
-                        if (fields[x][y-1] == 0) return x;
-                    } catch (Exception e) {}
+                    test = tryThis(x,y-1,false,0);
+                    if (test != -1)  return test;
                 }
             }
         }
@@ -170,14 +145,10 @@ class computer {
         for(int y = 0; y<5; y++){
             for(int x = 0; x<6; x++){
                 if(fields[x][y] == player && fields[x+1][y+1] == player) {
-                    try{
-                        if (fields[x+2][y+2] == 0) return x+2;
-                    } catch (Exception e) {}
-                    try{
-                        if (fields[x-1][y] != 0){
-                            if (fields[x-1][y-1] == 0) return x-1;
-                        }
-                    } catch (Exception e) {}
+                    test = tryThis(x+2,y+2,false,0);
+                    if (test != -1)  return test;
+                    test = tryThis(x-1,y-1,true,y);
+                    if (test != -1)  return test;
                 }
             }
         }
@@ -187,16 +158,29 @@ class computer {
             for(int x = 0; x<6; x++){
                 //System.out.println("[" + x + "," + y + "][" + (x+1) + "," + (y-1) + "]");
                 if(fields[x][y] == player && fields[x+1][y-1] == player) {
-                    try{
-                        if (fields[x+2][y-1] != 0){
-                            if (fields[x+2][y-2] == 0) return x+2;
-                        }
-                    } catch (Exception e) {}
-                    try{
-                        if (fields[x-1][y-1] == 0) return x-1;
-                    } catch (Exception e) {}
+                    test = tryThis(x+2,y-2,true,y-1);
+                    if (test != -1)  return test;
+                    test = tryThis(x-1,y-1,false,0);
+                    if (test != -1)  return test;
                 }
             }
+        }
+        return -1;
+    }
+
+    int tryThis(int x, int y, boolean protection, int pY){
+        if (protection){
+            try{
+                if (fields[x][pY] != 0){
+                    try{
+                        if (fields[x][y] == 0) return x;
+                    } catch (Exception e) {}
+                }
+            } catch (Exception e) {}
+        } else {
+            try{
+                if (fields[x][y] == 0) return x;
+            } catch (Exception e) {}
         }
         return -1;
     }

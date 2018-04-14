@@ -11,7 +11,6 @@ import static de.robmroi.fourWins.Startup.computer;
 
 /**
  * TODO:
- * Computer Gegenspieler
  * Bessere Größe auf verschiedenen Geräten
  * Fix animation when computer wins
  */
@@ -52,11 +51,11 @@ public class Service implements AWTEventListener {
         frame.setBackground(new Color(255, 255, 255));
         frame.setLocationRelativeTo(null);
         start();
-        /*if(JOptionPane.showOptionDialog(null, "Gegen wen wollen Sie spielen?","Spielmodus",
+        if(JOptionPane.showOptionDialog(null, "Gegen wen wollen Sie spielen?","Spielmodus",
                 JOptionPane.YES_NO_OPTION,
                 JOptionPane.PLAIN_MESSAGE, null,
                 new String[]{"Gegen den Computer", "Gegen einen Spieler"}, "Gegen einen Spieler") == 0) withComputer = true;
-        */withComputer = true; // Only when you want to test the Computer
+        //withComputer = true; // Only when you want to test the Computer
     }
 
 
@@ -118,7 +117,7 @@ public class Service implements AWTEventListener {
             computer();
         }
         frame.setTitle(panelText);
-        //System.out.println(computer.threeField(1));//only for testing
+        //if (activePlayer == 2) System.out.println(computer.computerTurn()+1);//only for testing
     }
 
     public void playerCheck(){
