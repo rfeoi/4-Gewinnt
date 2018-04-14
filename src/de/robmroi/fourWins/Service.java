@@ -74,9 +74,21 @@ public class Service implements AWTEventListener {
         frame.setContentPane(fields);
         frame.setVisible(false);
         frame.setVisible(true);
-        frame.setTitle("4-Gewinnt   -   Spieler 1 ist am Zug!");
+        refreshTitle();
     }
 
+    void refreshTitle(){
+        if (activePlayer == 1){
+            frame.setTitle("4-Gewinnt   -   Spieler 1 ist am Zug!");
+        }else{
+           if (withComputer){
+               //Useless as long Computer plays directly after Player
+               frame.setTitle("4-Gewinnt   -   Computer ist am Zug!");
+           }else{
+               frame.setTitle("4-Gewinnt   -   Spieler 2 ist am Zug!");
+           }
+        }
+    }
     void game(int rowX){
         for (int y = 5; y>=0; y--){
             if (places[rowX][y] == 0){
@@ -103,13 +115,10 @@ public class Service implements AWTEventListener {
         }
 
         playerCheck();
-        String panelText = "4-Gewinnt   -   Spieler " + activePlayer + " ist am Zug!";
         tie = true;
         if (withComputer &&  activePlayer == 2) {
-            panelText = "4-Gewinnt   -   Computer ist am Zug!";
             computer();
         }
-        frame.setTitle(panelText);
         //if (activePlayer == 2) System.out.println(computer.computerTurn()+1);//only for testing
     }
 
@@ -120,6 +129,8 @@ public class Service implements AWTEventListener {
         } else {
             activePlayer = 2;
         }
+        refreshTitle();
+
     }
 
     private boolean winCheck(int player) {
