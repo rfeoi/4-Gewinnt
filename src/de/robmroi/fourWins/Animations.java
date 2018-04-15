@@ -30,7 +30,7 @@ public class Animations implements Runnable {
                 }
             }
             service.animation = true;
-            service.waitMilis = y * 300 + 100;
+            service.waitMilis = y * 400;
             for (int i = 0; i <= y; i++) {
                 if (player == 1) service.setColorForField(x, i, 1);
                 if (player == 2) service.setColorForField(x, i, 2);
@@ -45,7 +45,9 @@ public class Animations implements Runnable {
                 }
             }
         }
-            service.waitMilis = 1;
-            service.animation = false;
+        if (!service.computerTurn) service.checkFields();
+        service.waitMilis = 1;
+        service.animation = false;
+
     }
 }

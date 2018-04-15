@@ -6,13 +6,10 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2a3aadb8-d888-471d-b29a-9482ca0217bd" name="Default" comment="">
+    <list default="true" id="2a3aadb8-d888-471d-b29a-9482ca0217bd" name="Default" comment="Now there are no flying blocks anymore. They only appeared when you played to fast so the animations overlapped. Now after every animation it checks if the colors for the field are correct. When you play to fast, the block will have its color before the animation starts/finishes, when you play in normal speed everything is normal.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/de/robmroi/fourWins/Animations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/de/robmroi/fourWins/Animations.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/de/robmroi/fourWins/Fields.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/de/robmroi/fourWins/Fields.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/de/robmroi/fourWins/Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/de/robmroi/fourWins/Service.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/de/robmroi/fourWins/Startup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/de/robmroi/fourWins/Startup.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/de/robmroi/fourWins/computer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/de/robmroi/fourWins/computer.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -24,11 +21,33 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Fields.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/de/robmroi/fourWins/Fields.java">
+      <file leaf-file-name="Service.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/de/robmroi/fourWins/Service.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" selection-start-line="4" selection-end-line="4" />
+            <state relative-caret-position="105">
+              <caret line="11" column="64" selection-start-line="11" selection-start-column="64" selection-end-line="11" selection-end-column="64" />
+              <folding>
+                <element signature="e#7706#7707#0" expanded="true" />
+                <element signature="e#7769#7770#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Animations.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/de/robmroi/fourWins/Animations.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="705">
+              <caret line="47" column="35" selection-start-line="47" selection-start-column="35" selection-end-line="47" selection-end-column="35" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="computer.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/de/robmroi/fourWins/computer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="295">
+              <caret line="208" column="38" lean-forward="true" selection-start-line="208" selection-start-column="38" selection-end-line="208" selection-end-column="38" />
             </state>
           </provider>
         </entry>
@@ -50,11 +69,11 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/de/robmroi/fourWins/Wait.java" />
-        <option value="$PROJECT_DIR$/src/de/robmroi/fourWins/Service.java" />
-        <option value="$PROJECT_DIR$/src/de/robmroi/fourWins/Animations.java" />
         <option value="$PROJECT_DIR$/src/de/robmroi/fourWins/Startup.java" />
         <option value="$PROJECT_DIR$/src/de/robmroi/fourWins/computer.java" />
         <option value="$PROJECT_DIR$/src/de/robmroi/fourWins/Fields.java" />
+        <option value="$PROJECT_DIR$/src/de/robmroi/fourWins/Animations.java" />
+        <option value="$PROJECT_DIR$/src/de/robmroi/fourWins/Service.java" />
       </list>
     </option>
   </component>
@@ -64,8 +83,11 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="y" value="335" />
+  <component name="NodePackageJsonFileManager">
+    <packageJsonPaths />
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="y" value="23" />
     <option name="width" value="1366" />
     <option name="height" value="745" />
   </component>
@@ -75,9 +97,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="AndroidView" />
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -114,6 +136,116 @@
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="de.robmroi.fourWins" />
     </key>
+  </component>
+  <component name="RestoreUpdateTree" date="Moments ago" ActionInfo="_Update">
+    <UpdatedFiles>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Updated from server" />
+        <option name="myStatusName" value="Changed on server" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="CHANGED_ON_SERVER" />
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Updated" />
+          <option name="myStatusName" value="Changed" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="UPDATED" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Created" />
+          <option name="myStatusName" value="Created" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="CREATED" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Deleted" />
+          <option name="myStatusName" value="Deleted" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="true" />
+          <option name="myId" value="REMOVED_FROM_REPOSITORY" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/4-Gewinnt.jar</PATH>
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Restored" />
+          <option name="myStatusName" value="Will be restored" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="RESTORED" />
+        </FILE-GROUP>
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Modified" />
+        <option name="myStatusName" value="Modified" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MODIFIED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Skipped" />
+        <option name="myStatusName" value="Skipped" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="SKIPPED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with conflicts" />
+        <option name="myStatusName" value="Will be merged with conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_CONFLICTS" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with tree conflicts" />
+        <option name="myStatusName" value="Merged with tree conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_TREE_CONFLICT" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with property conflicts" />
+        <option name="myStatusName" value="Will be merged with property conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_PROPERTY_CONFLICT" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged" />
+        <option name="myStatusName" value="Will be merged" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Not in repository" />
+        <option name="myStatusName" value="Not in repository" />
+        <option name="mySupportsDeletion" value="true" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="UNKNOWN" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Locally added" />
+        <option name="myStatusName" value="Locally added" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="LOCALLY_ADDED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Locally removed" />
+        <option name="myStatusName" value="Locally removed" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="LOCALLY_REMOVED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Switched" />
+        <option name="myStatusName" value="Switched" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="SWITCHED" />
+      </FILE-GROUP>
+    </UpdatedFiles>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -243,7 +375,8 @@
       <workItem from="1523009765428" duration="180000" />
       <workItem from="1523010268088" duration="1857000" />
       <workItem from="1523473340028" duration="1934000" />
-      <workItem from="1523549113382" duration="19481000" />
+      <workItem from="1523549113382" duration="1905000" />
+      <workItem from="1523611558897" duration="4042000" />
     </task>
     <task id="LOCAL-00001" summary="Added 2D Arrays, not finished yet. Will be finished (and working) soon!">
       <created>1517855324106</created>
@@ -385,87 +518,45 @@
       <option name="project" value="LOCAL" />
       <updated>1523551083318</updated>
     </task>
-    <task id="LOCAL-00021" summary="Had a mistake at computer Turn (fixed it by returning/checking -1 instead of 0). ThreeField is working correctly now(I hope, but it should be correct">
-      <created>1523632785811</created>
+    <task id="LOCAL-00021" summary="Started with &quot;real&quot; computer. The mechanic of it is implemented now, but not working yet because the functions (threeField/twoField) are not finished &lt;- will do">
+      <created>1523613475616</created>
       <option name="number" value="00021" />
       <option name="presentableId" value="LOCAL-00021" />
       <option name="project" value="LOCAL" />
-      <updated>1523632785811</updated>
+      <updated>1523613475616</updated>
     </task>
-    <task id="LOCAL-00022" summary="Computer is finished now, when you find bugs or errors while playing, please send them (detailed) two me. I added a check, which checks if there is a block below sth, when yes it sets the block, when not it doesn't. twoField is complete now. This is v1.9">
-      <created>1523636925407</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1523636925407</updated>
-    </task>
-    <task id="LOCAL-00023" summary="The computer has still a few bugs (I will search for them) but I simplified it a lot by just creating a new function with its own try/catch.">
-      <created>1523699165926</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1523699165926</updated>
-    </task>
-    <task id="LOCAL-00024" summary="The size is displayed better on different screen sizes. It does not get bigger linear (f(x) = m*x+b), instead it raises like a parabel.">
-      <created>1523701374116</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1523701374116</updated>
-    </task>
-    <task id="LOCAL-00025" summary="fixed a bug where you could play when the option dialog appears. You could play as the computer while the dialog was shown. Fixed it by blocking the keys.">
-      <created>1523702186834</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1523702186835</updated>
-    </task>
-    <task id="LOCAL-00026" summary="Fixed the issue, that the computer fields aren't displayed correctly when it wins. I made the break longer (3 times) so it works now. I removed a sout in the computer, which was leftover by mistake.">
-      <created>1523702854146</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1523702854146</updated>
-    </task>
-    <task id="LOCAL-00027" summary="The computer sets to a (random)field that is next to another computer field now, instead of setting somewhere random.">
-      <created>1523716797231</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1523716797231</updated>
-    </task>
-    <option name="localTasksCounter" value="28" />
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="102403000" />
+    <option name="totallyTimeSpent" value="104987000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1366" height="745" extended-state="6" />
+    <frame x="0" y="23" width="2560" height="1417" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Messages" order="7" weight="0.32935917" />
+      <window_info anchor="bottom" id="Messages" order="7" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info id="Image Layers" order="2" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
-      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50073206" side_tool="true" weight="0.32935917" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50119144" side_tool="true" weight="0.18409091" />
       <window_info anchor="right" id="Maven Projects" order="3" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49926794" visible="true" weight="0.2757079" />
-      <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="7" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.2621212" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4988086" visible="true" weight="0.19621213" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.2530303" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16325037" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16441621" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="2" />
       <window_info anchor="right" id="Theme Preview" order="3" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39940387" />
       <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
@@ -481,6 +572,8 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
+    <MESSAGE value="Added 2D Arrays, not finished yet. Will be finished (and working) soon!" />
+    <MESSAGE value="Only winCheck without 2DArray, small improvements, added Label whrer you can see wich player is active." />
     <MESSAGE value="Added computer class!" />
     <MESSAGE value="2D Array completed; 1D Array deleted;" />
     <MESSAGE value="Added computer class, is not working yet -&gt; will do it tomorrow" />
@@ -499,18 +592,12 @@
     <MESSAGE value="Made the frame bigger, so you can see it better on small screens." />
     <MESSAGE value="Fixed the issue by adding return so the computer does not run again (game void stops)." />
     <MESSAGE value="The computer can detect if anyone has three fields (in a row, horizontal)." />
-    <MESSAGE value="Had a mistake at computer Turn (fixed it by returning/checking -1 instead of 0). ThreeField is working correctly now(I hope, but it should be correct" />
-    <MESSAGE value="Computer is finished now, when you find bugs or errors while playing, please send them (detailed) two me. I added a check, which checks if there is a block below sth, when yes it sets the block, when not it doesn't. twoField is complete now. This is v1.9" />
-    <MESSAGE value="The computer has still a few bugs (I will search for them) but I simplified it a lot by just creating a new function with its own try/catch." />
-    <MESSAGE value="The size is displayed better on different screen sizes. It does not get bigger linear (f(x) = m*x+b), instead it raises like a parabel." />
-    <MESSAGE value="fixed a bug where you could play when the option dialog appears. You could play as the computer while the dialog was shown. Fixed it by blocking the keys." />
-    <MESSAGE value="Fixed the issue, that the computer fields aren't displayed correctly when it wins. I made the break longer (3 times) so it works now. I removed a sout in the computer, which was leftover by mistake." />
-    <MESSAGE value="The computer sets to a (random)field that is next to another computer field now, instead of setting somewhere random." />
-    <option name="LAST_COMMIT_MESSAGE" value="The computer sets to a (random)field that is next to another computer field now, instead of setting somewhere random." />
+    <MESSAGE value="Started with &quot;real&quot; computer. The mechanic of it is implemented now, but not working yet because the functions (threeField/twoField) are not finished &lt;- will do" />
+    <option name="LAST_COMMIT_MESSAGE" value="Started with &quot;real&quot; computer. The mechanic of it is implemented now, but not working yet because the functions (threeField/twoField) are not finished &lt;- will do" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="36" />
+      <option name="time" value="27" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -830,43 +917,42 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/de/robmroi/fourWins/Animations.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/de/robmroi/fourWins/Service.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="124">
-          <caret line="238" column="30" lean-forward="true" selection-start-line="238" selection-start-column="30" selection-end-line="238" selection-end-column="30" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#7444#7445#0" expanded="true" />
-            <element signature="e#7507#7508#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/de/robmroi/fourWins/Startup.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/de/robmroi/fourWins/computer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="239" column="13" selection-start-line="239" selection-start-column="13" selection-end-line="239" selection-end-column="13" />
+        <state relative-caret-position="165">
+          <caret line="11" column="41" selection-start-line="11" selection-start-column="41" selection-end-line="11" selection-end-column="41" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/de/robmroi/fourWins/Fields.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
+        <state relative-caret-position="258">
+          <caret line="27" column="58" selection-start-line="27" selection-start-column="58" selection-end-line="27" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/de/robmroi/fourWins/computer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="295">
+          <caret line="208" column="38" lean-forward="true" selection-start-line="208" selection-start-column="38" selection-end-line="208" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/de/robmroi/fourWins/Service.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="11" column="64" selection-start-line="11" selection-start-column="64" selection-end-line="11" selection-end-column="64" />
+          <folding>
+            <element signature="e#7706#7707#0" expanded="true" />
+            <element signature="e#7769#7770#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/de/robmroi/fourWins/Animations.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="705">
+          <caret line="47" column="35" selection-start-line="47" selection-start-column="35" selection-end-line="47" selection-end-column="35" />
         </state>
       </provider>
     </entry>

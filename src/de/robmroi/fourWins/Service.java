@@ -16,7 +16,7 @@ public class Service implements AWTEventListener {
     private JFrame frame;
     private Color winBlue = new Color(0,100,255);
     private Color winRed = new Color(255,80,0);
-    boolean animation = false;
+    boolean animation = false, computerTurn;
     //Resolution
     private int maxWidth = Toolkit.getDefaultToolkit().getScreenSize().width;
     private int width, height;
@@ -117,7 +117,10 @@ public class Service implements AWTEventListener {
         playerCheck();
         tie = true;
         if (withComputer &&  activePlayer == 2) {
+            computerTurn = false;
             computer();
+        } else if (withComputer && activePlayer == 1){
+            computerTurn = true;
         }
         //if (activePlayer == 2) System.out.println(computer.computerTurn()+1);//only for testing
     }
@@ -130,7 +133,6 @@ public class Service implements AWTEventListener {
             activePlayer = 2;
         }
         refreshTitle();
-
     }
 
     private boolean winCheck(int player) {
@@ -139,6 +141,10 @@ public class Service implements AWTEventListener {
             for(int x = 0; x<4; x++){
                 if(places[x][y] == player && places[x+1][y] == player && places[x+2][y] == player && places[x+3][y] == player) {
                     win = true;
+                    places[x][y] = player+2;
+                    places[x+1][y] = player+2;
+                    places[x+2][y] = player+2;
+                    places[x+3][y] = player+2;
                     setColor(x,y,player+2);
                     setColor(x+1,y,player+2);
                     setColor(x+2,y,player+2);
@@ -152,6 +158,10 @@ public class Service implements AWTEventListener {
             for(int x = 0; x<7; x++){
                 if(places[x][y] == player && places[x][y+1] == player && places[x][y+2] == player && places[x][y+3] == player) {
                     win = true;
+                    places[x][y] = player+2;
+                    places[x][y+1] = player+2;
+                    places[x][y+2] = player+2;
+                    places[x][y+3] = player+2;
                     setColor(x,y,player+2);
                     setColor(x,y+1,player+2);
                     setColor(x,y+2,player+2);
@@ -165,6 +175,10 @@ public class Service implements AWTEventListener {
             for(int x = 0; x<4; x++){
                 if(places[x][y] == player && places[x+1][y+1] == player && places[x+2][y+2] == player && places[x+3][y+3] == player) {
                     win = true;
+                    places[x][y] = player+2;
+                    places[x+1][y+1] = player+2;
+                    places[x+2][y+2] = player+2;
+                    places[x+3][y+3] = player+2;
                     setColor(x,y,player+2);
                     setColor(x+1,y+1,player+2);
                     setColor(x+2,y+2,player+2);
@@ -178,6 +192,10 @@ public class Service implements AWTEventListener {
             for(int x = 0; x<4; x++){
                 if(places[x][y] == player && places[x+1][y-1] == player && places[x+2][y-2] == player && places[x+3][y-3] == player) {
                     win = true;
+                    places[x][y] = player+2;
+                    places[x+1][y-1] = player+2;
+                    places[x+2][y-2] = player+2;
+                    places[x+3][y-3] = player+2;
                     setColor(x,y,player+2);
                     setColor(x+1,y-1,player+2);
                     setColor(x+2,y-2,player+2);
@@ -242,6 +260,16 @@ public class Service implements AWTEventListener {
         if (color == 4) fields.fields[x][y].setBackground(winRed);
         fields.fields[x][y].setOpaque(true);
         fields.fields[x][y].setBorderPainted(false);
+    }
+
+    void checkFields(){
+        for (int x = 0; x<7;x++) {
+            for (int y = 0; y < 6; y++) {
+                for (int i = 1; i<=4; i++){
+                    if (places[x][y] == i) setColorForField(x,y,i);
+                }
+            }
+        }
     }
 
 
