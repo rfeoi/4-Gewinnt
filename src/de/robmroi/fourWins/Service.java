@@ -20,6 +20,7 @@ public class Service implements AWTEventListener {
     //Resolution
     private int maxWidth = Toolkit.getDefaultToolkit().getScreenSize().width;
     private int width, height;
+    static int rows, columns;
 
     Service() {
         long eventMask = AWTEvent.KEY_EVENT_MASK;
@@ -29,11 +30,13 @@ public class Service implements AWTEventListener {
 
     void preStart() {
         System.out.print("preStart;   ");
+        rows = 10;  // von oben nach unten
+        columns = 10; // von links nach rechts
         waitMilis = 1;
         double size = 100;
         double maxWidthDouble = Math.sqrt(maxWidth);
-        double widthDouble = (maxWidthDouble / 6) * size;
-        double heightDouble = (maxWidthDouble / 7) * size;
+        double widthDouble = (maxWidthDouble / rows) * size;
+        double heightDouble = (maxWidthDouble / columns) * size;
         width = (int) widthDouble;
         height = (int) heightDouble;
         isStarted = false;
@@ -55,9 +58,9 @@ public class Service implements AWTEventListener {
         frame.setLocationRelativeTo(null);
         System.out.print("Start;   ");
         fields = new Fields();
-        places = new int[7][6];
-        for(int x = 0; x<7; x++){
-            for(int y = 0; y<6; y++){
+        places = new int[columns][rows];
+        for(int x = 0; x< columns; x++){
+            for(int y = 0; y<rows; y++){
                 places[x][y] = 0;
             }
         }
@@ -93,7 +96,7 @@ public class Service implements AWTEventListener {
         }
     }
     void game(int rowX){
-        for (int y = 5; y>=0; y--){
+        for (int y = rows-1; y>=0; y--){
             if (places[rowX][y] == 0){
                 places[rowX][y] = activePlayer;
                 setColor(rowX,y, activePlayer);
@@ -101,8 +104,8 @@ public class Service implements AWTEventListener {
             }
         }
 
-        for(int y = 0; y<6; y++){
-            for(int x = 0; x<7; x++){
+        for(int y = 0; y<rows; y++){
+            for(int x = 0; x< columns; x++){
                 if (places[x][y] == 0) tie = false;
             }
         }
@@ -139,8 +142,8 @@ public class Service implements AWTEventListener {
 
     private boolean winCheck(int player) {
         win = false;
-        for(int y = 0; y<6; y++){
-            for(int x = 0; x<4; x++){
+        for(int y = 0; y<rows; y++){
+            for(int x = 0; x< columns -3; x++){
                 if(places[x][y] == player && places[x+1][y] == player && places[x+2][y] == player && places[x+3][y] == player) {
                     win = true;
                     places[x][y] = player+2;
@@ -156,8 +159,8 @@ public class Service implements AWTEventListener {
             }
         }
 
-        for(int y = 0; y<3; y++){
-            for(int x = 0; x<7; x++){
+        for(int y = 0; y<rows-3; y++){
+            for(int x = 0; x< columns; x++){
                 if(places[x][y] == player && places[x][y+1] == player && places[x][y+2] == player && places[x][y+3] == player) {
                     win = true;
                     places[x][y] = player+2;
@@ -173,8 +176,8 @@ public class Service implements AWTEventListener {
             }
         }
 
-        for(int y = 0; y<3; y++){
-            for(int x = 0; x<4; x++){
+        for(int y = 0; y<rows-3; y++){
+            for(int x = 0; x< columns -3; x++){
                 if(places[x][y] == player && places[x+1][y+1] == player && places[x+2][y+2] == player && places[x+3][y+3] == player) {
                     win = true;
                     places[x][y] = player+2;
@@ -190,8 +193,8 @@ public class Service implements AWTEventListener {
             }
         }
 
-        for(int y = 5; y>2; y--){
-            for(int x = 0; x<4; x++){
+        for(int y = rows-1; y>2; y--){
+            for(int x = 0; x< columns -3; x++){
                 if(places[x][y] == player && places[x+1][y-1] == player && places[x+2][y-2] == player && places[x+3][y-3] == player) {
                     win = true;
                     places[x][y] = player+2;
@@ -265,8 +268,8 @@ public class Service implements AWTEventListener {
     }
 
     void checkFields(){
-        for (int x = 0; x<7;x++) {
-            for (int y = 0; y < 6; y++) {
+        for (int x = 0; x< columns; x++) {
+            for (int y = 0; y < rows; y++) {
                 for (int i = 1; i<=4; i++){
                     if (places[x][y] == i) setColorForField(x,y,i);
                 }

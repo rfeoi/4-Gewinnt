@@ -9,19 +9,24 @@ import static de.robmroi.fourWins.Startup.service;
 class Fields extends JPanel {
 
 
-    JButton[][] fields = new JButton[7][6];
-    private int[] count = new int[7];
+    JButton[][] fields;
+    private int[] count;
     boolean isSpacebar = false;
+    private int rows, columns;
     void preStart(){
         System.out.print("Fields preStart;   ");
-        this.setLayout(new GridLayout(6,7, 10, 10));
+        rows = Service.rows;
+        columns = Service.columns;
+        fields = new JButton[columns][rows];
+        count = new int[columns];
+        this.setLayout(new GridLayout(rows, columns, 10, 10));
         //this.setLayout(new FlowLayout());
     }
 
     void start(){
         System.out.println("Fields Start;   ");
-        for(int y = 0; y<6; y++){
-            for(int x = 0; x<7; x++){
+        for(int y = 0; y<rows; y++){
+            for(int x = 0; x<columns; x++){
                 fields[x][y] = new JButton(/*x + "," + y*/);
                 this.add(fields[x][y]);
                 fields[x][y].setBackground(Color.WHITE);
@@ -39,8 +44,8 @@ class Fields extends JPanel {
             setField(0, false);
             return;
         }
-        for(int y = 0; y<6; y++){
-            for(int x = 0; x<7; x++){
+        for(int y = 0; y<rows; y++){
+            for(int x = 0; x< columns; x++){
                 if (button == fields[x][y]){
                     setField(x, true);
                 }
@@ -65,7 +70,7 @@ class Fields extends JPanel {
         }
 
         boolean returnBool = false;
-        if (count[row] != 6) {
+        if (count[row] != rows) {
             count[row] += 1;
             service.game(row);
             returnBool = true;
