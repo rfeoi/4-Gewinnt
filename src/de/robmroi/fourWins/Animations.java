@@ -46,6 +46,8 @@ public class Animations implements Runnable {
             }
         }
         if (!service.computerTurn) service.checkFields();
+        if (service.withComputer && player == 1) service.refreshTitle(1);
+        else service.refreshTitle(0);
         service.waitMilis = 1;
         service.animation = false;
 

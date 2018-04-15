@@ -9,14 +9,14 @@ import static de.robmroi.fourWins.Startup.computer;
 
 public class Service implements AWTEventListener {
     private int activePlayer, count;
-    private boolean win, tie, withComputer, winOutput, isStarted;
+    private boolean win, tie, winOutput, isStarted;
     static int[][] places;
     int waitMilis;
     private Fields fields;
     private JFrame frame;
     private Color winBlue = new Color(0,100,255);
     private Color winRed = new Color(255,80,0);
-    boolean animation = false, computerTurn;
+    boolean animation = false, computerTurn, withComputer;
     //Resolution
     private int maxWidth = Toolkit.getDefaultToolkit().getScreenSize().width;
     private int width, height;
@@ -74,15 +74,18 @@ public class Service implements AWTEventListener {
         frame.setContentPane(fields);
         frame.setVisible(false);
         frame.setVisible(true);
-        refreshTitle();
+        refreshTitle(0);
     }
 
-    void refreshTitle(){
+    void refreshTitle( int player){
+        if (player != 0){
+            frame.setTitle("4-Gewinnt   -   Computer ist am Zug!");
+            return;
+        }
         if (activePlayer == 1){
             frame.setTitle("4-Gewinnt   -   Spieler 1 ist am Zug!");
         }else{
            if (withComputer){
-               //Useless as long Computer plays directly after Player
                frame.setTitle("4-Gewinnt   -   Computer ist am Zug!");
            }else{
                frame.setTitle("4-Gewinnt   -   Spieler 2 ist am Zug!");
@@ -132,7 +135,6 @@ public class Service implements AWTEventListener {
         } else {
             activePlayer = 2;
         }
-        refreshTitle();
     }
 
     private boolean winCheck(int player) {

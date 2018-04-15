@@ -6,7 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2a3aadb8-d888-471d-b29a-9482ca0217bd" name="Default" comment="Now there are no flying blocks anymore. They only appeared when you played to fast so the animations overlapped. Now after every animation it checks if the colors for the field are correct. When you play to fast, the block will have its color before the animation starts/finishes, when you play in normal speed everything is normal.">
+    <list default="true" id="2a3aadb8-d888-471d-b29a-9482ca0217bd" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/de/robmroi/fourWins/Animations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/de/robmroi/fourWins/Animations.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/de/robmroi/fourWins/Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/de/robmroi/fourWins/Service.java" afterDir="false" />
@@ -24,8 +24,8 @@
       <file leaf-file-name="Service.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/de/robmroi/fourWins/Service.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="11" column="64" selection-start-line="11" selection-start-column="64" selection-end-line="11" selection-end-column="64" />
+            <state relative-caret-position="210">
+              <caret line="18" column="45" selection-start-line="18" selection-start-column="45" selection-end-line="18" selection-end-column="45" />
               <folding>
                 <element signature="e#7706#7707#0" expanded="true" />
                 <element signature="e#7769#7770#0" expanded="true" />
@@ -37,8 +37,8 @@
       <file leaf-file-name="Animations.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/de/robmroi/fourWins/Animations.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="705">
-              <caret line="47" column="35" selection-start-line="47" selection-start-column="35" selection-end-line="47" selection-end-column="35" />
+            <state relative-caret-position="735">
+              <caret line="49" column="30" selection-start-line="49" selection-start-column="30" selection-end-line="49" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -72,8 +72,8 @@
         <option value="$PROJECT_DIR$/src/de/robmroi/fourWins/Startup.java" />
         <option value="$PROJECT_DIR$/src/de/robmroi/fourWins/computer.java" />
         <option value="$PROJECT_DIR$/src/de/robmroi/fourWins/Fields.java" />
-        <option value="$PROJECT_DIR$/src/de/robmroi/fourWins/Animations.java" />
         <option value="$PROJECT_DIR$/src/de/robmroi/fourWins/Service.java" />
+        <option value="$PROJECT_DIR$/src/de/robmroi/fourWins/Animations.java" />
       </list>
     </option>
   </component>
@@ -376,7 +376,7 @@
       <workItem from="1523010268088" duration="1857000" />
       <workItem from="1523473340028" duration="1934000" />
       <workItem from="1523549113382" duration="1905000" />
-      <workItem from="1523611558897" duration="4042000" />
+      <workItem from="1523611558897" duration="4568000" />
     </task>
     <task id="LOCAL-00001" summary="Added 2D Arrays, not finished yet. Will be finished (and working) soon!">
       <created>1517855324106</created>
@@ -525,11 +525,18 @@
       <option name="project" value="LOCAL" />
       <updated>1523613475616</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Now there are no flying blocks anymore. They only appeared when you played to fast so the animations overlapped. Now after every animation it checks if the colors for the field are correct. When you play to fast, the block will have its color before the animation starts/finishes, when you play in normal speed everything is normal.">
+      <created>1523780506968</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1523780506968</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="104987000" />
+    <option name="totallyTimeSpent" value="105513000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="2560" height="1417" extended-state="6" />
@@ -593,7 +600,8 @@
     <MESSAGE value="Fixed the issue by adding return so the computer does not run again (game void stops)." />
     <MESSAGE value="The computer can detect if anyone has three fields (in a row, horizontal)." />
     <MESSAGE value="Started with &quot;real&quot; computer. The mechanic of it is implemented now, but not working yet because the functions (threeField/twoField) are not finished &lt;- will do" />
-    <option name="LAST_COMMIT_MESSAGE" value="Started with &quot;real&quot; computer. The mechanic of it is implemented now, but not working yet because the functions (threeField/twoField) are not finished &lt;- will do" />
+    <MESSAGE value="Now there are no flying blocks anymore. They only appeared when you played to fast so the animations overlapped. Now after every animation it checks if the colors for the field are correct. When you play to fast, the block will have its color before the animation starts/finishes, when you play in normal speed everything is normal." />
+    <option name="LAST_COMMIT_MESSAGE" value="Now there are no flying blocks anymore. They only appeared when you played to fast so the animations overlapped. Now after every animation it checks if the colors for the field are correct. When you play to fast, the block will have its color before the animation starts/finishes, when you play in normal speed everything is normal." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -940,8 +948,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/de/robmroi/fourWins/Service.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="11" column="64" selection-start-line="11" selection-start-column="64" selection-end-line="11" selection-end-column="64" />
+        <state relative-caret-position="210">
+          <caret line="18" column="45" selection-start-line="18" selection-start-column="45" selection-end-line="18" selection-end-column="45" />
           <folding>
             <element signature="e#7706#7707#0" expanded="true" />
             <element signature="e#7769#7770#0" expanded="true" />
@@ -951,8 +959,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/de/robmroi/fourWins/Animations.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="705">
-          <caret line="47" column="35" selection-start-line="47" selection-start-column="35" selection-end-line="47" selection-end-column="35" />
+        <state relative-caret-position="735">
+          <caret line="49" column="30" selection-start-line="49" selection-start-column="30" selection-end-line="49" selection-end-column="30" />
         </state>
       </provider>
     </entry>
