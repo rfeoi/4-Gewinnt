@@ -17,8 +17,8 @@ class computer {
     private int count, rows, columns;
 
     void preStart(){
-        rows = Service.rows;
-        columns = Service.columns;
+        rows = Service.rows; // top to bottom
+        columns = Service.columns; // left to right
         fields = new int[columns][rows];
         System.out.print("computer preStart    ");
     }
@@ -26,15 +26,13 @@ class computer {
 
     int computerTurn(){
         fields = Service.places;
-        if (columns == 7){
-            if (count == 0){
+        if (columns == 7 && count == 0){
                 count = 1;
                 if (fields[3][5] == 0){
                     return 3;
                 } else {
                     return createRandom(2) + 2;
                 }
-            }
         }
 
         int field = threeField(2);

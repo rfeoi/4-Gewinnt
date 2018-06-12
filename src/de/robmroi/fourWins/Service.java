@@ -7,7 +7,12 @@ import java.awt.event.*;
 
 import static de.robmroi.fourWins.Startup.computer;
 
+/*
+The service class is the main class.
+90% of the actions are made in here (not the computer).
+*/
 public class Service implements AWTEventListener {
+    //creates all variables
     private int activePlayer, count;
     private boolean win, tie, winOutput, isStarted;
     static int[][] places;
@@ -23,16 +28,19 @@ public class Service implements AWTEventListener {
     static int rows, columns;
 
     Service() {
+        //detects if a key is pressed
         long eventMask = AWTEvent.KEY_EVENT_MASK;
         Toolkit toolkit = Toolkit.getDefaultToolkit();
         toolkit.addAWTEventListener(this, eventMask);
     }
 
     void preStart() {
+        //preperates the game for beeing started, only used once
         System.out.print("preStart;   ");
-        rows = 10;  // von oben nach unten
-        columns = 10; // von links nach rechts
+        rows = 5;  // top to bottom
+        columns = 10; // left to right
         waitMilis = 1;
+        //sets the size of the field, depending on the resolution of the screen
         double size = 100;
         double maxWidthDouble = Math.sqrt(maxWidth);
         double widthDouble = (maxWidthDouble / rows) * size;
@@ -40,11 +48,13 @@ public class Service implements AWTEventListener {
         width = (int) widthDouble;
         height = (int) heightDouble;
         isStarted = false;
+        //frame settings
         frame = new JFrame();
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.setMinimumSize(new Dimension(width/3,height/3));
         frame.setBackground(new Color(255, 255, 255));
         start();
+        // it asks you whether you want to play against the computer or not
         if(JOptionPane.showOptionDialog(null, "Gegen wen wollen Sie spielen?","Spielmodus",
                 JOptionPane.YES_NO_OPTION,
                 JOptionPane.PLAIN_MESSAGE, null,
@@ -55,6 +65,7 @@ public class Service implements AWTEventListener {
 
 
     private void start() {
+        //is called every round, locates the frame and sets the variables to their defaults
         frame.setLocationRelativeTo(null);
         System.out.print("Start;   ");
         fields = new Fields();
