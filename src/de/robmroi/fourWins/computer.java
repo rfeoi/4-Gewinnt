@@ -77,7 +77,7 @@ class computer {
 
         // vertical
         for(int y = 0; y<columns-3; y++){
-            for(int x = 0; x<rows+1; x++){
+            for(int x = 0; x<rows; x++){//rows+1
                 if(fields[x][y] == player && fields[x][y+1] == player && fields[x][y+2] == player) {
                     test = tryThis(x,y-1,false,0);
                     if (test != -1)  return test;
@@ -87,8 +87,9 @@ class computer {
 
         //diagonal up left -> bottom right
         for(int y = 0; y<columns-3; y++){
+            System.out.println();
             for(int x = 0; x<rows-1; x++){
-                //System.out.println("[" + x + "," + y + "][" + (x+1) + "," + (y+1) + "][" + (x+2) + "," + (y+2) + "][");
+                System.out.println("[" + x + "," + y + "][" + (x+1) + "," + (y+1) + "][" + (x+2) + "," + (y+2) + "]");
                 if(fields[x][y] == player && fields[x+1][y+1] == player && fields[x+2][y+2] == player) {
                     test = tryThis(x+3,y+3,false,0);
                     if (test != -1)  return test;
@@ -136,7 +137,7 @@ class computer {
 
         // vertical
         for(int y = 0; y<columns-2; y++){
-            for(int x = 0; x<rows+1; x++){
+            for(int x = 0; x<rows; x++){ //rows+1
                 //System.out.println("[" + x + "," + y + "][" + x + "," + (y+1) + "]");
                 if(fields[x][y] == player && fields[x][y+1] == player) {
                     test = tryThis(x,y-1,false,0);

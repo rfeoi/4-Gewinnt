@@ -37,14 +37,14 @@ public class Service implements AWTEventListener {
     void preStart() {
         //preperates the game for beeing started, only used once
         System.out.print("preStart;   ");
-        rows = 5;  // top to bottom
-        columns = 10; // left to right
+        rows = 10;  // top to bottom (6 is default)
+        columns = 10; // left to right (7 is default)
         waitMilis = 1;
         //sets the size of the field, depending on the resolution of the screen
-        double size = 100;
+        double size = 20;
         double maxWidthDouble = Math.sqrt(maxWidth);
-        double widthDouble = (maxWidthDouble / rows) * size;
-        double heightDouble = (maxWidthDouble / columns) * size;
+        double widthDouble = (maxWidthDouble / rows) * size * Math.sqrt(rows*columns);
+        double heightDouble = (maxWidthDouble / columns) * size * Math.sqrt(rows*columns);
         width = (int) widthDouble;
         height = (int) heightDouble;
         isStarted = false;
@@ -55,11 +55,11 @@ public class Service implements AWTEventListener {
         frame.setBackground(new Color(255, 255, 255));
         start();
         // it asks you whether you want to play against the computer or not
-        if(JOptionPane.showOptionDialog(null, "Gegen wen wollen Sie spielen?","Spielmodus",
+        /*if(JOptionPane.showOptionDialog(null, "Gegen wen wollen Sie spielen?","Spielmodus",
                 JOptionPane.YES_NO_OPTION,
                 JOptionPane.PLAIN_MESSAGE, null,
                 new String[]{"Gegen den Computer", "Gegen einen Spieler"}, "Gegen einen Spieler") == 0) withComputer = true;
-        //withComputer = true; // Only when you want to test the Computer
+        */withComputer = true; // Only when you want to test the Computer
         isStarted = true;
     }
 
@@ -92,6 +92,7 @@ public class Service implements AWTEventListener {
     }
 
     void refreshTitle( int player){
+        //Displays which player has to play
         if (player != 0){
             frame.setTitle("4-Gewinnt   -   Computer ist am Zug!");
             return;
@@ -133,6 +134,7 @@ public class Service implements AWTEventListener {
 
         playerCheck();
         tie = true;
+
         if (withComputer &&  activePlayer == 2) {
             computerTurn = false;
             computer();

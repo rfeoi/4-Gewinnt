@@ -27,7 +27,7 @@ class Fields extends JPanel {
         System.out.println("Fields Start;   ");
         for(int y = 0; y<rows; y++){
             for(int x = 0; x<columns; x++){
-                fields[x][y] = new JButton(/*x + "," + y*/);
+                fields[x][y] = new JButton(x + "," + y);
                 this.add(fields[x][y]);
                 fields[x][y].setBackground(Color.WHITE);
                 fields[x][y].setOpaque(true);
