@@ -8,7 +8,6 @@
   <component name="ChangeListManager">
     <list default="true" id="2a3aadb8-d888-471d-b29a-9482ca0217bd" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/de/robmroi/fourWins/Fields.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/de/robmroi/fourWins/Fields.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/de/robmroi/fourWins/Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/de/robmroi/fourWins/Service.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -24,8 +23,8 @@
       <file leaf-file-name="Fields.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/de/robmroi/fourWins/Fields.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="278">
-              <caret line="23" column="5" lean-forward="true" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
+            <state relative-caret-position="-11">
+              <caret line="48" column="14" selection-start-line="48" selection-start-column="14" selection-end-line="48" selection-end-column="14" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -36,11 +35,11 @@
       <file leaf-file-name="Service.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/de/robmroi/fourWins/Service.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="320">
-              <caret line="307" column="30" lean-forward="true" selection-start-line="307" selection-start-column="30" selection-end-line="307" selection-end-column="30" />
+            <state relative-caret-position="580">
+              <caret line="87" column="34" selection-start-line="87" selection-start-column="34" selection-end-line="87" selection-end-column="34" />
               <folding>
-                <element signature="e#9486#9487#0" expanded="true" />
-                <element signature="e#9549#9550#0" expanded="true" />
+                <element signature="e#9605#9606#0" expanded="true" />
+                <element signature="e#9668#9669#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -49,8 +48,8 @@
       <file leaf-file-name="computer.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/de/robmroi/fourWins/computer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="263">
-              <caret line="183" column="38" selection-start-line="183" selection-start-column="21" selection-end-line="183" selection-end-column="38" />
+            <state relative-caret-position="2131">
+              <caret line="184" column="16" lean-forward="true" selection-start-line="184" selection-start-column="16" selection-end-line="184" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -265,7 +264,7 @@
       <workItem from="1532455301572" duration="52000" />
       <workItem from="1532457604346" duration="163000" />
       <workItem from="1532557504066" duration="87000" />
-      <workItem from="1532598096186" duration="1490000" />
+      <workItem from="1532598096186" duration="2774000" />
     </task>
     <task id="LOCAL-00001" summary="Added 2D Arrays, not finished yet. Will be finished (and working) soon!">
       <created>1517855324106</created>
@@ -456,11 +455,18 @@
       <option name="project" value="LOCAL" />
       <updated>1532599397552</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="When you press &quot;K&quot; the upper row shows you in what column you would set your block in if you press number X. After the turn the displayed numbers disappear again.">
+      <created>1532600192922</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1532600192922</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="115275000" />
+    <option name="totallyTimeSpent" value="116559000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1440" height="878" extended-state="0" />
@@ -503,7 +509,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added computer class!" />
     <MESSAGE value="2D Array completed; 1D Array deleted;" />
     <MESSAGE value="Added computer class, is not working yet -&gt; will do it tomorrow" />
     <MESSAGE value="Computer class (random) works now. Rmoved button row and you can click anywhere now. It is easier to understand/play. The name of the JPanel changes now (player 1 turn, the name of the JPanel includes Player 1). This didn't work until now. Next Up I will do the animation." />
@@ -528,7 +533,8 @@
     <MESSAGE value="Test if I can commit" />
     <MESSAGE value="Test if I can push.&#10;(There was an problem with my mail (it was private))" />
     <MESSAGE value="Now you can play with keys, even if the field has more columns.&#10;You simply press &quot;K&quot; then a popup appears and you type in the number. Then you simply press Enter and your block is set." />
-    <option name="LAST_COMMIT_MESSAGE" value="Now you can play with keys, even if the field has more columns.&#10;You simply press &quot;K&quot; then a popup appears and you type in the number. Then you simply press Enter and your block is set." />
+    <MESSAGE value="When you press &quot;K&quot; the upper row shows you in what column you would set your block in if you press number X. After the turn the displayed numbers disappear again." />
+    <option name="LAST_COMMIT_MESSAGE" value="When you press &quot;K&quot; the upper row shows you in what column you would set your block in if you press number X. After the turn the displayed numbers disappear again." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -862,15 +868,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/de/robmroi/fourWins/computer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="263">
-          <caret line="183" column="38" selection-start-line="183" selection-start-column="21" selection-end-line="183" selection-end-column="38" />
+        <state relative-caret-position="2131">
+          <caret line="184" column="16" lean-forward="true" selection-start-line="184" selection-start-column="16" selection-end-line="184" selection-end-column="16" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/de/robmroi/fourWins/Fields.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="278">
-          <caret line="23" column="5" lean-forward="true" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
+        <state relative-caret-position="-11">
+          <caret line="48" column="14" selection-start-line="48" selection-start-column="14" selection-end-line="48" selection-end-column="14" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -879,11 +885,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/de/robmroi/fourWins/Service.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="307" column="30" lean-forward="true" selection-start-line="307" selection-start-column="30" selection-end-line="307" selection-end-column="30" />
+        <state relative-caret-position="580">
+          <caret line="87" column="34" selection-start-line="87" selection-start-column="34" selection-end-line="87" selection-end-column="34" />
           <folding>
-            <element signature="e#9486#9487#0" expanded="true" />
-            <element signature="e#9549#9550#0" expanded="true" />
+            <element signature="e#9605#9606#0" expanded="true" />
+            <element signature="e#9668#9669#0" expanded="true" />
           </folding>
         </state>
       </provider>

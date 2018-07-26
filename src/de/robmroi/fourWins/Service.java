@@ -40,8 +40,10 @@ public class Service implements AWTEventListener {
     void preStart() {
         //preperates the game for beeing started, only used once
         System.out.print("preStart;   ");
-        rows = 6;  // top to bottom (6 is default)
-        columns = 7; // left to right (7 is default)
+        if (!rAndC()) {
+            rows = 6;  // top to bottom (6 is default)
+            columns = 7; // left to right (7 is default)
+        }
         waitMilis = 1;
         //sets the size of the field, depending on the resolution of the screen
         double size = 20;
@@ -66,7 +68,27 @@ public class Service implements AWTEventListener {
         isStarted = true;
     }
 
-
+    private boolean rAndC() {
+        String eingabe = JOptionPane.showInputDialog("Geben Sie bitte die Reihen (Horizontal) ein.\n" +
+                "Wenn Sie mit den normalen Einstellungen Spielen wollen (6*7), drücken Sie Enter.\n" +
+                "Minimum: 5*5, Maximum: 20*20");
+        try {
+            rows = Integer.parseInt(eingabe);
+        } catch (Exception ignored) {
+            return false;
+        }
+        if (rows < 5 || rows > 20) return false;
+        eingabe = JOptionPane.showInputDialog("Geben Sie bitte die Spalten (Vertikal) ein.\n" +
+                "Wenn Sie mit den normalen Einstellungen Spielen wollen (6*7), drücken Sie Enter.\n" +
+                "Minimum: 5*5, Maximum: 20*20");
+        try {
+            columns = Integer.parseInt(eingabe);
+        } catch (Exception ignored) {
+            return false;
+        }
+        if (columns < 5 || columns > 20) return false;
+        return true;
+    }
     private void start() {
         //is called every round, locates the frame and sets the variables to their defaults
         frame.setLocationRelativeTo(null);
