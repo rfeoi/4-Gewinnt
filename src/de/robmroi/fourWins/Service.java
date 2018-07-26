@@ -11,6 +11,9 @@ import static de.robmroi.fourWins.Startup.computer;
 The service class is the main class.
 90% of the actions are made in here (not the computer).
 */
+/* TODO
+* Keyboard Playing
+ */
 public class Service implements AWTEventListener {
     //creates all variables
     private int activePlayer, count;
@@ -37,8 +40,8 @@ public class Service implements AWTEventListener {
     void preStart() {
         //preperates the game for beeing started, only used once
         System.out.print("preStart;   ");
-        rows = 10;  // top to bottom (6 is default)
-        columns = 10; // left to right (7 is default)
+        rows = 6;  // top to bottom (6 is default)
+        columns = 7; // left to right (7 is default)
         waitMilis = 1;
         //sets the size of the field, depending on the resolution of the screen
         double size = 20;
@@ -59,7 +62,7 @@ public class Service implements AWTEventListener {
                 JOptionPane.YES_NO_OPTION,
                 JOptionPane.PLAIN_MESSAGE, null,
                 new String[]{"Gegen den Computer", "Gegen einen Spieler"}, "Gegen einen Spieler") == 0) withComputer = true;
-        */withComputer = true; // Only when you want to test the Computer
+        */withComputer = false; // Only when you want to test the Computer
         isStarted = true;
     }
 
@@ -297,14 +300,20 @@ public class Service implements AWTEventListener {
         int ID = event.getID();
         if (ID == KeyEvent.KEY_PRESSED) {
             if (!isStarted) return;
-                if (event.paramString().contains("keyCode=49")) fields.setField(0,true);
-                if (event.paramString().contains("keyCode=50")) fields.setField(1,true);
-                if (event.paramString().contains("keyCode=51")) fields.setField(2,true);
-                if (event.paramString().contains("keyCode=52")) fields.setField(3,true);
-                if (event.paramString().contains("keyCode=53")) fields.setField(4,true);
-                if (event.paramString().contains("keyCode=54")) fields.setField(5,true);
-                if (event.paramString().contains("keyCode=55")) fields.setField(6,true);
-                if (event.paramString().contains("keyCode=32")) fields.isSpacebar = true;
+            if (event.paramString().contains("keyCode=75")) keyPlaying();
+            if (event.paramString().contains("keyCode=32")) fields.isSpacebar = true;
         }
+    }
+
+    void keyPlaying(){
+         String eingabe = JOptionPane.showInputDialog("In welche Reihe wollen Sie setzen? (1-" + columns + ")");
+         int column;
+        try {
+             column = Integer.parseInt(eingabe);
+        } catch (Exception ignored) {
+            return;
+        }
+         if (column >columns || column <1) return;
+         fields.setField(column-1,true);
     }
 }

@@ -6,7 +6,10 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2a3aadb8-d888-471d-b29a-9482ca0217bd" name="Default" comment="" />
+    <list default="true" id="2a3aadb8-d888-471d-b29a-9482ca0217bd" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/de/robmroi/fourWins/Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/de/robmroi/fourWins/Service.java" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -17,14 +20,36 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Fields.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Fields.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/de/robmroi/fourWins/Fields.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="186">
-              <caret line="39" column="44" selection-start-line="39" selection-start-column="44" selection-end-line="39" selection-end-column="44" />
+            <state relative-caret-position="330">
+              <caret line="22" column="41" selection-start-line="22" selection-start-column="41" selection-end-line="22" selection-end-column="41" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Service.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/de/robmroi/fourWins/Service.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="394">
+              <caret line="309" column="19" selection-start-line="309" selection-start-column="19" selection-end-line="309" selection-end-column="19" />
+              <folding>
+                <element signature="e#9486#9487#0" expanded="true" />
+                <element signature="e#9549#9550#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="computer.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/de/robmroi/fourWins/computer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="263">
+              <caret line="183" column="38" selection-start-line="183" selection-start-column="21" selection-end-line="183" selection-end-column="38" />
             </state>
           </provider>
         </entry>
@@ -53,9 +78,9 @@
         <option value="$PROJECT_DIR$/src/de/robmroi/fourWins/Wait.java" />
         <option value="$PROJECT_DIR$/src/de/robmroi/fourWins/Startup.java" />
         <option value="$PROJECT_DIR$/src/de/robmroi/fourWins/Animations.java" />
-        <option value="$PROJECT_DIR$/src/de/robmroi/fourWins/Service.java" />
         <option value="$PROJECT_DIR$/src/de/robmroi/fourWins/Fields.java" />
         <option value="$PROJECT_DIR$/src/de/robmroi/fourWins/computer.java" />
+        <option value="$PROJECT_DIR$/src/de/robmroi/fourWins/Service.java" />
       </list>
     </option>
   </component>
@@ -80,19 +105,30 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
-      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
-              <item name="4-Gewinnt(o)" type="b2602c69:ProjectViewProjectNode" />
-              <item name="4-Gewinnt(o)" type="462c0819:PsiDirectoryNode" />
+              <item name="4-Gewinnt" type="b2602c69:ProjectViewProjectNode" />
+              <item name="4-Gewinnt" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="4-Gewinnt" type="b2602c69:ProjectViewProjectNode" />
+              <item name="4-Gewinnt" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="4-Gewinnt" type="b2602c69:ProjectViewProjectNode" />
+              <item name="4-Gewinnt" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="fourWins" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -227,6 +263,8 @@
       <workItem from="1532454028962" duration="66000" />
       <workItem from="1532455301572" duration="52000" />
       <workItem from="1532457604346" duration="163000" />
+      <workItem from="1532557504066" duration="87000" />
+      <workItem from="1532598096186" duration="916000" />
     </task>
     <task id="LOCAL-00001" summary="Added 2D Arrays, not finished yet. Will be finished (and working) soon!">
       <created>1517855324106</created>
@@ -403,14 +441,22 @@
       <option name="project" value="LOCAL" />
       <updated>1532457729267</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Test if I can push.&#10;(There was an problem with my mail (it was private))">
+      <created>1532557551311</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1532557551311</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="113698000" />
+    <option name="totallyTimeSpent" value="114701000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1440" height="878" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -422,7 +468,7 @@
       <window_info anchor="right" id="Maven Projects" order="3" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.2621212" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4988086" weight="0.24626866" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4988086" visible="true" weight="0.24626866" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.2530303" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
@@ -449,7 +495,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added 2D Arrays, not finished yet. Will be finished (and working) soon!" />
     <MESSAGE value="Only winCheck without 2DArray, small improvements, added Label whrer you can see wich player is active." />
     <MESSAGE value="Added computer class!" />
     <MESSAGE value="2D Array completed; 1D Array deleted;" />
@@ -474,7 +519,8 @@
     <MESSAGE value="By moving refreshTitle to Animations the current player is displayed correctly." />
     <MESSAGE value="Started with variable rows and columns (default 6*7), not working yet. When you want a working version play Release v2.1" />
     <MESSAGE value="Test if I can commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Test if I can commit" />
+    <MESSAGE value="Test if I can push.&#10;(There was an problem with my mail (it was private))" />
+    <option name="LAST_COMMIT_MESSAGE" value="Test if I can push.&#10;(There was an problem with my mail (it was private))" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -806,26 +852,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/de/robmroi/fourWins/Service.java">
+    <entry file="file://$PROJECT_DIR$/src/de/robmroi/fourWins/Fields.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-270">
-          <caret line="40" column="20" selection-start-line="40" selection-start-column="20" selection-end-line="40" selection-end-column="20" />
+        <state relative-caret-position="330">
+          <caret line="22" column="41" selection-start-line="22" selection-start-column="41" selection-end-line="22" selection-end-column="41" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/de/robmroi/fourWins/computer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-594">
-          <caret line="20" column="45" selection-start-line="20" selection-start-column="45" selection-end-line="20" selection-end-column="45" />
+        <state relative-caret-position="263">
+          <caret line="183" column="38" selection-start-line="183" selection-start-column="21" selection-end-line="183" selection-end-column="38" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/de/robmroi/fourWins/Fields.java">
+    <entry file="file://$PROJECT_DIR$/src/de/robmroi/fourWins/Service.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="39" column="44" selection-start-line="39" selection-start-column="44" selection-end-line="39" selection-end-column="44" />
+        <state relative-caret-position="394">
+          <caret line="309" column="19" selection-start-line="309" selection-start-column="19" selection-end-line="309" selection-end-column="19" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#9486#9487#0" expanded="true" />
+            <element signature="e#9549#9550#0" expanded="true" />
           </folding>
         </state>
       </provider>
