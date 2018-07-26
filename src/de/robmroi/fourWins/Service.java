@@ -305,15 +305,17 @@ public class Service implements AWTEventListener {
         }
     }
 
-    void keyPlaying(){
-         String eingabe = JOptionPane.showInputDialog("In welche Reihe wollen Sie setzen? (1-" + columns + ")");
-         int column;
+    private void keyPlaying(){
+        for (int x=0;x<columns;x++) fields.fields[x][0].setText("" + (x+1));
+        String eingabe = JOptionPane.showInputDialog("In welche Reihe wollen Sie setzen?");
+        int column;
         try {
              column = Integer.parseInt(eingabe);
         } catch (Exception ignored) {
             return;
         }
-         if (column >columns || column <1) return;
-         fields.setField(column-1,true);
+        if (column >columns || column <1) return;
+        fields.setField(column-1,true);
+        for (int x=0;x<columns;x++) fields.fields[x][0].setText("");
     }
 }
