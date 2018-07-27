@@ -32,7 +32,7 @@ class Fields extends JPanel {
                 fields[x][y].setOpaque(true);
                 fields[x][y].setBorderPainted(false);
                 fields[x][y].addActionListener(actionListener);
-                //fields[x][y].setText(x + "," + y);
+                if (service.testmode) fields[x][y].setText(x + "," + y);
             }
         }
     }
@@ -59,7 +59,7 @@ class Fields extends JPanel {
     boolean setField(int row, boolean correctButton){
         if (!correctButton) {
             try {
-                Thread.sleep(10);
+                Thread.sleep(1);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

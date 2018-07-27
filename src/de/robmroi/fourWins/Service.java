@@ -9,13 +9,17 @@ import static de.robmroi.fourWins.Startup.computer;
 
 /*
 The service class is the main class.
-90% of the actions are made in here (not the computer).
+90% of the actions are made in here (except the computer).
 */
 /* TODO
-* Keyboard Playing
+* Display numbers instead of ...
+* Code optimisation
+* code documentation
+* fix the computer
  */
 public class Service implements AWTEventListener {
     //creates all variables
+    boolean testmode;
     private int activePlayer, count;
     private boolean win, tie, winOutput, isStarted;
     static int[][] places;
@@ -40,11 +44,41 @@ public class Service implements AWTEventListener {
     void preStart() {
         //preperates the game for beeing started, only used once
         System.out.print("preStart;   ");
+        waitMilis = 1;
+        isStarted = false;
+
+        testmode = false;//if this is true, you will not be asked about anything
+        if (testmode) {
+            itsATest();
+            start();
+            isStarted = true;
+            return;
+        }
+        //sets the amount of rows and columns used
         if (!rAndC()) {
             rows = 6;  // top to bottom (6 is default)
             columns = 7; // left to right (7 is default)
         }
-        waitMilis = 1;
+        //creates the Frame
+        setFrame();
+        start();
+        // it asks you whether you want to play against the computer or not
+        if(JOptionPane.showOptionDialog(null, "Gegen wen wollen Sie spielen?","Spielmodus",
+                JOptionPane.YES_NO_OPTION,
+                JOptionPane.PLAIN_MESSAGE, null,
+                new String[]{"Gegen den Computer", "Gegen einen Spieler"}, "Gegen einen Spieler") == 0) withComputer = true;
+        //withComputer = true; // Only when you want to test the Computer
+        isStarted = true;
+    }
+
+    void itsATest(){
+        rows = 6;
+        columns = 7;
+        withComputer = true;
+        setFrame();
+    }
+
+    void setFrame(){
         //sets the size of the field, depending on the resolution of the screen
         double size = 20;
         double maxWidthDouble = Math.sqrt(maxWidth);
@@ -52,22 +86,12 @@ public class Service implements AWTEventListener {
         double heightDouble = (maxWidthDouble / columns) * size * Math.sqrt(rows*columns);
         width = (int) widthDouble;
         height = (int) heightDouble;
-        isStarted = false;
         //frame settings
         frame = new JFrame();
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.setMinimumSize(new Dimension(width/3,height/3));
         frame.setBackground(new Color(255, 255, 255));
-        start();
-        // it asks you whether you want to play against the computer or not
-        /*if(JOptionPane.showOptionDialog(null, "Gegen wen wollen Sie spielen?","Spielmodus",
-                JOptionPane.YES_NO_OPTION,
-                JOptionPane.PLAIN_MESSAGE, null,
-                new String[]{"Gegen den Computer", "Gegen einen Spieler"}, "Gegen einen Spieler") == 0) withComputer = true;
-        */withComputer = true; // Only when you want to test the Computer
-        isStarted = true;
     }
-
     private boolean rAndC() {
         String eingabe = JOptionPane.showInputDialog("Geben Sie bitte die Reihen (Horizontal) ein.\n" +
                 "Wenn Sie mit den normalen Einstellungen Spielen wollen (6*7), drücken Sie Enter.\n" +
@@ -327,7 +351,7 @@ public class Service implements AWTEventListener {
     }
 
     private void keyPlaying(){
-        for (int x=0;x<columns;x++) fields.fields[x][0].setText("" + (x+1));
+        if (!testmode) for (int x=0;x<columns;x++) fields.fields[x][0].setText("" + (x+1));
         String eingabe = JOptionPane.showInputDialog("In welche Reihe wollen Sie setzen?");
         int column;
         try {
@@ -337,6 +361,6 @@ public class Service implements AWTEventListener {
         }
         if (column >columns || column <1) return;
         fields.setField(column-1,true);
-        for (int x=0;x<columns;x++) fields.fields[x][0].setText("");
+        if (!testmode) for (int x=0;x<columns;x++) fields.fields[x][0].setText("");
     }
 }
