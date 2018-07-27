@@ -8,6 +8,7 @@
   <component name="ChangeListManager">
     <list default="true" id="2a3aadb8-d888-471d-b29a-9482ca0217bd" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/de/robmroi/fourWins/Fields.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/de/robmroi/fourWins/Fields.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/de/robmroi/fourWins/Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/de/robmroi/fourWins/Service.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -20,11 +21,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Fields.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Fields.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/de/robmroi/fourWins/Fields.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-11">
-              <caret line="48" column="14" selection-start-line="48" selection-start-column="14" selection-end-line="48" selection-end-column="14" />
+            <state relative-caret-position="246">
+              <caret line="21" column="57" selection-start-line="21" selection-start-column="57" selection-end-line="21" selection-end-column="57" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -32,15 +33,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Service.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Service.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/de/robmroi/fourWins/Service.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="580">
-              <caret line="87" column="34" selection-start-line="87" selection-start-column="34" selection-end-line="87" selection-end-column="34" />
-              <folding>
-                <element signature="e#9605#9606#0" expanded="true" />
-                <element signature="e#9668#9669#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="930">
+              <caret line="66" column="29" selection-start-line="66" selection-start-column="29" selection-end-line="66" selection-end-column="29" />
             </state>
           </provider>
         </entry>
@@ -48,8 +45,8 @@
       <file leaf-file-name="computer.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/de/robmroi/fourWins/computer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2131">
-              <caret line="184" column="16" lean-forward="true" selection-start-line="184" selection-start-column="16" selection-end-line="184" selection-end-column="16" />
+            <state relative-caret-position="2760">
+              <caret line="184" column="16" selection-start-line="184" selection-start-column="16" selection-end-line="184" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -79,8 +76,8 @@
         <option value="$PROJECT_DIR$/src/de/robmroi/fourWins/Startup.java" />
         <option value="$PROJECT_DIR$/src/de/robmroi/fourWins/Animations.java" />
         <option value="$PROJECT_DIR$/src/de/robmroi/fourWins/computer.java" />
-        <option value="$PROJECT_DIR$/src/de/robmroi/fourWins/Fields.java" />
         <option value="$PROJECT_DIR$/src/de/robmroi/fourWins/Service.java" />
+        <option value="$PROJECT_DIR$/src/de/robmroi/fourWins/Fields.java" />
       </list>
     </option>
   </component>
@@ -104,7 +101,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -127,8 +125,7 @@
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView" />
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -138,7 +135,7 @@
     <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.15109573" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.language" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -264,7 +261,11 @@
       <workItem from="1532455301572" duration="52000" />
       <workItem from="1532457604346" duration="163000" />
       <workItem from="1532557504066" duration="87000" />
-      <workItem from="1532598096186" duration="2774000" />
+      <workItem from="1532598096186" duration="3187000" />
+      <workItem from="1532604808838" duration="177000" />
+      <workItem from="1532607740053" duration="322000" />
+      <workItem from="1532638464003" duration="442000" />
+      <workItem from="1532685722871" duration="266000" />
     </task>
     <task id="LOCAL-00001" summary="Added 2D Arrays, not finished yet. Will be finished (and working) soon!">
       <created>1517855324106</created>
@@ -462,11 +463,18 @@
       <option name="project" value="LOCAL" />
       <updated>1532600192922</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="When the game starts, you can choose how many rows and/or columns you want to have. Minimum:5*5,Maximum:20*20">
+      <created>1532601362364</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1532601362364</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="116559000" />
+    <option name="totallyTimeSpent" value="118179000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1440" height="878" extended-state="0" />
@@ -509,7 +517,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="2D Array completed; 1D Array deleted;" />
     <MESSAGE value="Added computer class, is not working yet -&gt; will do it tomorrow" />
     <MESSAGE value="Computer class (random) works now. Rmoved button row and you can click anywhere now. It is easier to understand/play. The name of the JPanel changes now (player 1 turn, the name of the JPanel includes Player 1). This didn't work until now. Next Up I will do the animation." />
     <MESSAGE value="Test for Github bot" />
@@ -534,7 +541,8 @@
     <MESSAGE value="Test if I can push.&#10;(There was an problem with my mail (it was private))" />
     <MESSAGE value="Now you can play with keys, even if the field has more columns.&#10;You simply press &quot;K&quot; then a popup appears and you type in the number. Then you simply press Enter and your block is set." />
     <MESSAGE value="When you press &quot;K&quot; the upper row shows you in what column you would set your block in if you press number X. After the turn the displayed numbers disappear again." />
-    <option name="LAST_COMMIT_MESSAGE" value="When you press &quot;K&quot; the upper row shows you in what column you would set your block in if you press number X. After the turn the displayed numbers disappear again." />
+    <MESSAGE value="When the game starts, you can choose how many rows and/or columns you want to have. Minimum:5*5,Maximum:20*20" />
+    <option name="LAST_COMMIT_MESSAGE" value="When the game starts, you can choose how many rows and/or columns you want to have. Minimum:5*5,Maximum:20*20" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -868,28 +876,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/de/robmroi/fourWins/computer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2131">
-          <caret line="184" column="16" lean-forward="true" selection-start-line="184" selection-start-column="16" selection-end-line="184" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/de/robmroi/fourWins/Fields.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-11">
-          <caret line="48" column="14" selection-start-line="48" selection-start-column="14" selection-end-line="48" selection-end-column="14" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="2760">
+          <caret line="184" column="16" selection-start-line="184" selection-start-column="16" selection-end-line="184" selection-end-column="16" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/de/robmroi/fourWins/Service.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="580">
-          <caret line="87" column="34" selection-start-line="87" selection-start-column="34" selection-end-line="87" selection-end-column="34" />
+        <state relative-caret-position="930">
+          <caret line="66" column="29" selection-start-line="66" selection-start-column="29" selection-end-line="66" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/de/robmroi/fourWins/Fields.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="246">
+          <caret line="21" column="57" selection-start-line="21" selection-start-column="57" selection-end-line="21" selection-end-column="57" />
           <folding>
-            <element signature="e#9605#9606#0" expanded="true" />
-            <element signature="e#9668#9669#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

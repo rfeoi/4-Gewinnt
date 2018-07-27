@@ -64,7 +64,7 @@ public class Service implements AWTEventListener {
                 JOptionPane.YES_NO_OPTION,
                 JOptionPane.PLAIN_MESSAGE, null,
                 new String[]{"Gegen den Computer", "Gegen einen Spieler"}, "Gegen einen Spieler") == 0) withComputer = true;
-        */withComputer = false; // Only when you want to test the Computer
+        */withComputer = true; // Only when you want to test the Computer
         isStarted = true;
     }
 
@@ -86,8 +86,7 @@ public class Service implements AWTEventListener {
         } catch (Exception ignored) {
             return false;
         }
-        if (columns < 5 || columns > 20) return false;
-        return true;
+        return columns >= 5 && columns <= 20;
     }
     private void start() {
         //is called every round, locates the frame and sets the variables to their defaults

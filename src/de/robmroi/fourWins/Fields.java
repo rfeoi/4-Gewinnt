@@ -19,7 +19,7 @@ class Fields extends JPanel {
         columns = Service.columns;
         fields = new JButton[columns][rows];
         count = new int[columns];
-        this.setLayout(new GridLayout(rows, columns, 10, 10));
+        this.setLayout(new GridLayout(rows, columns, 1, 1));
     }
 
     void start(){
