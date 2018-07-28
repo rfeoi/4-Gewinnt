@@ -16,6 +16,7 @@ The service class is the main class.
 * Code optimisation
 * code documentation
 * fix the computer
+* fix rows and columns
  */
 public class Service implements AWTEventListener {
     //creates all variables
@@ -93,7 +94,7 @@ public class Service implements AWTEventListener {
         frame.setBackground(new Color(255, 255, 255));
     }
     private boolean rAndC() {
-        String eingabe = JOptionPane.showInputDialog("Geben Sie bitte die Reihen (Horizontal) ein.\n" +
+        String eingabe = JOptionPane.showInputDialog("Geben Sie bitte die Zeilen (Horizontal) ein.\n" +
                 "Wenn Sie mit den normalen Einstellungen Spielen wollen (6*7), drücken Sie Enter.\n" +
                 "Minimum: 5*5, Maximum: 20*20");
         try {
