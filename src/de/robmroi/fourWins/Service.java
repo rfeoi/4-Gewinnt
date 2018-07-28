@@ -12,11 +12,10 @@ The service class is the main class.
 90% of the actions are made in here (except the computer).
 */
 /* TODO
-* Display numbers instead of ...
 * Code optimisation
 * code documentation
 * fix the computer
-* fix rows and columns
+* fix which fields are painted when you win
  */
 public class Service implements AWTEventListener {
     //creates all variables
@@ -33,7 +32,7 @@ public class Service implements AWTEventListener {
     //Resolution
     private int maxWidth = Toolkit.getDefaultToolkit().getScreenSize().width;
     private int width, height;
-    static int rows, columns;
+    static int columns, rows;
 
     Service() {
         //detects if a key is pressed
@@ -55,10 +54,11 @@ public class Service implements AWTEventListener {
             isStarted = true;
             return;
         }
-        //sets the amount of rows and columns used
+        //sets the amount of columns and rows used
         if (!rAndC()) {
-            rows = 6;  // top to bottom (6 is default)
-            columns = 7; // left to right (7 is default)
+            columns = 6;  // top to bottom (vertically) (6 is default)
+            rows = 7; // left to right (horizontally) (7 is default)
+            //rows run vertically while columns run horizontally
         }
         //creates the Frame
         setFrame();
@@ -73,8 +73,8 @@ public class Service implements AWTEventListener {
     }
 
     void itsATest(){
-        rows = 6;
-        columns = 7;
+        columns = 6;
+        rows = 20;
         withComputer = true;
         setFrame();
     }
@@ -83,8 +83,8 @@ public class Service implements AWTEventListener {
         //sets the size of the field, depending on the resolution of the screen
         double size = 20;
         double maxWidthDouble = Math.sqrt(maxWidth);
-        double widthDouble = (maxWidthDouble / rows) * size * Math.sqrt(rows*columns);
-        double heightDouble = (maxWidthDouble / columns) * size * Math.sqrt(rows*columns);
+        double widthDouble = (maxWidthDouble / columns) * size * Math.sqrt(columns * rows);
+        double heightDouble = (maxWidthDouble / rows) * size * Math.sqrt(columns * rows);
         width = (int) widthDouble;
         height = (int) heightDouble;
         //frame settings
@@ -118,9 +118,9 @@ public class Service implements AWTEventListener {
         frame.setLocationRelativeTo(null);
         System.out.print("Start;   ");
         fields = new Fields();
-        places = new int[columns][rows];
-        for(int x = 0; x< columns; x++){
-            for(int y = 0; y<rows; y++){
+        places = new int[rows][columns];
+        for(int x = 0; x< rows; x++){
+            for(int y = 0; y< columns; y++){
                 places[x][y] = 0;
             }
         }
@@ -157,7 +157,7 @@ public class Service implements AWTEventListener {
         }
     }
     void game(int rowX){
-        for (int y = rows-1; y>=0; y--){
+        for (int y = columns -1; y>=0; y--){
             if (places[rowX][y] == 0){
                 places[rowX][y] = activePlayer;
                 setColor(rowX,y, activePlayer);
@@ -165,8 +165,8 @@ public class Service implements AWTEventListener {
             }
         }
 
-        for(int y = 0; y<rows; y++){
-            for(int x = 0; x< columns; x++){
+        for(int y = 0; y< columns; y++){
+            for(int x = 0; x< rows; x++){
                 if (places[x][y] == 0) tie = false;
             }
         }
@@ -204,8 +204,8 @@ public class Service implements AWTEventListener {
 
     private boolean winCheck(int player) {
         win = false;
-        for(int y = 0; y<rows; y++){
-            for(int x = 0; x< columns -3; x++){
+        for(int y = 0; y< columns; y++){
+            for(int x = 0; x< rows -3; x++){
                 if(places[x][y] == player && places[x+1][y] == player && places[x+2][y] == player && places[x+3][y] == player) {
                     win = true;
                     places[x][y] = player+2;
@@ -221,8 +221,8 @@ public class Service implements AWTEventListener {
             }
         }
 
-        for(int y = 0; y<rows-3; y++){
-            for(int x = 0; x< columns; x++){
+        for(int y = 0; y< columns -3; y++){
+            for(int x = 0; x< rows; x++){
                 if(places[x][y] == player && places[x][y+1] == player && places[x][y+2] == player && places[x][y+3] == player) {
                     win = true;
                     places[x][y] = player+2;
@@ -238,8 +238,8 @@ public class Service implements AWTEventListener {
             }
         }
 
-        for(int y = 0; y<rows-3; y++){
-            for(int x = 0; x< columns -3; x++){
+        for(int y = 0; y< columns -3; y++){
+            for(int x = 0; x< rows -3; x++){
                 if(places[x][y] == player && places[x+1][y+1] == player && places[x+2][y+2] == player && places[x+3][y+3] == player) {
                     win = true;
                     places[x][y] = player+2;
@@ -255,8 +255,8 @@ public class Service implements AWTEventListener {
             }
         }
 
-        for(int y = rows-1; y>2; y--){
-            for(int x = 0; x< columns -3; x++){
+        for(int y = columns -1; y>2; y--){
+            for(int x = 0; x< rows -3; x++){
                 if(places[x][y] == player && places[x+1][y-1] == player && places[x+2][y-2] == player && places[x+3][y-3] == player) {
                     win = true;
                     places[x][y] = player+2;
@@ -330,8 +330,8 @@ public class Service implements AWTEventListener {
     }
 
     void checkFields(){
-        for (int x = 0; x< columns; x++) {
-            for (int y = 0; y < rows; y++) {
+        for (int x = 0; x< rows; x++) {
+            for (int y = 0; y < columns; y++) {
                 for (int i = 1; i<=4; i++){
                     if (places[x][y] == i) setColorForField(x,y,i);
                 }
@@ -352,7 +352,7 @@ public class Service implements AWTEventListener {
     }
 
     private void keyPlaying(){
-        if (!testmode) for (int x=0;x<columns;x++) fields.fields[x][0].setText("" + (x+1));
+        if (!testmode) for (int x = 0; x< rows; x++) fields.fields[x][0].setText("" + (x+1));
         String eingabe = JOptionPane.showInputDialog("In welche Reihe wollen Sie setzen?");
         int column;
         try {
@@ -360,8 +360,8 @@ public class Service implements AWTEventListener {
         } catch (Exception ignored) {
             return;
         }
-        if (column >columns || column <1) return;
+        if (column > rows || column <1) return;
         fields.setField(column-1,true);
-        if (!testmode) for (int x=0;x<columns;x++) fields.fields[x][0].setText("");
+        if (!testmode) for (int x = 0; x< rows; x++) fields.fields[x][0].setText("");
     }
 }

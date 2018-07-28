@@ -14,19 +14,19 @@ import java.util.Random;
  */
 class computer {
     private int[][] fields;
-    private int count, rows, columns;
+    private int count, columns, rows;
 
     void preStart(){
-        rows = Service.rows; // top to bottom
-        columns = Service.columns; // left to right
-        fields = new int[columns][rows];
+        columns = Service.columns; // top to bottom (vertically)
+        rows = Service.rows; // left to right (horizontally)
+        fields = new int[rows][columns];
         System.out.print("computer preStart    ");
     }
     void start(){ count = 0; }
 
     int computerTurn(){
         fields = Service.places;
-        if (columns == 7 && count == 0){
+        if (rows == 7 && count == 0){
                 count = 1;
                 if (fields[3][5] == 0){
                     return 3;
@@ -58,10 +58,10 @@ class computer {
         fields = Service.places; // only for testing
         int test;
         // horizontal
-        for(int y = 0; y<columns-1; y++){
-            for(int x = 0; x<rows-1; x++){
+        for(int y = 0; y< rows -1; y++){
+            for(int x = 0; x< columns -1; x++){
                 if(fields[x][y] == player && fields[x+1][y] == player && fields[x+2][y] == player) {
-                    if (y== rows-1) {
+                    if (y== columns -1) {
                         test = tryThis(x+3,y,false,0);
                         if (test != -1)  return test;
                         test = tryThis(x-1,y,false,0);
@@ -76,8 +76,8 @@ class computer {
         }
 
         // vertical
-        for(int y = 0; y<columns-3; y++){
-            for(int x = 0; x<rows; x++){//rows+1
+        for(int y = 0; y< rows -3; y++){
+            for(int x = 0; x< columns; x++){//rows+1
                 if(fields[x][y] == player && fields[x][y+1] == player && fields[x][y+2] == player) {
                     test = tryThis(x,y-1,false,0);
                     if (test != -1)  return test;
@@ -86,9 +86,9 @@ class computer {
         }
 
         //diagonal up left -> bottom right
-        for(int y = 0; y<columns-3; y++){
+        for(int y = 0; y< rows -3; y++){
             System.out.println();
-            for(int x = 0; x<rows-1; x++){
+            for(int x = 0; x< columns -1; x++){
                 System.out.println("[" + x + "," + y + "][" + (x+1) + "," + (y+1) + "][" + (x+2) + "," + (y+2) + "]");
                 if(fields[x][y] == player && fields[x+1][y+1] == player && fields[x+2][y+2] == player) {
                     test = tryThis(x+3,y+3,false,0);
@@ -100,8 +100,8 @@ class computer {
         }
 
         //diagonal bottom left -> up right
-        for(int y = columns-2; y>1; y--){
-            for(int x = 0; x<rows-1; x++){
+        for(int y = rows -2; y>1; y--){
+            for(int x = 0; x< columns -1; x++){
                 if(fields[x][y] == player && fields[x+1][y-1] == player && fields[x+2][y-2] == player) {
                     test = tryThis(x+3,y-3,true,y-2);
                     if (test != -1)  return test;
@@ -117,11 +117,11 @@ class computer {
         fields = Service.places; // only for testing
         int test;
         // horizontal
-        for(int y = 0; y<columns-1; y++){
-            for(int x = 0; x<rows-1; x++){
+        for(int y = 0; y< rows -1; y++){
+            for(int x = 0; x< columns -1; x++){
                 //System.out.println("[" + x + "," + y + "][" + (x+1) + "," + y + "]");
                 if(fields[x][y] == player && fields[x+1][y] == player) {
-                    if (y== rows-1) {
+                    if (y== columns -1) {
                         test = tryThis(x+2,y,false,0);
                         if (test != -1)  return test;
                         test = tryThis(x-1,y,false,0);
@@ -136,8 +136,8 @@ class computer {
         }
 
         // vertical
-        for(int y = 0; y<columns-2; y++){
-            for(int x = 0; x<rows; x++){ //rows+1
+        for(int y = 0; y< rows -2; y++){
+            for(int x = 0; x< columns; x++){ //rows+1
                 //System.out.println("[" + x + "," + y + "][" + x + "," + (y+1) + "]");
                 if(fields[x][y] == player && fields[x][y+1] == player) {
                     test = tryThis(x,y-1,false,0);
@@ -147,8 +147,8 @@ class computer {
         }
 
         //diagonal up left -> bottom right
-        for(int y = 0; y<columns-2; y++){
-            for(int x = 0; x<rows; x++){
+        for(int y = 0; y< rows -2; y++){
+            for(int x = 0; x< columns; x++){
                 if(fields[x][y] == player && fields[x+1][y+1] == player) {
                     test = tryThis(x+2,y+2,false,0);
                     if (test != -1)  return test;
@@ -159,8 +159,8 @@ class computer {
         }
 
         //diagonal bottom left -> up right
-        for(int y = columns-2; y>0; y--){
-            for(int x = 0; x<rows-1; x++){
+        for(int y = rows -2; y>0; y--){
+            for(int x = 0; x< columns -1; x++){
                 //System.out.println("[" + x + "," + y + "][" + (x+1) + "," + (y-1) + "]");
                 if(fields[x][y] == player && fields[x+1][y-1] == player) {
                     test = tryThis(x+2,y-2,true,y-1);
@@ -203,19 +203,19 @@ class computer {
         first = false;
         second = false;
         third = false;
-        for (int x = 0; x<columns;x++){
-            for (int y = 0; y<rows; y++){
+        for (int x = 0; x< rows; x++){
+            for (int y = 0; y< columns; y++){
                 if (fields[x][y] == 2) random ++;
             }
         }
         random = createRandom(random-1) + 1;
-        for (int x = 0; x<columns;x++){
-            for (int y = 0; y<rows; y++){
+        for (int x = 0; x< rows; x++){
+            for (int y = 0; y< columns; y++){
                 if (fields[x][y] == 2) count ++;
                 if (count == random){
                     if (x!= 0){
                         if (fields[x-1][y] == 0) {
-                            if (y == rows-1) {
+                            if (y == columns -1) {
                                 range += 1;
                                 first = true;
                             } else if (fields[x-1][y+1] != 0) {
@@ -224,9 +224,9 @@ class computer {
                             }
                         }
                     }
-                    if (x!= columns){
+                    if (x!= rows){
                         if (fields[x+1][y] == 0) {
-                            if (y == rows-1) {
+                            if (y == columns -1) {
                                 range += 1;
                                 second = true;
                             } else if (fields[x+1][y+1] != 0) {

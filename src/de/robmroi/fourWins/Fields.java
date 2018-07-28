@@ -12,20 +12,20 @@ class Fields extends JPanel {
     JButton[][] fields;
     private int[] count;
     boolean isSpacebar = false;
-    private int rows, columns;
+    private int columns, rows;
     void preStart(){
         System.out.print("Fields preStart;   ");
-        rows = Service.rows;
-        columns = Service.columns;
-        fields = new JButton[columns][rows];
-        count = new int[columns];
-        this.setLayout(new GridLayout(rows, columns, 1, 1));
+        columns = Service.columns; //they run vertically
+        rows = Service.rows; //they run horizontally
+        fields = new JButton[rows][columns];
+        count = new int[rows];
+        this.setLayout(new GridLayout(columns, rows, 1, 1));
     }
 
     void start(){
         System.out.println("Fields Start;   ");
-        for(int y = 0; y<rows; y++){
-            for(int x = 0; x<columns; x++){
+        for(int y = 0; y< columns; y++){
+            for(int x = 0; x< rows; x++){
                 fields[x][y] = new JButton();
                 this.add(fields[x][y]);
                 fields[x][y].setBackground(Color.WHITE);
@@ -45,8 +45,8 @@ class Fields extends JPanel {
             setField(0, false);
             return;
         }
-        for(int y = 0; y<rows; y++){
-            for(int x = 0; x< columns; x++){
+        for(int y = 0; y< columns; y++){
+            for(int x = 0; x< rows; x++){
                 if (button == fields[x][y]){
                     setField(x, true);
                 }
@@ -71,7 +71,7 @@ class Fields extends JPanel {
         }
 
         boolean returnBool = false;
-        if (count[row] != rows) {
+        if (count[row] != columns) {
             count[row] += 1;
             service.game(row);
             returnBool = true;
