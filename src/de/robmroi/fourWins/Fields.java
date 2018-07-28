@@ -33,7 +33,7 @@ class Fields extends JPanel {
                 fields[x][y].setBorderPainted(false);
                 fields[x][y].addActionListener(actionListener);
                 fields[x][y].setFont(new Font("Arial", Font.PLAIN, 10));
-                if (service.testmode) fields[x][y].setText(x + "," + y);
+                if (service.testMode) fields[x][y].setText(x + "," + y);
             }
         }
     }

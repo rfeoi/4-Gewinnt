@@ -18,8 +18,10 @@ The service class is the main class.
 * fix which fields are painted when you win
  */
 public class Service implements AWTEventListener {
+    //if this is true, you will not be asked about anything
     //creates all variables
-    boolean testmode;
+    boolean testMode = false;
+
     private int activePlayer, count;
     private boolean win, tie, winOutput, isStarted;
     static int[][] places;
@@ -47,8 +49,7 @@ public class Service implements AWTEventListener {
         waitMilis = 1;
         isStarted = false;
 
-        testmode = false;//if this is true, you will not be asked about anything
-        if (testmode) {
+        if (testMode) {
             itsATest();
             start();
             isStarted = true;
@@ -72,14 +73,14 @@ public class Service implements AWTEventListener {
         isStarted = true;
     }
 
-    void itsATest(){
+    private void itsATest(){
         columns = 6;
         rows = 20;
         withComputer = true;
         setFrame();
     }
 
-    void setFrame(){
+    private void setFrame(){
         //sets the size of the field, depending on the resolution of the screen
         double size = 20;
         double maxWidthDouble = Math.sqrt(maxWidth);
@@ -352,7 +353,7 @@ public class Service implements AWTEventListener {
     }
 
     private void keyPlaying(){
-        if (!testmode) for (int x = 0; x< rows; x++) fields.fields[x][0].setText("" + (x+1));
+        if (!testMode) for (int x = 0; x< rows; x++) fields.fields[x][0].setText("" + (x+1));
         String eingabe = JOptionPane.showInputDialog("In welche Reihe wollen Sie setzen?");
         int column;
         try {
@@ -362,6 +363,6 @@ public class Service implements AWTEventListener {
         }
         if (column > rows || column <1) return;
         fields.setField(column-1,true);
-        if (!testmode) for (int x = 0; x< rows; x++) fields.fields[x][0].setText("");
+        if (!testMode) for (int x = 0; x< rows; x++) fields.fields[x][0].setText("");
     }
 }
