@@ -38,6 +38,7 @@ public class Service implements AWTEventListener {
 
     Service() {
         //detects if a key is pressed
+
         long eventMask = AWTEvent.KEY_EVENT_MASK;
         Toolkit toolkit = Toolkit.getDefaultToolkit();
         toolkit.addAWTEventListener(this, eventMask);
