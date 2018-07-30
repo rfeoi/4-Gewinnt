@@ -75,9 +75,9 @@ public class Service implements AWTEventListener {
     }
 
     private void itsATest(){
-        columns = 6;
-        rows = 20;
-        withComputer = true;
+        columns = 6; //6
+        rows = 7; //7
+        withComputer = false;
         setFrame();
     }
 
@@ -192,6 +192,7 @@ public class Service implements AWTEventListener {
         } else if (withComputer && activePlayer == 1){
             computerTurn = true;
         }
+        if (!testMode) for (int x = 0; x< rows; x++) fields.fields[x][0].setText("");
         //if (activePlayer == 2) System.out.println(computer.computerTurn()+1);//only for testing
     }
 
