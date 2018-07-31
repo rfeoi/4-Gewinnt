@@ -26,13 +26,12 @@ class computer {
 
     int computerTurn(){
         fields = Service.places;
-        if (rows == 7 && count == 0){
-                count = 1;
-                if (fields[3][5] == 0){
-                    return 3;
-                } else {
-                    return createRandom(2) + 2;
-                }
+
+        if (count == 0){
+            if ( (rows & 1) == 0) {
+                return (rows/2 + createRandom(2)-1);
+            }
+            else return (rows/2);
         }
 
         int field = threeField(2);

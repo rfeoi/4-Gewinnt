@@ -19,9 +19,8 @@ The service class is the main class.
  */
 public class Service implements AWTEventListener {
     //if this is true, you will not be asked about anything
+    boolean testMode = true;
     //creates all variables
-    boolean testMode = false;
-
     private int activePlayer, count;
     private boolean win, tie, winOutput, isStarted;
     static int[][] places;
@@ -38,20 +37,20 @@ public class Service implements AWTEventListener {
 
     Service() {
         //detects if a key is pressed
-
         long eventMask = AWTEvent.KEY_EVENT_MASK;
         Toolkit toolkit = Toolkit.getDefaultToolkit();
         toolkit.addAWTEventListener(this, eventMask);
     }
 
     void preStart() {
-        //preperates the game for beeing started, only used once
+        //preparates the game for beeing started, only used once
         System.out.print("preStart;   ");
         waitMilis = 1;
         isStarted = false;
 
         if (testMode) {
             itsATest();
+            setFrame();
             start();
             isStarted = true;
             return;
@@ -76,9 +75,8 @@ public class Service implements AWTEventListener {
 
     private void itsATest(){
         columns = 6; //6
-        rows = 7; //7
-        withComputer = false;
-        setFrame();
+        rows = 8; //7
+        withComputer = true;
     }
 
     private void setFrame(){
