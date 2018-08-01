@@ -28,7 +28,9 @@ class computer {
         fields = Service.places;
 
         if (count == 0){
+            count = 1;
             if ( (rows & 1) == 0) {
+
                 return (rows/2 + createRandom(2)-1);
             }
             else return (rows/2);
