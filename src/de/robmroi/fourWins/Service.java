@@ -75,8 +75,8 @@ public class Service implements AWTEventListener {
 
     private void itsATest(){
         columns = 6; //6
-        rows = 8; //7
-        withComputer = true;
+        rows = 7; //7
+        withComputer = false;
     }
 
     private void setFrame(){
@@ -324,7 +324,10 @@ public class Service implements AWTEventListener {
         if (color == 0) fields.fields[x][y].setBackground(Color.WHITE);
         if (color == 1) fields.fields[x][y].setBackground(Color.BLUE);
         if (color == 2) fields.fields[x][y].setBackground(Color.RED);
-        if (color == 3) fields.fields[x][y].setBackground(winBlue);
+        if (color == 3) {
+            System.out.println("Player 3 at (" + x + "/" + y + ")");
+            fields.fields[x][y].setBackground(winBlue);
+        }
         if (color == 4) fields.fields[x][y].setBackground(winRed);
         fields.fields[x][y].setOpaque(true);
         fields.fields[x][y].setBorderPainted(false);
@@ -333,7 +336,7 @@ public class Service implements AWTEventListener {
     void checkFields(){
         for (int x = 0; x< rows; x++) {
             for (int y = 0; y < columns; y++) {
-                for (int i = 1; i<=4; i++){
+                for (int i = 1; i<3; i++){
                     if (places[x][y] == i) setColorForField(x,y,i);
                 }
             }
