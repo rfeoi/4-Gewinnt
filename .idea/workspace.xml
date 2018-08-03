@@ -6,8 +6,9 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2a3aadb8-d888-471d-b29a-9482ca0217bd" name="Default" comment="optimized the code (made testmode -&gt; testMode; made two functions private">
+    <list default="true" id="2a3aadb8-d888-471d-b29a-9482ca0217bd" name="Default" comment="Started with fixing the issue. 1 Problem was the &quot;checkFields&quot; Method. It prevents flying blocks (when you play to fast) but is called to fast, so the other method doesn't work anymore. Now I have to fix the part with the unpainted winning fields.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/de/robmroi/fourWins/Fields.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/de/robmroi/fourWins/Fields.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/de/robmroi/fourWins/Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/de/robmroi/fourWins/Service.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -21,37 +22,42 @@
     <session id="-1502456687">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="4" />
+          <entry key="project.closed" value="13" />
           <entry key="project.open.time.1" value="1" />
+          <entry key="project.open.time.10" value="1" />
           <entry key="project.open.time.4" value="1" />
-          <entry key="project.open.time.6" value="2" />
-          <entry key="project.open.time.8" value="1" />
-          <entry key="project.opened" value="5" />
+          <entry key="project.open.time.6" value="3" />
+          <entry key="project.open.time.7" value="2" />
+          <entry key="project.open.time.8" value="4" />
+          <entry key="project.open.time.9" value="2" />
+          <entry key="project.opened" value="14" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="437" />
-          <entry key="txt" value="498" />
+          <entry key="java" value="1677" />
+          <entry key="txt" value="1350" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="437" />
-          <entry key="PLAIN_TEXT" value="498" />
+          <entry key="JAVA" value="1677" />
+          <entry key="PLAIN_TEXT" value="1350" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts" />
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="java" value="1" />
+          <entry key="java" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="1" />
+          <entry key="JAVA" value="4" />
         </counts>
       </usages-collector>
+      <usages-collector id="statistics.spring.boot.run.usages" />
+      <usages-collector id="statistics.spring.boot.mvc.usages" />
     </session>
   </component>
   <component name="FileEditorManager">
@@ -59,8 +65,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/de/robmroi/fourWins/Service.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="79">
-              <caret line="40" column="8" selection-start-line="40" selection-start-column="8" selection-end-line="40" selection-end-column="8" />
+            <state relative-caret-position="400">
+              <caret line="81" column="20" selection-start-line="81" selection-start-column="20" selection-end-line="81" selection-end-column="20" />
             </state>
           </provider>
         </entry>
@@ -68,20 +74,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/de/robmroi/fourWins/Fields.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="18" column="40" selection-start-line="18" selection-start-column="40" selection-end-line="18" selection-end-column="40" />
+            <state relative-caret-position="163">
+              <caret line="35" column="53" selection-start-line="35" selection-start-column="53" selection-end-line="35" selection-end-column="53" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/de/robmroi/fourWins/computer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="20" column="60" selection-start-line="20" selection-start-column="60" selection-end-line="20" selection-end-column="60" />
             </state>
           </provider>
         </entry>
@@ -109,8 +106,8 @@
       <list>
         <option value="$PROJECT_DIR$/src/de/robmroi/fourWins/Wait.java" />
         <option value="$PROJECT_DIR$/src/de/robmroi/fourWins/Startup.java" />
-        <option value="$PROJECT_DIR$/src/de/robmroi/fourWins/Animations.java" />
         <option value="$PROJECT_DIR$/src/de/robmroi/fourWins/computer.java" />
+        <option value="$PROJECT_DIR$/src/de/robmroi/fourWins/Animations.java" />
         <option value="$PROJECT_DIR$/src/de/robmroi/fourWins/Fields.java" />
         <option value="$PROJECT_DIR$/src/de/robmroi/fourWins/Service.java" />
       </list>
@@ -133,7 +130,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -156,14 +153,14 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1532801344461" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1533236232015" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.15109573" />
@@ -289,7 +286,16 @@
       <workItem from="1532786529454" duration="82000" />
       <workItem from="1532792821665" duration="1866000" />
       <workItem from="1532794847304" duration="2268000" />
-      <workItem from="1532801907486" duration="151000" />
+      <workItem from="1532801907486" duration="589000" />
+      <workItem from="1532883783662" duration="949000" />
+      <workItem from="1532954974674" duration="590000" />
+      <workItem from="1532959206532" duration="29000" />
+      <workItem from="1532961437667" duration="115000" />
+      <workItem from="1532966176442" duration="779000" />
+      <workItem from="1533054324718" duration="2613000" />
+      <workItem from="1533118709812" duration="661000" />
+      <workItem from="1533231657314" duration="2017000" />
+      <workItem from="1533240037807" duration="462000" />
     </task>
     <task id="LOCAL-00001" summary="Added 2D Arrays, not finished yet. Will be finished (and working) soon!">
       <created>1517855324106</created>
@@ -536,17 +542,52 @@
       <option name="project" value="LOCAL" />
       <updated>1532801407534</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="It's a test for Felixletsplay's github bot.">
+      <created>1532802800701</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1532802800701</updated>
+    </task>
+    <task id="LOCAL-00037" summary="Fixed a bug where the numbers you can still see the numbers when you exit the Keyplay Input Dialog. After your turn the numbers will disappear.">
+      <created>1532966770613</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1532966770613</updated>
+    </task>
+    <task id="LOCAL-00038" summary="made the first turn of the computer better. Now it always sets in the middle instead of only setting. in the middle when the width is 7">
+      <created>1533057009533</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1533057009534</updated>
+    </task>
+    <task id="LOCAL-00039" summary="fixed a bug that happens at the first turn of the computer.">
+      <created>1533119338542</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1533119338542</updated>
+    </task>
+    <task id="LOCAL-00040" summary="Started with fixing the issue. 1 Problem was the &quot;checkFields&quot; Method. It prevents flying blocks (when you play to fast) but is called to fast, so the other method doesn't work anymore. Now I have to fix the part with the unpainted winning fields. Caution: Now there are lines of codes in here that are only for testing, I will remove them when the issue is closed.">
+      <created>1533236207452</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1533236207452</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="125406000" />
+    <option name="totallyTimeSpent" value="134059000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1440" height="878" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16595136" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18526466" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -555,7 +596,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32951653" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49785408" weight="0.24554707" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49785408" visible="true" weight="0.3167939" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -583,11 +624,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="The frame is in the center from the screen now. When player x wins, the winFields are now orange/lightblue and the frame is at y=0." />
-    <MESSAGE value="Plan for computer class, started Computer -&gt; still random, no fieldChecks yet" />
-    <MESSAGE value="When you win twice, both are colored now." />
-    <MESSAGE value="Small code improvements, not working" />
-    <MESSAGE value="Animation works now Completely." />
     <MESSAGE value="Fixed Animation (made it faster) and the game works completely with keys. Previously when you pressed space, the game recognized it as a button press, this is fixed now." />
     <MESSAGE value="The animation works correctly now. The computer waits, so there is no bug (Computer field was displayed white instead of read)." />
     <MESSAGE value="Made the frame bigger, so you can see it better on small screens." />
@@ -608,46 +644,51 @@
     <MESSAGE value="Made the font from the buttons smaller, so when you play with keys you can display more numbers instead of &quot;...&quot;. Still doesn't work when you play 20*20 but does work when you play 20*10. Tested on a 13&quot; device. Should work completely on larger devices." />
     <MESSAGE value="Fixed the issue with rows and columns. (I mislabeled them so the rows were the columns and the columns were the rows." />
     <MESSAGE value="optimized the code (made testmode -&gt; testMode; made two functions private" />
-    <option name="LAST_COMMIT_MESSAGE" value="optimized the code (made testmode -&gt; testMode; made two functions private" />
+    <MESSAGE value="It's a test for Felixletsplay's github bot." />
+    <MESSAGE value="Fixed a bug where the numbers you can still see the numbers when you exit the Keyplay Input Dialog. After your turn the numbers will disappear." />
+    <MESSAGE value="made the first turn of the computer better. Now it always sets in the middle instead of only setting. in the middle when the width is 7" />
+    <MESSAGE value="fixed a bug that happens at the first turn of the computer." />
+    <MESSAGE value="Started with fixing the issue. 1 Problem was the &quot;checkFields&quot; Method. It prevents flying blocks (when you play to fast) but is called to fast, so the other method doesn't work anymore. Now I have to fix the part with the unpainted winning fields. Caution: Now there are lines of codes in here that are only for testing, I will remove them when the issue is closed." />
+    <option name="LAST_COMMIT_MESSAGE" value="Started with fixing the issue. 1 Problem was the &quot;checkFields&quot; Method. It prevents flying blocks (when you play to fast) but is called to fast, so the other method doesn't work anymore. Now I have to fix the part with the unpainted winning fields. Caution: Now there are lines of codes in here that are only for testing, I will remove them when the issue is closed." />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/de/robmroi/fourWins/Wait.java" />
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-9.0.1.jdk/Contents/Home/lib/src.zip!/java.base/java/lang/Thread.java" />
     <entry file="file://$PROJECT_DIR$/src/de/robmroi/fourWins/Startup.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="41" selection-start-line="11" selection-start-column="41" selection-end-line="11" selection-end-column="41" />
+        <state relative-caret-position="105">
+          <caret line="7" column="34" selection-start-line="7" selection-start-column="34" selection-end-line="7" selection-end-column="34" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/de/robmroi/fourWins/Animations.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="780">
-          <caret line="52" selection-start-line="52" selection-end-line="52" />
+        <state relative-caret-position="315">
+          <caret line="21" selection-start-line="21" selection-end-line="21" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/de/robmroi/fourWins/Service.java">
+    <entry file="file://$PROJECT_DIR$/src/de/robmroi/fourWins/computer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="79">
-          <caret line="40" column="8" selection-start-line="40" selection-start-column="8" selection-end-line="40" selection-end-column="8" />
+        <state relative-caret-position="366">
+          <caret line="30" column="22" selection-start-line="30" selection-start-column="22" selection-end-line="30" selection-end-column="22" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/de/robmroi/fourWins/Fields.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="18" column="40" selection-start-line="18" selection-start-column="40" selection-end-line="18" selection-end-column="40" />
+        <state relative-caret-position="163">
+          <caret line="35" column="53" selection-start-line="35" selection-start-column="53" selection-end-line="35" selection-end-column="53" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/de/robmroi/fourWins/computer.java">
+    <entry file="file://$PROJECT_DIR$/src/de/robmroi/fourWins/Service.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="60" selection-start-line="20" selection-start-column="60" selection-end-line="20" selection-end-column="60" />
+        <state relative-caret-position="400">
+          <caret line="81" column="20" selection-start-line="81" selection-start-column="20" selection-end-line="81" selection-end-column="20" />
         </state>
       </provider>
     </entry>

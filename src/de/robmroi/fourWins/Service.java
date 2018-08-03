@@ -21,6 +21,7 @@ public class Service implements AWTEventListener {
     //if this is true, you will not be asked about anything
     boolean testMode = true;
     //creates all variables
+    boolean label;
     private int activePlayer, count;
     private boolean win, tie, winOutput, isStarted;
     static int[][] places;
@@ -47,6 +48,7 @@ public class Service implements AWTEventListener {
         System.out.print("preStart;   ");
         waitMilis = 1;
         isStarted = false;
+        label = false;
 
         if (testMode) {
             itsATest();
@@ -77,6 +79,7 @@ public class Service implements AWTEventListener {
         columns = 6; //6
         rows = 7; //7
         withComputer = false;
+        label = true;
     }
 
     private void setFrame(){
@@ -190,7 +193,7 @@ public class Service implements AWTEventListener {
         } else if (withComputer && activePlayer == 1){
             computerTurn = true;
         }
-        if (!testMode) for (int x = 0; x< rows; x++) fields.fields[x][0].setText("");
+        if (!label) for (int x = 0; x< rows; x++) fields.fields[x][0].setText("");
         //if (activePlayer == 2) System.out.println(computer.computerTurn()+1);//only for testing
     }
 
@@ -356,7 +359,7 @@ public class Service implements AWTEventListener {
     }
 
     private void keyPlaying(){
-        if (!testMode) for (int x = 0; x< rows; x++) fields.fields[x][0].setText("" + (x+1));
+        if (!label) for (int x = 0; x< rows; x++) fields.fields[x][0].setText("" + (x+1));
         String eingabe = JOptionPane.showInputDialog("In welche Reihe wollen Sie setzen?");
         int column;
         try {
@@ -366,6 +369,6 @@ public class Service implements AWTEventListener {
         }
         if (column > rows || column <1) return;
         fields.setField(column-1,true);
-        if (!testMode) for (int x = 0; x< rows; x++) fields.fields[x][0].setText("");
+        if (!label) for (int x = 0; x< rows; x++) fields.fields[x][0].setText("");
     }
 }
