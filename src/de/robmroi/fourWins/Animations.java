@@ -19,10 +19,7 @@ public class Animations implements Runnable {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            if (player == 3) {
-                System.out.println("Calls Player 3 at (" + x + "/" + y + ")");
-                service.setColorForField(x, y, 3);
-            }
+            if (player == 3) service.setColorForField(x, y, 3);
             if (player == 4) service.setColorForField(x, y, 4);
         } else {
             while (service.animation) {
