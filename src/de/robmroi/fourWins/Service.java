@@ -193,7 +193,6 @@ public class Service implements AWTEventListener {
         } else if (withComputer && activePlayer == 1){
             computerTurn = true;
         }
-        if (!label) for (int x = 0; x< rows; x++) fields.fields[x][0].setText("");
         //if (activePlayer == 2) System.out.println(computer.computerTurn()+1);//only for testing
     }
 
@@ -365,6 +364,7 @@ public class Service implements AWTEventListener {
         try {
              column = Integer.parseInt(eingabe);
         } catch (Exception ignored) {
+            if (!label) for (int x = 0; x< rows; x++) fields.fields[x][0].setText("");
             return;
         }
         if (column > rows || column <1) return;
