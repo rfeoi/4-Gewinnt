@@ -17,13 +17,13 @@ The service class is the main class.
 * fix the computer
 */
 public class Service implements AWTEventListener {
-    boolean testMode = true;
+    boolean testMode = false;
     //creates all variables
     boolean label;
     private int activePlayer, count;
     private boolean win, tie, winOutput, isStarted;
     public static int[][] places;
-    int waitMilis;
+    int waitMilis, panel;
     private Fields fields;
     private JFrame frame;
     private Color winBlue = new Color(0,150,255);
@@ -66,10 +66,15 @@ public class Service implements AWTEventListener {
         setFrame();
         start();
         // it asks you whether you want to play against the computer or not
-        if(JOptionPane.showOptionDialog(null, "Gegen wen wollen Sie spielen?","Spielmodus",
-                JOptionPane.YES_NO_OPTION,
+        panel = JOptionPane.showOptionDialog(null, "Gegen wen wollen Sie spielen?","Spielmodus",
+                JOptionPane.YES_NO_CANCEL_OPTION,
                 JOptionPane.PLAIN_MESSAGE, null,
-                new String[]{"Gegen den Computer", "Gegen einen Spieler"}, "Gegen einen Spieler") == 0) withComputer = true;
+                new String[]{"Gegen den Computer", "Gegen einen Spieler", "Gegen die AI"}, "Gegen einen Spieler");
+        if(panel == 0) withComputer = true;
+        else if (panel == 2) {
+            withComputer = true;
+            computer.ai();
+        }
         //withComputer = true; // Only when you want to test the Computer
         isStarted = true;
     }

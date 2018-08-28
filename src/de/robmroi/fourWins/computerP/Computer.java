@@ -26,6 +26,10 @@ public class Computer {
     }
     public void start(){ count = 0; }
 
+    public void ai(){
+
+    }
+
     public int computerTurn(){
         fields = Service.places;
 
@@ -255,6 +259,16 @@ public class Computer {
             }
         }
         return -1;
+    }
+
+    //FOR THE AI
+
+    int calcTwo(int player){
+        return 0;
+    }
+    int calcThree(int player){
+
+        return 0;
     }
 
 }
