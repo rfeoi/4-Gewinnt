@@ -199,7 +199,7 @@ public class Computer {
         return -1;
     }
 
-    private int createRandom(int range){
+    int createRandom(int range){
             double randomDouble = new Random().nextDouble() * range;
             int randomInt = (int) randomDouble;
             if (randomDouble - randomInt >= 0.5 && randomInt <(range+1)) randomInt +=1;
