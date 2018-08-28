@@ -15,16 +15,14 @@ The service class is the main class.
 * Code optimisation
 * code documentation
 * fix the computer
-* fix which fields are painted when you win
- */
+*/
 public class Service implements AWTEventListener {
-    //if this is true, you will not be asked about anything
     boolean testMode = true;
     //creates all variables
     boolean label;
     private int activePlayer, count;
     private boolean win, tie, winOutput, isStarted;
-    static int[][] places;
+    public static int[][] places;
     int waitMilis;
     private Fields fields;
     private JFrame frame;
@@ -34,7 +32,7 @@ public class Service implements AWTEventListener {
     //Resolution
     private int maxWidth = Toolkit.getDefaultToolkit().getScreenSize().width;
     private int width, height;
-    static int columns, rows;
+    public static int columns, rows;
 
     Service() {
         //detects if a key is pressed
@@ -50,6 +48,7 @@ public class Service implements AWTEventListener {
         isStarted = false;
         label = false;
 
+        //if the testMode is activated you will not be asked about anything.
         if (testMode) {
             itsATest();
             setFrame();
@@ -78,8 +77,8 @@ public class Service implements AWTEventListener {
     private void itsATest(){
         columns = 6; //6
         rows = 7; //7
-        withComputer = false;
-        label = false;
+        withComputer = true;
+        label = true;
     }
 
     private void setFrame(){

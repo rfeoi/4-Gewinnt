@@ -1,4 +1,6 @@
-package de.robmroi.fourWins;
+package de.robmroi.fourWins.computerP;
+
+import de.robmroi.fourWins.Service;
 
 import java.util.Random;
 
@@ -12,19 +14,19 @@ import java.util.Random;
  * An vorhandenes Feld vom Computer setzen
  * 1. Computer Zug: in Reihe 2, 3 oder 4 setzen
  */
-class computer {
+public class Computer {
     private int[][] fields;
     private int count, columns, rows;
 
-    void preStart(){
+    public void preStart(){
         columns = Service.columns; // top to bottom (vertically)
         rows = Service.rows; // left to right (horizontally)
         fields = new int[rows][columns];
         System.out.print("computer preStart    ");
     }
-    void start(){ count = 0; }
+    public void start(){ count = 0; }
 
-    int computerTurn(){
+    public int computerTurn(){
         fields = Service.places;
 
         if (count == 0){
@@ -59,8 +61,10 @@ class computer {
         fields = Service.places; // only for testing
         int test;
         // horizontal
-        for(int y = 0; y< rows -1; y++){
-            for(int x = 0; x< columns -1; x++){
+        for(int y = 0; y< rows; y++){
+            System.out.println();
+            for(int x = 0; x< columns -2; x++){
+                System.out.println("[" + x + "," + y + "][" + (x+1) + "," + y + "][" + (x+2) + "," + y + "]");
                 if(fields[x][y] == player && fields[x+1][y] == player && fields[x+2][y] == player) {
                     if (y== columns -1) {
                         test = tryThis(x+3,y,false,0);
@@ -90,7 +94,7 @@ class computer {
         for(int y = 0; y< rows -3; y++){
             System.out.println();
             for(int x = 0; x< columns -1; x++){
-                System.out.println("[" + x + "," + y + "][" + (x+1) + "," + (y+1) + "][" + (x+2) + "," + (y+2) + "]");
+                //System.out.println("[" + x + "," + y + "][" + (x+1) + "," + (y+1) + "][" + (x+2) + "," + (y+2) + "]");
                 if(fields[x][y] == player && fields[x+1][y+1] == player && fields[x+2][y+2] == player) {
                     test = tryThis(x+3,y+3,false,0);
                     if (test != -1)  return test;
