@@ -263,6 +263,13 @@ public class Computer {
 
     //FOR THE AI
 
+    /*
+    Different Approach:
+    It calculates all possibilities for the next X rounds.
+    - Harder to make
+    - Works way better, because it is updated every move
+     */
+
     int calcTwo(int player){
         return 0;
     }
