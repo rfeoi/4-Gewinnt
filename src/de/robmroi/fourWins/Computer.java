@@ -265,11 +265,15 @@ class Computer {
      */
 
     void ai(){
-        System.out.println(countTwoFields(1));
-        System.out.println(countThreeFields(1));
-        System.out.println(countFourFields(1));
+        int playerOnePoints = countTwoFields(1)*5;
+            playerOnePoints += countThreeFields(1)*20;
+            playerOnePoints += countFourFields(1)*50;
+        System.out.println("p1 Points:"+playerOnePoints);
 
-
+        int playerTwoPoints = countTwoFields(2)*5;
+            playerTwoPoints += countThreeFields(2)*20;
+            playerTwoPoints += countFourFields(2)*50;
+        System.out.println("p2 Points: "+playerTwoPoints);
     }
 
     private int countTwoFields(int player){
@@ -293,6 +297,12 @@ class Computer {
         for (int x=0; x<rows-1;x++){
             for (int y=0; y<columns-1;y++){
                 if (fields[x][y] == player && fields[x+1][y+1] == player) count +=1;
+            }
+        }
+        //----------------------------------------        Bottom_Left->Top_Right      ----------------------------------------
+        for (int x=rows-1; x>0;x--){
+            for (int y=0; y<columns-1;y++){
+                if (fields[x][y] == player && fields[x-1][y+1] == player) count +=1;
             }
         }
         return count;
@@ -321,6 +331,12 @@ class Computer {
                 if (fields[x][y] == player && fields[x+1][y+1] == player && fields[x+2][y+2] == player) count +=1;
             }
         }
+        //----------------------------------------        Bottom_Left->Top_Right      ----------------------------------------
+        for (int x=rows-1; x>1;x--){
+            for (int y=0; y<columns-2;y++){
+                if (fields[x][y] == player && fields[x-1][y+1] == player && fields[x-2][y+2] == player) count +=1;
+            }
+        }
         return count;
     }
 
@@ -345,6 +361,12 @@ class Computer {
         for (int x=0; x<rows-3;x++){
             for (int y=0; y<columns-3;y++){
                 if (fields[x][y] == player && fields[x+1][y+1] == player && fields[x+2][y+2] == player && fields[x+3][y+3] == player) count +=1;
+            }
+        }
+        //----------------------------------------        Bottom_Left->Top_Right      ----------------------------------------
+        for (int x=rows-1; x>2;x--){
+            for (int y=0; y<columns-3;y++){
+                if (fields[x][y] == player && fields[x-1][y+1] == player && fields[x-2][y+2] == player && fields[x-3][y+3] == player) count +=1;
             }
         }
         return count;
