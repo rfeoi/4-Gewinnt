@@ -17,12 +17,12 @@ The service class is the main class.
 * fix the computer
 */
 public class Service implements AWTEventListener {
-    boolean testMode = false;
+    boolean testMode = true;
     //creates all variables
     boolean label;
     private int activePlayer, count;
     private boolean win, tie, winOutput, isStarted;
-    public static int[][] places;
+    static int[][] places;
     int waitMilis, panel;
     private Fields fields;
     private JFrame frame;
@@ -82,7 +82,7 @@ public class Service implements AWTEventListener {
     private void itsATest(){
         columns = 6; //6
         rows = 7; //7
-        withComputer = true;
+        withComputer = false;
         label = true;
     }
 
@@ -145,6 +145,8 @@ public class Service implements AWTEventListener {
         frame.setVisible(false);
         frame.setVisible(true);
         refreshTitle(0);
+
+        computer.ai();
     }
 
     void refreshTitle( int player){

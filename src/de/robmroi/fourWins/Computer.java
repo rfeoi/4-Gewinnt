@@ -1,6 +1,4 @@
-package de.robmroi.fourWins.computerP;
-
-import de.robmroi.fourWins.Service;
+package de.robmroi.fourWins;
 
 import java.util.Random;
 
@@ -14,23 +12,19 @@ import java.util.Random;
  * An vorhandenes Feld vom Computer setzen
  * 1. Computer Zug: in Reihe 2, 3 oder 4 setzen
  */
-public class Computer {
+class Computer {
     private int[][] fields;
     private int count, columns, rows;
 
-    public void preStart(){
+    void preStart(){
         columns = Service.columns; // top to bottom (vertically)
         rows = Service.rows; // left to right (horizontally)
         fields = new int[rows][columns];
         System.out.print("computer preStart    ");
     }
-    public void start(){ count = 0; }
+    void start(){ count = 0; }
 
-    public void ai(){
-
-    }
-
-    public int computerTurn(){
+    int computerTurn(){
         fields = Service.places;
 
         if (count == 0){
@@ -66,9 +60,9 @@ public class Computer {
         int test;
         // horizontal
         for(int y = 0; y< rows; y++){
-            System.out.println();
+            //System.out.println();
             for(int x = 0; x< columns -2; x++){
-                System.out.println("[" + x + "," + y + "][" + (x+1) + "," + y + "][" + (x+2) + "," + y + "]");
+                //System.out.println("[" + x + "," + y + "][" + (x+1) + "," + y + "][" + (x+2) + "," + y + "]");
                 if(fields[x][y] == player && fields[x+1][y] == player && fields[x+2][y] == player) {
                     if (y== columns -1) {
                         test = tryThis(x+3,y,false,0);
@@ -199,7 +193,7 @@ public class Computer {
         return -1;
     }
 
-    int createRandom(int range){
+    private int createRandom(int range){
             double randomDouble = new Random().nextDouble() * range;
             int randomInt = (int) randomDouble;
             if (randomDouble - randomInt >= 0.5 && randomInt <(range+1)) randomInt +=1;
@@ -270,12 +264,57 @@ public class Computer {
     - Works way better, because it is updated every move
      */
 
-    int calcTwo(int player){
-        return 0;
-    }
-    int calcThree(int player){
+    void ai(){
+        System.out.println(countTwoFields(1));
+        System.out.println(countThreeFields(1));
+        System.out.println(countFourFields(1));
 
-        return 0;
+
+    }
+
+    int countTwoFields(int player){
+        int count = 0;
+        //Horizontal    --------------------------------------------------------------------
+        for (int x=0; x<rows-1;x++){
+            //System.out.println();
+            for (int y=0; y<columns;y++){
+                //System.out.println("[" + x + "," + y + "][" + (x+1) + "," + y + "]");
+                if (fields[x][y] == player && fields[x+1][y] == player) count +=1;
+            }
+        }
+
+
+        return count;
+    }
+
+    int countThreeFields(int player){
+        int count = 0;
+        //Horizontal    --------------------------------------------------------------------
+        for (int x=0; x<rows-2;x++){
+            //System.out.println();
+            for (int y=0; y<columns;y++){
+                //System.out.println("[" + x + "," + y + "][" + (x+1) + "," + y + "][" + (x+2) + "," + y + "]");
+                if (fields[x][y] == player && fields[x+1][y] == player && fields[x+2][y] == player) count +=1;
+            }
+        }
+
+
+        return count;
+    }
+
+    int countFourFields(int player){
+        int count = 0;
+        //Horizontal    --------------------------------------------------------------------
+        for (int x=0; x<rows-3;x++){
+            //System.out.println();
+            for (int y=0; y<columns;y++){
+                //System.out.println("[" + x + "," + y + "][" + (x+1) + "," + y + "][" + (x+2) + "," + y + "][" + (x+3) + "," + y + "]");
+                if (fields[x][y] == player && fields[x+1][y] == player && fields[x+2][y] == player && fields[x+3][y] == player) count +=1;
+            }
+        }
+
+
+        return count;
     }
 
 }
