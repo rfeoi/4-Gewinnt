@@ -6,11 +6,8 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2a3aadb8-d888-471d-b29a-9482ca0217bd" name="Default" comment="Added the Testmode for the button Labels. Now you can choose (in the testmode) whether you want the correct x/y positions of the buttons displayed or if you want to play with keys properly.">
+    <list default="true" id="2a3aadb8-d888-471d-b29a-9482ca0217bd" name="Default" comment="Put the computer in a different package. This package will include the AI Features. Development of them start this week.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/de/robmroi/fourWins/Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/de/robmroi/fourWins/Service.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/de/robmroi/fourWins/Startup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/de/robmroi/fourWins/Startup.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/de/robmroi/fourWins/computer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/de/robmroi/fourWins/computerP/Computer.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -23,39 +20,44 @@
     <session id="-1502456687">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="29" />
+          <entry key="project.closed" value="36" />
           <entry key="project.open.time.0" value="2" />
-          <entry key="project.open.time.1" value="3" />
+          <entry key="project.open.time.1" value="5" />
           <entry key="project.open.time.10" value="1" />
           <entry key="project.open.time.4" value="2" />
+          <entry key="project.open.time.5" value="2" />
           <entry key="project.open.time.6" value="5" />
-          <entry key="project.open.time.7" value="5" />
+          <entry key="project.open.time.7" value="7" />
           <entry key="project.open.time.8" value="8" />
           <entry key="project.open.time.9" value="2" />
-          <entry key="project.opened" value="30" />
+          <entry key="project.opened" value="36" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="2092" />
-          <entry key="txt" value="1676" />
+          <entry key="dummy" value="3" />
+          <entry key="gitignore" value="28" />
+          <entry key="java" value="3994" />
+          <entry key="txt" value="2026" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="2092" />
-          <entry key="PLAIN_TEXT" value="1676" />
+          <entry key="JAVA" value="3994" />
+          <entry key="PLAIN_TEXT" value="2057" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts" />
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="java" value="10" />
+          <entry key="gitignore" value="1" />
+          <entry key="java" value="14" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="10" />
+          <entry key="JAVA" value="14" />
+          <entry key="PLAIN_TEXT" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.spring.boot.run.usages" />
@@ -65,23 +67,49 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/de/robmroi/fourWins/Service.java">
+        <entry file="file://$PROJECT_DIR$/src/de/robmroi/fourWins/computerP/Computer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1920">
-              <caret line="132" column="20" selection-start-line="132" selection-start-column="20" selection-end-line="132" selection-end-column="20" />
+            <state relative-caret-position="189">
+              <caret line="202" column="37" selection-start-line="202" selection-start-column="37" selection-end-line="202" selection-end-column="37" />
               <folding>
-                <element signature="e#10415#10416#0" expanded="true" />
-                <element signature="e#10478#10479#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/de/robmroi/fourWins/Animations.java">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="21" column="29" selection-start-line="21" selection-start-column="29" selection-end-line="21" selection-end-column="29" />
+            <state relative-caret-position="390">
+              <caret line="26" column="5" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/de/robmroi/fourWins/computerP/Population.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="11" column="42" selection-start-line="11" selection-start-column="42" selection-end-line="11" selection-end-column="42" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/de/robmroi/fourWins/computerP/AI_Player.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="615">
+              <caret line="41" column="22" selection-start-line="41" selection-start-column="22" selection-end-line="41" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/de/robmroi/fourWins/computerP/Brain.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="540">
+              <caret line="36" column="55" selection-start-line="36" selection-start-column="55" selection-end-line="36" selection-end-column="55" />
             </state>
           </provider>
         </entry>
@@ -113,8 +141,12 @@
         <option value="$PROJECT_DIR$/src/de/robmroi/fourWins/Animations.java" />
         <option value="$PROJECT_DIR$/src/de/robmroi/fourWins/computer.java" />
         <option value="$PROJECT_DIR$/src/de/robmroi/fourWins/Computer.java" />
+        <option value="$PROJECT_DIR$/src/de/robmroi/fourWins/computerP/Population.java" />
         <option value="$PROJECT_DIR$/src/de/robmroi/fourWins/Service.java" />
+        <option value="$PROJECT_DIR$/src/de/robmroi/fourWins/computerP/Brain.java" />
+        <option value="$PROJECT_DIR$/src/de/robmroi/fourWins/computerP/AI_Player.java" />
         <option value="$PROJECT_DIR$/src/de/robmroi/fourWins/computerP/Computer.java" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -124,10 +156,10 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="y" value="22" />
     <option name="width" value="1440" />
-    <option name="height" value="439" />
+    <option name="height" value="878" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -135,8 +167,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
@@ -150,29 +180,18 @@
               <item name="4-Gewinnt" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="4-Gewinnt" type="b2602c69:ProjectViewProjectNode" />
-              <item name="4-Gewinnt" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="fourWins" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="4-Gewinnt" type="b2602c69:ProjectViewProjectNode" />
-              <item name="4-Gewinnt" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="fourWins" type="462c0819:PsiDirectoryNode" />
-              <item name="computerP" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1535464605464" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1536066474865" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.15109573" />
@@ -214,7 +233,7 @@
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="de.robmroi.fourWins.computerP.*" />
+          <option name="PATTERN" value="de.robmroi.fourWins.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -325,7 +344,13 @@
       <workItem from="1534177980483" duration="13000" />
       <workItem from="1534178167468" duration="8000" />
       <workItem from="1534672111350" duration="59000" />
-      <workItem from="1535464035038" duration="523000" />
+      <workItem from="1535464035038" duration="4629000" />
+      <workItem from="1535485827839" duration="99000" />
+      <workItem from="1536066272681" duration="204000" />
+      <workItem from="1536148370470" duration="21000" />
+      <workItem from="1536233453783" duration="316000" />
+      <workItem from="1536249769131" duration="1516000" />
+      <workItem from="1536322509801" duration="19000" />
     </task>
     <task id="LOCAL-00001" summary="Added 2D Arrays, not finished yet. Will be finished (and working) soon!">
       <created>1517855324106</created>
@@ -628,17 +653,45 @@
       <option name="project" value="LOCAL" />
       <updated>1533291276709</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="Put the computer in a different package. This package will include the AI Features. Development of them start this week.">
+      <created>1535464705054</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1535464705054</updated>
+    </task>
+    <task id="LOCAL-00045" summary="Started with AI features. The first version has all of it turns set from the beginning. It will get smarter but it does not respond to you. NOT WORKING">
+      <created>1535467320065</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1535467320065</updated>
+    </task>
+    <task id="LOCAL-00046" summary="Changes to the AI.">
+      <created>1535468528773</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1535468528773</updated>
+    </task>
+    <task id="LOCAL-00047" summary="Updated the .gitignore">
+      <created>1536066439623</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1536066439623</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="139626000" />
+    <option name="totallyTimeSpent" value="145907000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="22" width="1440" height="439" extended-state="0" />
+    <frame x="0" y="22" width="1440" height="878" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13018598" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15164521" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -647,7 +700,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32891566" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49713877" visible="true" weight="0.08069164" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49713877" weight="0.2620865" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -675,10 +728,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Fixed the issue by adding return so the computer does not run again (game void stops)." />
-    <MESSAGE value="The computer can detect if anyone has three fields (in a row, horizontal)." />
-    <MESSAGE value="Started with &quot;real&quot; computer. The mechanic of it is implemented now, but not working yet because the functions (threeField/twoField) are not finished &lt;- will do" />
-    <MESSAGE value="Now there are no flying blocks anymore. They only appeared when you played to fast so the animations overlapped. Now after every animation it checks if the colors for the field are correct. When you play to fast, the block will have its color before the animation starts/finishes, when you play in normal speed everything is normal." />
     <MESSAGE value="By moving refreshTitle to Animations the current player is displayed correctly." />
     <MESSAGE value="Started with variable rows and columns (default 6*7), not working yet. When you want a working version play Release v2.1" />
     <MESSAGE value="Test if I can commit" />
@@ -700,7 +749,11 @@
     <MESSAGE value="Added the Testmode for the button Labels. Now you can choose (in the testmode) whether you want the correct x/y positions of the buttons displayed or if you want to play with keys properly." />
     <MESSAGE value="Fixed a bug." />
     <MESSAGE value="I fixed the issue with the painted WinFields. I also changed the color of the blue winFields." />
-    <option name="LAST_COMMIT_MESSAGE" value="I fixed the issue with the painted WinFields. I also changed the color of the blue winFields." />
+    <MESSAGE value="Put the computer in a different package. This package will include the AI Features. Development of them start this week." />
+    <MESSAGE value="Started with AI features. The first version has all of it turns set from the beginning. It will get smarter but it does not respond to you. NOT WORKING" />
+    <MESSAGE value="Changes to the AI." />
+    <MESSAGE value="Updated the .gitignore" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated the .gitignore" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/de/robmroi/fourWins/Wait.java" />
@@ -719,16 +772,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/de/robmroi/fourWins/computerP/Computer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="7" selection-start-line="16" selection-start-column="7" selection-end-line="16" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/de/robmroi/fourWins/Startup.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -738,12 +781,46 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/de/robmroi/fourWins/Service.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1920">
-          <caret line="132" column="20" selection-start-line="132" selection-start-column="20" selection-end-line="132" selection-end-column="20" />
+        <state relative-caret-position="245">
+          <caret line="124" column="8" selection-start-line="124" selection-start-column="8" selection-end-line="124" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/de/robmroi/fourWins/computerP/Computer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="202" column="37" selection-start-line="202" selection-start-column="37" selection-end-line="202" selection-end-column="37" />
           <folding>
-            <element signature="e#10415#10416#0" expanded="true" />
-            <element signature="e#10478#10479#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="26" column="5" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/de/robmroi/fourWins/computerP/Population.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="42" selection-start-line="11" selection-start-column="42" selection-end-line="11" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/de/robmroi/fourWins/computerP/AI_Player.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="615">
+          <caret line="41" column="22" selection-start-line="41" selection-start-column="22" selection-end-line="41" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/de/robmroi/fourWins/computerP/Brain.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="36" column="55" selection-start-line="36" selection-start-column="55" selection-end-line="36" selection-end-column="55" />
         </state>
       </provider>
     </entry>

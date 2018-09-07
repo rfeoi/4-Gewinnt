@@ -1,7 +1,5 @@
 package de.robmroi.fourWins;
 
-import de.robmroi.fourWins.computerP.Computer;
-
 public class Startup {
     static Service service;
     static Computer computer;
