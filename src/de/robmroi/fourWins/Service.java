@@ -23,7 +23,7 @@ public class Service implements AWTEventListener {
     private int activePlayer, count;
     private boolean win, tie, winOutput, isStarted;
     static int[][] places;
-    int waitMilis, panel;
+    int waitMillis;
     private Fields fields;
     private JFrame frame;
     private Color winBlue = new Color(0,150,255);
@@ -32,7 +32,7 @@ public class Service implements AWTEventListener {
     //Resolution
     private int maxWidth = Toolkit.getDefaultToolkit().getScreenSize().width;
     private int width, height;
-    public static int columns, rows;
+    static int columns, rows;
 
     Service() {
         //detects if a key is pressed
@@ -44,7 +44,7 @@ public class Service implements AWTEventListener {
     void preStart() {
         //preparates the game for beeing started, only used once
         System.out.print("preStart;   ");
-        waitMilis = 1;
+        waitMillis = 1;
         isStarted = false;
         label = false;
 
@@ -66,7 +66,7 @@ public class Service implements AWTEventListener {
         setFrame();
         start();
         // it asks you whether you want to play against the computer or not
-        panel = JOptionPane.showOptionDialog(null, "Gegen wen wollen Sie spielen?","Spielmodus",
+        int panel = JOptionPane.showOptionDialog(null, "Gegen wen wollen Sie spielen?", "Spielmodus",
                 JOptionPane.YES_NO_CANCEL_OPTION,
                 JOptionPane.PLAIN_MESSAGE, null,
                 new String[]{"Gegen den Computer", "Gegen einen Spieler", "Gegen die AI"}, "Gegen einen Spieler");
@@ -145,8 +145,6 @@ public class Service implements AWTEventListener {
         frame.setVisible(false);
         frame.setVisible(true);
         refreshTitle(0);
-
-        computer.ai();
     }
 
     void refreshTitle( int player){
@@ -200,6 +198,7 @@ public class Service implements AWTEventListener {
             computerTurn = true;
         }
         //if (activePlayer == 2) System.out.println(computer.computerTurn()+1);//only for testing
+        computer.ai();
     }
 
     private void playerCheck(){

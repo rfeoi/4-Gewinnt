@@ -15,7 +15,7 @@ public class Animations implements Runnable {
     public void run() {
         if (player > 2) {
             try {
-                Thread.sleep(service.waitMilis);
+                Thread.sleep(service.waitMillis);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -30,7 +30,7 @@ public class Animations implements Runnable {
                 }
             }
             service.animation = true;
-            service.waitMilis = y * 400;
+            service.waitMillis = y * 400;
             for (int i = 0; i <= y; i++) {
                 if (player == 1) service.setColorForField(x, i, 1);
                 if (player == 2) service.setColorForField(x, i, 2);
@@ -48,7 +48,7 @@ public class Animations implements Runnable {
         if (!service.computerTurn) service.checkFields();
         if (service.withComputer && player == 1) service.refreshTitle(1);
         else service.refreshTitle(0);
-        service.waitMilis = 1;
+        service.waitMillis = 1;
         service.animation = false;
 
     }

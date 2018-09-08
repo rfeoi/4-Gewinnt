@@ -262,17 +262,20 @@ class Computer {
     It calculates all possibilities for the next X rounds.
     - Harder to make
     - Works way better, because it is updated every move
+
+    2 Fields = 1 Point; 3 Fields = 10 Points. 4 Fields = 40 Points.
      */
 
     void ai(){
-        int playerOnePoints = countTwoFields(1)*5;
-            playerOnePoints += countThreeFields(1)*20;
-            playerOnePoints += countFourFields(1)*50;
+        fields = Service.places;
+        int playerOnePoints = countTwoFields(1);
+            playerOnePoints += countThreeFields(1)*10;
+            playerOnePoints += countFourFields(1)*40;
         System.out.println("p1 Points:"+playerOnePoints);
 
-        int playerTwoPoints = countTwoFields(2)*5;
-            playerTwoPoints += countThreeFields(2)*20;
-            playerTwoPoints += countFourFields(2)*50;
+        int playerTwoPoints = countTwoFields(2);
+            playerTwoPoints += countThreeFields(2)*10;
+            playerTwoPoints += countFourFields(2)*40;
         System.out.println("p2 Points: "+playerTwoPoints);
     }
 
