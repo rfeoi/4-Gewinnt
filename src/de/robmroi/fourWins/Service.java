@@ -300,11 +300,16 @@ public class Service implements AWTEventListener {
         isStarted = true;
     }
 
-    private void computer(){
+    void computer(){
         int computerRow = computer.computerTurn();
         if (!fields.setField(computerRow,true)){
             computer();
         }
+    }
+
+    void aiTurn(){
+        int aiRow = computer.ai();
+        if (!fields.setField(aiRow,true)) aiTurn();
     }
 
     private void setColor(int x, int y, int player){
