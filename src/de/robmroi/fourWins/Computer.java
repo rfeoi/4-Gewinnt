@@ -268,11 +268,21 @@ class Computer {
 
     void ai(){
         fields = Service.places;
+
         int playerOnePoints = playersPoints(1);
         System.out.println("p1 Points:"+playerOnePoints);
 
         int playerTwoPoints = playersPoints(2);
         System.out.println("p2 Points: "+playerTwoPoints);
+    }
+
+    int aiTurnY(int x){
+        for (int y = columns -1; y>=0; y--){
+            if (fields[x][y] == 0){
+                return y;
+            }
+        }
+        return -1;
     }
 
     private int playersPoints(int player) {
