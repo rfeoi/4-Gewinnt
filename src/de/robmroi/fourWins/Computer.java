@@ -268,15 +268,18 @@ class Computer {
 
     void ai(){
         fields = Service.places;
-        int playerOnePoints = countTwoFields(1);
-            playerOnePoints += countThreeFields(1)*10;
-            playerOnePoints += countFourFields(1)*40;
+        int playerOnePoints = playersPoints(1);
         System.out.println("p1 Points:"+playerOnePoints);
 
-        int playerTwoPoints = countTwoFields(2);
-            playerTwoPoints += countThreeFields(2)*10;
-            playerTwoPoints += countFourFields(2)*40;
+        int playerTwoPoints = playersPoints(2);
         System.out.println("p2 Points: "+playerTwoPoints);
+    }
+
+    private int playersPoints(int player) {
+        int p = countTwoFields(player);
+        p += countThreeFields(player)*10;
+        p += countFourFields(player)*40;
+        return p;
     }
 
     private int countTwoFields(int player){
