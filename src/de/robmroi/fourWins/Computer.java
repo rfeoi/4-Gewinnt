@@ -13,13 +13,14 @@ import java.util.Random;
  * 1. Computer Zug: in Reihe 2, 3 oder 4 setzen
  */
 class Computer {
-    private int[][] fields;
+    private int[][] fields, testFields;
     private int count, columns, rows;
 
     void preStart(){
         columns = Service.columns; // top to bottom (vertically)
         rows = Service.rows; // left to right (horizontally)
         fields = new int[rows][columns];
+        testFields = new int[rows][columns];
         System.out.print("computer preStart    ");
     }
     void start(){ count = 0; }
@@ -268,17 +269,18 @@ class Computer {
 
     int ai(){
         fields = Service.places;
+        testFields = fields;
 
         int difference;
         int maxX = 0;
         int maxD = 0;
         int player = 2;
         for (int x=0; x<rows;x++){
-            fields = Service.places;
+            testFields = fields;
             int y = aiTurnY(x);
             if (y!= -1) {
-                fields[x][y] = player;
-                difference = playersPoints(2) - playersPoints(1);
+                testFields[x][y] = player;
+                difference = playersPoints(2, testFields) - playersPoints(1, testFields);
                 if (x==0) {
                     maxX = x;
                     maxD = difference;
@@ -297,14 +299,14 @@ class Computer {
         return -1;
     }
 
-    private int playersPoints(int player) {
-        int p = countTwoFields(player);
-        p += countThreeFields(player)*10;
-        p += countFourFields(player)*40;
+    private int playersPoints(int player, int[][] test) {
+        int p = countTwoFields(player, test);
+        p += countThreeFields(player, test)*10;
+        p += countFourFields(player, test)*40;
         return p;
     }
 
-    private int countTwoFields(int player){
+    private int countTwoFields(int player, int[][] test){
         /* Default Print:
             System.out.println("[" + x + "," + y + "][" + (x+0) + "," + (y+0) + "]");
          */
@@ -312,31 +314,31 @@ class Computer {
         //----------------------------------------        Horizontal      ----------------------------------------
         for (int x=0; x<rows-1;x++){
             for (int y=0; y<columns;y++){
-                if (fields[x][y] == player && fields[x+1][y] == player) count +=1;
+                if (test[x][y] == player && test[x+1][y] == player) count +=1;
             }
         }
         //----------------------------------------        Vertical      ----------------------------------------
         for (int x=0; x<rows;x++){
             for (int y=0; y<columns-1;y++){
-                if (fields[x][y] == player && fields[x][y+1] == player) count +=1;
+                if (test[x][y] == player && test[x][y+1] == player) count +=1;
             }
         }
         //----------------------------------------        Top_Left->Bottom_Right      ----------------------------------------
         for (int x=0; x<rows-1;x++){
             for (int y=0; y<columns-1;y++){
-                if (fields[x][y] == player && fields[x+1][y+1] == player) count +=1;
+                if (test[x][y] == player && test[x+1][y+1] == player) count +=1;
             }
         }
         //----------------------------------------        Bottom_Left->Top_Right      ----------------------------------------
         for (int x=rows-1; x>0;x--){
             for (int y=0; y<columns-1;y++){
-                if (fields[x][y] == player && fields[x-1][y+1] == player) count +=1;
+                if (test[x][y] == player && test[x-1][y+1] == player) count +=1;
             }
         }
         return count;
     }
 
-    private int countThreeFields(int player){
+    private int countThreeFields(int player, int[][] test){
         /* Default Print:
             System.out.println("[" + x + "," + y + "][" + (x+0) + "," + (y+0) + "][" + (x+0) + "," + (y+0) + "]");
          */
@@ -344,31 +346,31 @@ class Computer {
         //----------------------------------------        Horizontal      ----------------------------------------
         for (int x=0; x<rows-2;x++){
             for (int y=0; y<columns;y++){
-                if (fields[x][y] == player && fields[x+1][y] == player && fields[x+2][y] == player) count +=1;
+                if (test[x][y] == player && test[x+1][y] == player && test[x+2][y] == player) count +=1;
             }
         }
         //----------------------------------------        Vertical      ----------------------------------------
         for (int x=0; x<rows;x++){
             for (int y=0; y<columns-2;y++){
-                if (fields[x][y] == player && fields[x][y+1] == player && fields[x][y+2] == player) count +=1;
+                if (test[x][y] == player && test[x][y+1] == player && test[x][y+2] == player) count +=1;
             }
         }
         //----------------------------------------        Top_Left->Bottom_Right      ----------------------------------------
         for (int x=0; x<rows-2;x++){
             for (int y=0; y<columns-2;y++){
-                if (fields[x][y] == player && fields[x+1][y+1] == player && fields[x+2][y+2] == player) count +=1;
+                if (test[x][y] == player && test[x+1][y+1] == player && test[x+2][y+2] == player) count +=1;
             }
         }
         //----------------------------------------        Bottom_Left->Top_Right      ----------------------------------------
         for (int x=rows-1; x>1;x--){
             for (int y=0; y<columns-2;y++){
-                if (fields[x][y] == player && fields[x-1][y+1] == player && fields[x-2][y+2] == player) count +=1;
+                if (test[x][y] == player && test[x-1][y+1] == player && test[x-2][y+2] == player) count +=1;
             }
         }
         return count;
     }
 
-    private int countFourFields(int player){
+    private int countFourFields(int player, int[][] test){
         /* Default Print:
             System.out.println("[" + x + "," + y + "][" + (x+0) + "," + (y+0) + "][" + (x+0) + "," + (y+0) + "][" + (x+0) + "," + (y+0) + "]");
          */
@@ -376,25 +378,25 @@ class Computer {
         //----------------------------------------        Horizontal      ----------------------------------------
         for (int x=0; x<rows-3;x++){
             for (int y=0; y<columns;y++){
-                if (fields[x][y] == player && fields[x+1][y] == player && fields[x+2][y] == player && fields[x+3][y] == player) count +=1;
+                if (test[x][y] == player && test[x+1][y] == player && test[x+2][y] == player && test[x+3][y] == player) count +=1;
             }
         }
         //----------------------------------------        Vertical      ----------------------------------------
         for (int x=0; x<rows;x++){
             for (int y=0; y<columns-3;y++){
-                if (fields[x][y] == player && fields[x][y+1] == player && fields[x][y+2] == player && fields[x][y+3] == player) count +=1;
+                if (test[x][y] == player && test[x][y+1] == player && test[x][y+2] == player && test[x][y+3] == player) count +=1;
             }
         }
         //----------------------------------------        Top_Left->Bottom_Right      ----------------------------------------
         for (int x=0; x<rows-3;x++){
             for (int y=0; y<columns-3;y++){
-                if (fields[x][y] == player && fields[x+1][y+1] == player && fields[x+2][y+2] == player && fields[x+3][y+3] == player) count +=1;
+                if (test[x][y] == player && test[x+1][y+1] == player && test[x+2][y+2] == player && test[x+3][y+3] == player) count +=1;
             }
         }
         //----------------------------------------        Bottom_Left->Top_Right      ----------------------------------------
         for (int x=rows-1; x>2;x--){
             for (int y=0; y<columns-3;y++){
-                if (fields[x][y] == player && fields[x-1][y+1] == player && fields[x-2][y+2] == player && fields[x-3][y+3] == player) count +=1;
+                if (test[x][y] == player && test[x-1][y+1] == player && test[x-2][y+2] == player && test[x-3][y+3] == player) count +=1;
             }
         }
         return count;
