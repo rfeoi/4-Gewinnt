@@ -28,7 +28,7 @@ public class Service implements AWTEventListener {
     private JFrame frame;
     private Color winBlue = new Color(0,150,255);
     private Color winRed = new Color(255,80,0);
-    boolean animation = false, computerTurn, withComputer;
+    boolean animation = false, computerTurn, withComputer, withAI;
     //Resolution
     private int maxWidth = Toolkit.getDefaultToolkit().getScreenSize().width;
     private int width, height;
@@ -71,10 +71,7 @@ public class Service implements AWTEventListener {
                 JOptionPane.PLAIN_MESSAGE, null,
                 new String[]{"Gegen den Computer", "Gegen einen Spieler", "Gegen die AI"}, "Gegen einen Spieler");
         if(panel == 0) withComputer = true;
-        else if (panel == 2) {
-            withComputer = true;
-            computer.ai();
-        }
+        else if (panel == 2) withAI = true;
         //withComputer = true; // Only when you want to test the Computer
         isStarted = true;
     }
@@ -83,6 +80,7 @@ public class Service implements AWTEventListener {
         columns = 6; //6
         rows = 7; //7
         withComputer = false;
+        withAI = true;
         label = true;
     }
 
@@ -158,10 +156,12 @@ public class Service implements AWTEventListener {
         }else{
            if (withComputer){
                frame.setTitle("4-Gewinnt   -   Computer ist am Zug!");
-           }else{
-               frame.setTitle("4-Gewinnt   -   Spieler 2 ist am Zug!");
+           } else if (withAI) {
+               frame.setTitle("4-Gewinnt   -   AI ist am Zug!");
+           } else {
+                   frame.setTitle("4-Gewinnt   -   Spieler 2 ist am Zug!");
+               }
            }
-        }
     }
     void game(int rowX){
         for (int y = columns -1; y>=0; y--){
@@ -197,8 +197,14 @@ public class Service implements AWTEventListener {
         } else if (withComputer && activePlayer == 1){
             computerTurn = true;
         }
+
+        if (withAI &&  activePlayer == 2) {
+            computerTurn = false;
+            aiTurn();
+        } else if (withAI && activePlayer == 1){
+            computerTurn = true;
+        }
         //if (activePlayer == 2) System.out.println(computer.computerTurn()+1);//only for testing
-        computer.ai();
     }
 
     private void playerCheck(){
