@@ -1,5 +1,6 @@
 package de.robmroi.fourWins;
 
+import java.util.Arrays;
 import java.util.Random;
 
 //Its an computer that plays against you!
@@ -13,14 +14,13 @@ import java.util.Random;
  * 1. Computer Zug: in Reihe 2, 3 oder 4 setzen
  */
 class Computer {
-    private int[][] fields, testFields;
+    private int[][] fields;
     private int count, columns, rows;
 
     void preStart(){
         columns = Service.columns; // top to bottom (vertically)
         rows = Service.rows; // left to right (horizontally)
         fields = new int[rows][columns];
-        testFields = new int[rows][columns];
         System.out.print("computer preStart    ");
     }
     void start(){ count = 0; }
@@ -275,7 +275,10 @@ class Computer {
         int maxD = 0;
         int player = 2;
         for (int x=0; x<rows;x++){
-            testFields = Service.places;
+            int[][] testFields = new int[rows][columns];
+            for (int i = 0; i < 3; i++) {
+                testFields[i] = Arrays.copyOf(fields[i], fields[i].length);
+            }
             int y = aiTurnY(x); //works
             if (y!= -1) {
                 testFields[x][y] = player;
@@ -289,7 +292,6 @@ class Computer {
                     maxD = difference;
                 }
             }
-            testFields = fields;
         }
         return maxX;
     }
