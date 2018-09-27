@@ -276,7 +276,7 @@ class Computer {
         int player = 2;
         for (int x=0; x<rows;x++){
             int[][] testFields = new int[rows][columns];
-            for (int i = 0; i < 3; i++) {
+            for (int i = 0; i < testFields.length; i++) {
                 testFields[i] = Arrays.copyOf(fields[i], fields[i].length);
             }
             int y = aiTurnY(x); //works
