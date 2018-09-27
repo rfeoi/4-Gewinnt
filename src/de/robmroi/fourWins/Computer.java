@@ -267,31 +267,35 @@ class Computer {
     2 Fields = 1 Point; 3 Fields = 10 Points. 4 Fields = 40 Points.
      */
 
-    int ai(){
+    int ai(){ //does not work
         fields = Service.places;
-        testFields = fields;
 
         int difference;
         int maxX = 0;
         int maxD = 0;
         int player = 2;
         for (int x=0; x<rows;x++){
-            testFields = fields;
-            int y = aiTurnY(x);
+            testFields = Service.places;
+            int y = aiTurnY(x); //works
             if (y!= -1) {
                 testFields[x][y] = player;
                 difference = playersPoints(2, testFields) - playersPoints(1, testFields);
+                System.out.println("X(" + x + "): " + difference);
                 if (x==0) {
                     maxX = x;
                     maxD = difference;
-                } else if (difference > maxD) maxX = x;
+                } else if (difference > maxD) {
+                    maxX = x;
+                    maxD = difference;
+                }
             }
+            testFields = fields;
         }
         return maxX;
     }
 
     int aiTurnY(int x){
-        for (int y = columns -1; y>=0; y--){
+        for (int y = columns-1; y>=0; y--){
             if (fields[x][y] == 0){
                 return y;
             }

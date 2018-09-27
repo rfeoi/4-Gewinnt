@@ -15,6 +15,7 @@ The service class is the main class.
 * Code optimisation
 * code documentation
 * fix the computer
+* fix the AI
 */
 public class Service implements AWTEventListener {
     boolean testMode = true;
@@ -118,6 +119,7 @@ public class Service implements AWTEventListener {
         }
         return columns >= 5 && columns <= 20;
     }
+
     private void start() {
         //is called every round, locates the frame and sets the variables to their defaults
         frame.setLocationRelativeTo(null);
@@ -163,6 +165,7 @@ public class Service implements AWTEventListener {
                }
            }
     }
+
     void game(int rowX){
         for (int y = columns -1; y>=0; y--){
             if (places[rowX][y] == 0){
@@ -314,8 +317,10 @@ public class Service implements AWTEventListener {
     }
 
     void aiTurn(){
+        System.out.println("Im here");
         int aiRow = computer.ai();
-        if (!fields.setField(aiRow,true)) aiTurn();
+        System.out.println(fields.setField(aiRow,true));
+        //if (!fields.setField(aiRow,true)) aiTurn();
     }
 
     private void setColor(int x, int y, int player){
