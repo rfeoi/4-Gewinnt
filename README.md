@@ -13,4 +13,4 @@ I added an "computer", you can play against it.
 
 ## Special Thanks go out to
 - My uncle, who gave me the idea for this project
-- <a href="https://github.com/felixletsplayyt">Felixletsplay</a> for helping me when I had a problem that I couldn't solve.
+- <a href="https://github.com/strifel">Strifel</a> for helping me when I had a problem that I couldn't solve.
