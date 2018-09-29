@@ -273,30 +273,34 @@ class Computer {
         int difference;
         int maxX = 0;
         int maxD = 0;
-        int player = 2;
-        for (int x=0; x<rows;x++){
-            int[][] testFields = new int[rows][columns];
-            for (int i = 0; i < testFields.length; i++) {
-                testFields[i] = Arrays.copyOf(fields[i], fields[i].length);
-            }
-            int y = aiTurnY(x); //works
-            if (y!= -1) {
-                testFields[x][y] = player;
-                difference = playersPoints(2, testFields) - playersPoints(1, testFields);
-                System.out.println("X(" + x + "): " + difference);
-                if (x==0) {
-                    maxX = x;
-                    maxD = difference;
-                } else if (difference > maxD) {
-                    maxX = x;
-                    maxD = difference;
+        boolean isStraight;
+        for (int t=0; t<1;t++) {
+            if (t%2==0) isStraight = true;
+            else isStraight = false;
+            for (int x = 0; x < rows; x++) {
+                int[][] testFields = new int[rows][columns];
+                for (int i = 0; i < testFields.length; i++) {
+                    testFields[i] = Arrays.copyOf(fields[i], fields[i].length);
+                }
+                int y = yPos(x);
+                if (y != -1) {
+                    if (isStraight) testFields[x][y] = 2;
+                    else testFields[x][y] = 1;
+                    difference = playersPoints(2, testFields) - playersPoints(1, testFields);
+                    if (x == 0) {
+                        maxX = x;
+                        maxD = difference;
+                    } else if (difference > maxD) {
+                        maxX = x;
+                        maxD = difference;
+                    }
                 }
             }
         }
         return maxX;
     }
 
-    int aiTurnY(int x){
+    int yPos(int x){
         for (int y = columns-1; y>=0; y--){
             if (fields[x][y] == 0){
                 return y;

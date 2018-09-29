@@ -317,10 +317,8 @@ public class Service implements AWTEventListener {
     }
 
     void aiTurn(){
-        System.out.println("Im here");
         int aiRow = computer.ai();
-        System.out.println(fields.setField(aiRow,true));
-        //if (!fields.setField(aiRow,true)) aiTurn();
+        fields.setField(aiRow,true);
     }
 
     private void setColor(int x, int y, int player){
