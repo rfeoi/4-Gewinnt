@@ -273,24 +273,28 @@ class Computer {
         int difference;
         int maxX = 0;
         int maxD = 0;
+        int turns = 2;
         boolean isStraight;
-        for (int t=0; t<1;t++) {
-            if (t%2==0) isStraight = true;
-            else isStraight = false;
-            for (int x = 0; x < rows; x++) {
-                int[][] testFields = new int[rows][columns];
-                for (int i = 0; i < testFields.length; i++) {
+        int[][] testFields = new int[rows][columns];
+        int[][][] storage = new int[turns+1][rows][columns];
+        for (int i = 0; i < testFields.length; i++) {
+            storage[0][i] = Arrays.copyOf(fields[i], fields[i].length);
+        }
+        for (int t=1; t<=turns;t++) {
+            isStraight = t % 2 == 0;// defines which player sets the next block
+
+            for (int x = 0; x < rows; x++) {//it sets in every row
+                for (int i = 0; i < testFields.length; i++) {//resets testFields
                     testFields[i] = Arrays.copyOf(fields[i], fields[i].length);
                 }
-                int y = yPos(x);
+                int y = yPos(x);//defines the y position and whether the x position is possible
                 if (y != -1) {
                     if (isStraight) testFields[x][y] = 2;
                     else testFields[x][y] = 1;
                     difference = playersPoints(2, testFields) - playersPoints(1, testFields);
-                    if (x == 0) {
-                        maxX = x;
-                        maxD = difference;
-                    } else if (difference > maxD) {
+
+                    if (x == 0) maxD = difference;
+                    else if (difference > maxD) {
                         maxX = x;
                         maxD = difference;
                     }
@@ -300,7 +304,7 @@ class Computer {
         return maxX;
     }
 
-    int yPos(int x){
+    private int yPos(int x){
         for (int y = columns-1; y>=0; y--){
             if (fields[x][y] == 0){
                 return y;
@@ -310,9 +314,9 @@ class Computer {
     }
 
     private int playersPoints(int player, int[][] test) {
-        int p = countTwoFields(player, test);
-        p += countThreeFields(player, test)*10;
-        p += countFourFields(player, test)*40;
+        int p = countTwoFields(player, test);//10^0
+        p += countThreeFields(player, test)*10;//10^1
+        p += countFourFields(player, test)*100;//10^2
         return p;
     }
 

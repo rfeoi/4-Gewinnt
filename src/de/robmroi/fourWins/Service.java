@@ -291,9 +291,10 @@ public class Service implements AWTEventListener {
         int restart = JOptionPane.showOptionDialog(null, winText + " Wollen Sie noch eine Runde spielen?", "Neustart",
                 JOptionPane.YES_NO_CANCEL_OPTION,
                 JOptionPane.PLAIN_MESSAGE, null,
-                new String[]{"Gegen den Computer", "Gegen einen Spieler", "Nein"}, "");
+                new String[]{"Gegen den Computer/ die AI", "Gegen einen Spieler", "Nein"}, "");
         if (restart == 0){
-            withComputer = true;
+            if (withAI) withAI = true;
+            else withComputer = true;
             winOutput = false;
             System.out.println("Neustart");
             start();
