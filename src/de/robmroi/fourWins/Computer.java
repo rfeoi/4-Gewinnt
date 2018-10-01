@@ -267,7 +267,7 @@ class Computer {
     2 Fields = 1 Point; 3 Fields = 10 Points. 4 Fields = 40 Points.
      */
 
-    int ai(){ //does not work
+    int ai(){ //does work
         fields = Service.places;
 
         int difference;
@@ -297,6 +297,71 @@ class Computer {
                     else if (difference > maxD) {
                         maxX = x;
                         maxD = difference;
+                    }
+                }
+            }
+        }
+        return maxX;
+    }
+
+    int test(){
+        fields = Service.places;
+        int difference;
+        int maxX = 0;
+        int maxD = 0;
+        int y;
+        int[][] testFields = new int[rows][columns];
+        int[][][] test = new int[10][rows][columns];
+
+        for (int a=0;a<rows;a++){
+            for (int i = 0; i < testFields.length; i++) {
+                test[0][i] = Arrays.copyOf(fields[i], fields[i].length);
+            }
+            y = yPos(a);
+            if (y==-1) break;
+            test[0][a][y] = 2; //player 2
+            for (int b=0;b<rows;b++){
+                for (int i = 0; i < testFields.length; i++) {
+                    test[1][i] = Arrays.copyOf(test[0][i], test[0][i].length);
+                }
+                y = yPos(b);
+                if (y==-1) break;
+                test[1][a][y] = 1; //player 1
+                for (int c=0;c<rows;c++){
+                    for (int i = 0; i < testFields.length; i++) {
+                        test[2][i] = Arrays.copyOf(test[1][i], test[1][i].length);
+                    }
+                    y = yPos(c);
+                    if (y==-1) break;
+                    test[2][a][y] = 2; //player 2
+                    for (int d=0;d<rows;d++){
+                        for (int i = 0; i < testFields.length; i++) {
+                            test[3][i] = Arrays.copyOf(test[2][i], test[2][i].length);
+                        }
+                        y = yPos(d);
+                        if (y==-1) break;
+                        test[3][a][y] = 1; //player 1
+                        for (int e=0;e<rows;e++){
+                            for (int i = 0; i < testFields.length; i++) {
+                                test[4][i] = Arrays.copyOf(test[3][i], test[3][i].length);
+                            }
+                            y = yPos(e);
+                            if (y==-1) break;
+                            test[4][a][y] = 2; //player 2
+                            for (int f=0;f<rows;f++){
+                                for (int i = 0; i < testFields.length; i++) {
+                                    test[5][i] = Arrays.copyOf(test[4][i], test[5][i].length);
+                                }
+                                y = yPos(f);
+                                if (y==-1) break;
+                                test[5][a][y] = 1; //player 1
+                                difference = playersPoints(2,test[5])-playersPoints(1,test[5]);
+                                if (difference>=maxD){
+                                    maxX = a;
+                                    maxD = difference;
+                                }
+                            }
+                        }
                     }
                 }
             }

@@ -318,7 +318,7 @@ public class Service implements AWTEventListener {
     }
 
     void aiTurn(){
-        int aiRow = computer.ai();
+        int aiRow = computer.test();
         fields.setField(aiRow,true);
     }
 
