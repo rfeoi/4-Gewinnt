@@ -17,19 +17,26 @@ The service class is the main class.
 * fix the computer
 * fix the AI
 */
+/**
+ * V3.0:
+ * Better Computer (AI) - 50%
+ * rows and columns - DONE
+ * keyplaying (press k) - DONE
+ * Other things - (what?)
+ */
 public class Service implements AWTEventListener {
     boolean testMode = true;
     //creates all variables
     boolean label;
     private int activePlayer, count;
-    private boolean win, tie, winOutput, isStarted;
+    private boolean win, tie, winOutput, isStarted, withAI;
     static int[][] places;
     int waitMillis;
     private Fields fields;
     private JFrame frame;
     private Color winBlue = new Color(0,150,255);
     private Color winRed = new Color(255,80,0);
-    boolean animation = false, computerTurn, withComputer, withAI;
+    boolean animation = false, computerTurn, withComputer;
     //Resolution
     private int maxWidth = Toolkit.getDefaultToolkit().getScreenSize().width;
     private int width, height;

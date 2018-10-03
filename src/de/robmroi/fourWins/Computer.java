@@ -267,36 +267,64 @@ class Computer {
     2 Fields = 1 Point; 3 Fields = 10 Points. 4 Fields = 40 Points.
      */
 
-    int ai(){ //does work
+    int test(){ //does work
+        /**TODO:
+         * Übergang von einzelnen Ebenen funktioniert nicht richtig
+         * Anschließendes Testen von funktionen
+         */
         fields = Service.places;
-
         int difference;
         int maxX = 0;
         int maxD = 0;
-        int turns = 2;
-        boolean isStraight;
-        int[][] testFields = new int[rows][columns];
-        int[][][] storage = new int[turns+1][rows][columns];
-        for (int i = 0; i < testFields.length; i++) {
-            storage[0][i] = Arrays.copyOf(fields[i], fields[i].length);
+        int[][] theTest = new int[rows][columns];
+        int[] theY = new int[6];
+        for (int i = 0; i < fields.length; i++) {
+            theTest[i] = Arrays.copyOf(fields[i], fields[i].length);
         }
-        for (int t=1; t<=turns;t++) {
-            isStraight = t % 2 == 0;// defines which player sets the next block
+        for (int a=0;a<rows;a++){
+            for (int b=0;b<rows;b++){
+                for (int c=0;c<rows;c++){
+                    for (int d=0;d<rows;d++){
+                        for (int e=0;e<rows;e++){
+                            for (int f=0;f<rows;f++){
+                                theY[0] = yPos(a);
+                                if (theY[0]==-1) break;
+                                theTest[a][theY[0]] = 2;
 
-            for (int x = 0; x < rows; x++) {//it sets in every row
-                for (int i = 0; i < testFields.length; i++) {//resets testFields
-                    testFields[i] = Arrays.copyOf(fields[i], fields[i].length);
-                }
-                int y = yPos(x);//defines the y position and whether the x position is possible
-                if (y != -1) {
-                    if (isStraight) testFields[x][y] = 2;
-                    else testFields[x][y] = 1;
-                    difference = playersPoints(2, testFields) - playersPoints(1, testFields);
+                                theY[1] = yPos(b);
+                                if (theY[1]==-1) break;
+                                theTest[b][theY[1]] = 1;
 
-                    if (x == 0) maxD = difference;
-                    else if (difference > maxD) {
-                        maxX = x;
-                        maxD = difference;
+                                theY[2] = yPos(c);
+                                if (theY[2]==-1) break;
+                                theTest[c][theY[2]] = 2;
+
+                                theY[3] = yPos(d);
+                                if (theY[3]==-1) break;
+                                theTest[d][theY[3]] = 1;
+
+                                theY[4] = yPos(e);
+                                if (theY[4]==-1) break;
+                                theTest[e][theY[4]] = 2;
+
+                                theY[5] = yPos(f);
+                                if (theY[5]==-1) break;
+                                theTest[f][theY[5]] = 1;
+
+                                difference = playersPoints(2,theTest)-playersPoints(1,theTest);
+                                if (difference>maxD){
+                                    maxX = a;
+                                    System.out.println("x("+a + "): " + difference);
+                                    maxD = difference;
+                                }
+                                theTest[a][theY[0]] = 0;
+                                theTest[b][theY[1]] = 0;
+                                theTest[c][theY[2]] = 0;
+                                theTest[d][theY[3]] = 0;
+                                theTest[e][theY[4]] = 0;
+                                theTest[f][theY[5]] = 0;
+                            }
+                        }
                     }
                 }
             }
@@ -304,60 +332,64 @@ class Computer {
         return maxX;
     }
 
-    int test(){
+    int ai(){
+        /**TODO:
+         * Übergang von einzelnen Ebenen funktioniert nicht richtig
+         * Anschließendes Testen von funktionen
+         */
         fields = Service.places;
         int difference;
         int maxX = 0;
         int maxD = 0;
         int y;
-        int[][] testFields = new int[rows][columns];
-        int[][][] test = new int[10][rows][columns];
+        int[][][] test = new int[6][rows][columns];
 
         for (int a=0;a<rows;a++){
-            for (int i = 0; i < testFields.length; i++) {
+            for (int i = 0; i < fields.length; i++) {
                 test[0][i] = Arrays.copyOf(fields[i], fields[i].length);
             }
             y = yPos(a);
             if (y==-1) break;
             test[0][a][y] = 2; //player 2
             for (int b=0;b<rows;b++){
-                for (int i = 0; i < testFields.length; i++) {
+                for (int i = 0; i < fields.length; i++) {
                     test[1][i] = Arrays.copyOf(test[0][i], test[0][i].length);
                 }
                 y = yPos(b);
                 if (y==-1) break;
                 test[1][a][y] = 1; //player 1
                 for (int c=0;c<rows;c++){
-                    for (int i = 0; i < testFields.length; i++) {
+                    for (int i = 0; i < fields.length; i++) {
                         test[2][i] = Arrays.copyOf(test[1][i], test[1][i].length);
                     }
                     y = yPos(c);
                     if (y==-1) break;
                     test[2][a][y] = 2; //player 2
                     for (int d=0;d<rows;d++){
-                        for (int i = 0; i < testFields.length; i++) {
+                        for (int i = 0; i < fields.length; i++) {
                             test[3][i] = Arrays.copyOf(test[2][i], test[2][i].length);
                         }
                         y = yPos(d);
                         if (y==-1) break;
                         test[3][a][y] = 1; //player 1
                         for (int e=0;e<rows;e++){
-                            for (int i = 0; i < testFields.length; i++) {
+                            for (int i = 0; i < fields.length; i++) {
                                 test[4][i] = Arrays.copyOf(test[3][i], test[3][i].length);
                             }
                             y = yPos(e);
                             if (y==-1) break;
                             test[4][a][y] = 2; //player 2
                             for (int f=0;f<rows;f++){
-                                for (int i = 0; i < testFields.length; i++) {
+                                for (int i = 0; i < fields.length; i++) {
                                     test[5][i] = Arrays.copyOf(test[4][i], test[5][i].length);
                                 }
                                 y = yPos(f);
                                 if (y==-1) break;
                                 test[5][a][y] = 1; //player 1
                                 difference = playersPoints(2,test[5])-playersPoints(1,test[5]);
-                                if (difference>=maxD){
+                                if (difference>maxD){
                                     maxX = a;
+                                    System.out.println("x("+a + "): " + difference);
                                     maxD = difference;
                                 }
                             }
@@ -380,8 +412,8 @@ class Computer {
 
     private int playersPoints(int player, int[][] test) {
         int p = countTwoFields(player, test);//10^0
-        p += countThreeFields(player, test)*10;//10^1
-        p += countFourFields(player, test)*100;//10^2
+        p += countThreeFields(player, test)*100;//10^2
+        p += countFourFields(player, test)*10000;//10^4
         return p;
     }
 
