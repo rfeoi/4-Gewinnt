@@ -22,6 +22,9 @@ The service class is the main class.
  * Better Computer (AI) - 50%
  * rows and columns - DONE
  * keyplaying (press k) - DONE
+ * Draw test array - 0%
+ * warning fixing - 0%
+ * Delete unnecessary code - 0%
  * Other things - (what?)
  */
 public class Service implements AWTEventListener {

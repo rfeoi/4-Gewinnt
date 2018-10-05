@@ -258,77 +258,85 @@ class Computer {
 
     //FOR THE AI
 
-    /*
-    Different Approach:
-    It calculates all possibilities for the next X rounds.
-    - Harder to make
-    - Works way better, because it is updated every move
-
-    2 Fields = 1 Point; 3 Fields = 10 Points. 4 Fields = 40 Points.
-     */
-
-    int test(){ //does work
+    int test(){
         /**TODO:
          * Übergang von einzelnen Ebenen funktioniert nicht richtig
          * Anschließendes Testen von funktionen
+         * Ordentliche Implementation von dem Algorithmus
          */
         fields = Service.places;
         int difference;
         int maxX = 0;
-        int maxD = 0;
         int[][] theTest = new int[rows][columns];
-        int[] theY = new int[6];
+        int[] y = new int[6];
+        int[][] dif = new int[5][rows];
+        int[][] allX = new int[5][rows];
         for (int i = 0; i < fields.length; i++) {
             theTest[i] = Arrays.copyOf(fields[i], fields[i].length);
         }
-        for (int a=0;a<rows;a++){
-            for (int b=0;b<rows;b++){
-                for (int c=0;c<rows;c++){
-                    for (int d=0;d<rows;d++){
-                        for (int e=0;e<rows;e++){
+        for (int a=0;a<rows;a++){//2 = Max
+            for (int b=0;b<rows;b++){//1 = Min
+                for (int c=0;c<rows;c++){//2 = Max
+                    for (int d=0;d<rows;d++){//1 = Min
+                        for (int e=0;e<rows;e++){//2 = Max
                             for (int f=0;f<rows;f++){
-                                theY[0] = yPos(a);
-                                if (theY[0]==-1) break;
-                                theTest[a][theY[0]] = 2;
+                                y[0] = yPos(a, theTest);
+                                if (y[0]==-1) break;
+                                theTest[a][y[0]] = 2;
 
-                                theY[1] = yPos(b);
-                                if (theY[1]==-1) break;
-                                theTest[b][theY[1]] = 1;
+                                y[1] = yPos(b, theTest);
+                                if (y[1]==-1) break;
+                                theTest[b][y[1]] = 1;
 
-                                theY[2] = yPos(c);
-                                if (theY[2]==-1) break;
-                                theTest[c][theY[2]] = 2;
+                                y[2] = yPos(c, theTest);
+                                if (y[2]==-1) break;
+                                theTest[c][y[2]] = 2;
 
-                                theY[3] = yPos(d);
-                                if (theY[3]==-1) break;
-                                theTest[d][theY[3]] = 1;
+                                y[3] = yPos(d, theTest);
+                                if (y[3]==-1) break;
+                                theTest[d][y[3]] = 1;
 
-                                theY[4] = yPos(e);
-                                if (theY[4]==-1) break;
-                                theTest[e][theY[4]] = 2;
+                                y[4] = yPos(e, theTest);
+                                if (y[4]==-1) break;
+                                theTest[e][y[4]] = 2;
 
-                                theY[5] = yPos(f);
-                                if (theY[5]==-1) break;
-                                theTest[f][theY[5]] = 1;
+                                y[5] = yPos(f, theTest);
+                                if (y[5]==-1) break;
+                                theTest[f][y[5]] = 1;
 
                                 difference = playersPoints(2,theTest)-playersPoints(1,theTest);
-                                if (difference>maxD){
-                                    maxX = a;
-                                    System.out.println("x("+a + "): " + difference);
-                                    maxD = difference;
+                                if (difference>dif[a][e]){
+                                    allX[a][e] = a;
+                                    dif[a][e] = difference;
                                 }
-                                theTest[a][theY[0]] = 0;
-                                theTest[b][theY[1]] = 0;
-                                theTest[c][theY[2]] = 0;
-                                theTest[d][theY[3]] = 0;
-                                theTest[e][theY[4]] = 0;
-                                theTest[f][theY[5]] = 0;
+                                theTest[a][y[0]] = 0;
+                                theTest[b][y[1]] = 0;
+                                theTest[c][y[2]] = 0;
+                                theTest[d][y[3]] = 0;
+                                theTest[e][y[4]] = 0;
+                                theTest[f][y[5]] = 0;
                             }
                         }
                     }
                 }
             }
         }
+        for (int x=0;x<5;x++){
+            for (int i=0;i<rows;i++){
+                System.out.println(dif[x][i]);
+                //Minimize (find the smallest for each possibility in dif -> 1
+
+                //Maximize (find the largest of each possibility in 1 -> 2
+
+                //Minimize (find the smallest for each possibility in 2 -> 2
+
+                //Maximize (find the largest of each possibility in 3 -> 4
+
+                //return 4
+
+            }
+        }
+
         return maxX;
     }
 
@@ -348,42 +356,42 @@ class Computer {
             for (int i = 0; i < fields.length; i++) {
                 test[0][i] = Arrays.copyOf(fields[i], fields[i].length);
             }
-            y = yPos(a);
+            y = yPos(a, test[0]);
             if (y==-1) break;
             test[0][a][y] = 2; //player 2
             for (int b=0;b<rows;b++){
                 for (int i = 0; i < fields.length; i++) {
                     test[1][i] = Arrays.copyOf(test[0][i], test[0][i].length);
                 }
-                y = yPos(b);
+                y = yPos(b, test[1]);
                 if (y==-1) break;
                 test[1][a][y] = 1; //player 1
                 for (int c=0;c<rows;c++){
                     for (int i = 0; i < fields.length; i++) {
                         test[2][i] = Arrays.copyOf(test[1][i], test[1][i].length);
                     }
-                    y = yPos(c);
+                    y = yPos(c, test[2]);
                     if (y==-1) break;
                     test[2][a][y] = 2; //player 2
                     for (int d=0;d<rows;d++){
                         for (int i = 0; i < fields.length; i++) {
                             test[3][i] = Arrays.copyOf(test[2][i], test[2][i].length);
                         }
-                        y = yPos(d);
+                        y = yPos(d, test[3]);
                         if (y==-1) break;
                         test[3][a][y] = 1; //player 1
                         for (int e=0;e<rows;e++){
                             for (int i = 0; i < fields.length; i++) {
                                 test[4][i] = Arrays.copyOf(test[3][i], test[3][i].length);
                             }
-                            y = yPos(e);
+                            y = yPos(e, test[4]);
                             if (y==-1) break;
                             test[4][a][y] = 2; //player 2
                             for (int f=0;f<rows;f++){
                                 for (int i = 0; i < fields.length; i++) {
                                     test[5][i] = Arrays.copyOf(test[4][i], test[5][i].length);
                                 }
-                                y = yPos(f);
+                                y = yPos(f, test[5]);
                                 if (y==-1) break;
                                 test[5][a][y] = 1; //player 1
                                 difference = playersPoints(2,test[5])-playersPoints(1,test[5]);
@@ -401,9 +409,9 @@ class Computer {
         return maxX;
     }
 
-    private int yPos(int x){
+    private int yPos(int x, int[][] test){
         for (int y = columns-1; y>=0; y--){
-            if (fields[x][y] == 0){
+            if (test[x][y] == 0){
                 return y;
             }
         }
